@@ -33,34 +33,34 @@ class Nav extends Component {
     return (
       <nav className={this.state.isVisible ? 'Nav active' : 'Nav hidden'}>
         <ul className='productsNavMenu'>
-          <Link>
+          <Link to='/productList'>
             <li className='navMenuItem'>SHOP</li>
           </Link>
-          <Link>
+          <Link to='/productTop20'>
             <li className='navMenuItem'>TOP20</li>
           </Link>
-          <Link>
+          <Link to='/productFeatures'>
             <li className='navMenuItem'>FEATURES</li>
           </Link>
-          <Link>
+          <Link to='/productSearch'>
             <li className='navMenuItem'>SEARCH</li>
           </Link>
         </ul>
         <div className='mainLogoContainer'>
           <img
             className='mainLogo'
-            src='images/Nav/mainlogo.svg'
+            src='/images/Nav/mainlogo.svg'
             alt='main logo'
           />
         </div>
         <ul className='userNavMenu'>
-          <Link>
+          <Link to='/'>
             <li className='navMenuItem'>KOR / ₩</li>
           </Link>
-          <Link>
+          <Link to='/signIn'>
             <li className='navMenuItem'>LOGIN</li>
           </Link>
-          <Link>
+          <Link to='/cart'>
             <li className='navMenuItem'>
               <span className='cartItem'>CART</span>
               <FontAwesomeIcon
