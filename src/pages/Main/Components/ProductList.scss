@@ -1,0 +1,16 @@
+.imgRow {
+  font-size: 0;
+  a {
+    img {
+      width: 25%;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .imgRow a img {
+    width: 50%;
+  }
+}
