@@ -1,0 +1,54 @@
+.Nav {
+  font-family: Helvetica, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  background-color: white;
+  .productsNavMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    margin-left: 40px;
+  }
+  .mainLogoContainer {
+    margin-right: 80px;
+    .mainLogo {
+      width: 180px;
+      height: 47px;
+    }
+  }
+  .userNavMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 220px;
+    margin-right: 40px;
+    .navMenuItem {
+      .cartItem {
+        margin-right: 4px;
+      }
+      .cartCountIcon {
+        position: relative;
+      }
+      .cartCountNum {
+        position: absolute;
+        color: white;
+        top: 17px;
+        right: 46px;
+      }
+    }
+  }
+}
+.active {
+  visibility: visible;
+  transition: all 0.5s;
+}
+.hidden {
+  visibility: hidden;
+  transition: all 0.5s;
+  transform: translateY(-100%);
+}
