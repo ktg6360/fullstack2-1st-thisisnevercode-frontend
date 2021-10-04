@@ -1,0 +1,51 @@
+.slideBox {
+  position: relative;
+
+  .buttonPrev {
+    position: absolute;
+    top: 42%;
+    left: 1%;
+    opacity: 0.5;
+    z-index: 2;
+  }
+
+  .buttonNext {
+    position: absolute;
+    top: 42%;
+    left: 96%;
+    opacity: 0.5;
+    z-index: 2;
+  }
+}
+
+.slideList {
+  display: flex;
+  transition: all 300ms ease 0s;
+  font-size: 0;
+
+  .slideContent {
+    img {
+      width: 25vw;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .slideBox .slideList .slideContent img {
+    width: 50vw;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+}

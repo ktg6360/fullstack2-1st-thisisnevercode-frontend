@@ -1,0 +1,98 @@
+[
+  {
+    "id": 101,
+    "name": "하늘색츄리닝",
+    "category": "츄리닝",
+    "imgUrl": "https://images.unsplash.com/photo-1510867759970-3d2ca293be77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
+  },
+  {
+    "id": 102,
+    "name": "체크코트",
+    "category": "코트",
+    "imgUrl": "https://images.unsplash.com/photo-1512675828443-4f454c42253a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
+  },
+  {
+    "id": 103,
+    "name": "후드티들",
+    "category": "후드티",
+    "imgUrl": "https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
+  },
+  {
+    "id": 104,
+    "name": "브라운바지",
+    "category": "바지",
+    "imgUrl": "https://images.unsplash.com/photo-1511405946472-a37e3b5ccd47?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+  },
+  {
+    "id": 105,
+    "name": "노란색점퍼",
+    "category": "점퍼",
+    "imgUrl": "https://images.unsplash.com/photo-1570701564993-e00652af8aa7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
+  },
+  {
+    "id": 106,
+    "name": "곤색조끼",
+    "category": "조끼",
+    "imgUrl": "https://images.unsplash.com/photo-1628855531490-f68d054a41c1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
+  },
+  {
+    "id": 107,
+    "name": "thisisneverthat-book",
+    "category": "잡지",
+    "imgUrl": "https://images.unsplash.com/photo-1524275539700-cf51138f679b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+  },
+  {
+    "id": 108,
+    "name": "흰색점퍼",
+    "category": "점퍼",
+    "imgUrl": "https://images.unsplash.com/photo-1619708443838-df616a72bb74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+  },
+  {
+    "id": 109,
+    "name": "체크츄리닝",
+    "category": "츄리닝",
+    "imgUrl": "https://images.unsplash.com/photo-1578632140472-6d913e068456?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
+  },
+  {
+    "id": 110,
+    "name": "무의미",
+    "category": "잡지",
+    "imgUrl": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
+  },
+  {
+    "id": 111,
+    "name": "노란색티셔츠",
+    "category": "티셔츠",
+    "imgUrl": "https://images.unsplash.com/photo-1556906781-9a412961c28c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
+  },
+  {
+    "id": 112,
+    "name": "잡색신발",
+    "category": "신발",
+    "imgUrl": "https://images.unsplash.com/photo-1504198458649-3128b932f49e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+  },
+  {
+    "id": 113,
+    "name": "모델두명",
+    "category": "모델",
+    "imgUrl": "https://images.unsplash.com/photo-1591213954196-2d0ccb3f8d4c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
+  },
+  {
+    "id": 114,
+    "name": "매장사진",
+    "category": "매장",
+    "imgUrl": "https://images.unsplash.com/photo-1584735175315-9d5df23860e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+  },
+  {
+    "id": 115,
+    "name": "전등",
+    "category": "전등",
+    "imgUrl": "https://images.unsplash.com/photo-1551773140-17b51547e825?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
+  },
+  {
+    "id": 116,
+    "name": "하늘색비니",
+    "category": "모자",
+    "imgUrl": "https://images.unsplash.com/photo-1619719308114-38f2333fed0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+  }
+]

@@ -1,4 +1,6 @@
 .Main {
+  overflow-x: hidden;
+
   .Nav {
     font-family: Helvetica;
     display: flex;
@@ -28,5 +30,9 @@
       display: flex;
       justify-content: flex-end;
     }
+  }
+
+  .productSlide {
+    overflow-x: hidden;
   }
 }

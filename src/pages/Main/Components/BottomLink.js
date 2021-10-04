@@ -10,9 +10,13 @@ class BottomLink extends Component {
       <div className='bottomLink'>
         {bottomLink.map(text => {
           return (
-            <Link to='/productList' key={text.id}>
-              <span>{text.linkName}</span>
-            </Link>
+            <div key={text.id}>
+              <Link to='/productList'>
+                <div className='bottomLinkText'>
+                  <span>{text.linkName}</span>
+                </div>
+              </Link>
+            </div>
           );
         })}
       </div>

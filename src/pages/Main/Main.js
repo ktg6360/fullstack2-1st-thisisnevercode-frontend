@@ -1,23 +1,32 @@
 import React, { Component } from 'react';
-import ProductList from './Components/ProductList';
+// import ProductList from './Components/ProductList';
 import BottomLink from './Components/BottomLink';
+import ProductsSlide from './Components/ProductsSlide';
 import './Main.scss';
 
 class Main extends Component {
   constructor() {
     super();
     this.state = {
-      products: [],
+      firstProducts: [],
+      secondProducts: [],
       bottomLink: [],
     };
   }
 
   componentDidMount() {
-    fetch('/data/Main/mainImgData.json')
+    fetch('/data/Main/firstMainImgData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
-          products: data,
+          firstProducts: data,
+        });
+      });
+    fetch('/data/Main/secondMainImgData.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          secondProducts: data,
         });
       });
     fetch('/data/Main/mainBottomLinkData.json')
@@ -27,10 +36,15 @@ class Main extends Component {
           bottomLink: data,
         });
       });
+    window.addEventListener('scroll', this.handleScroll);
   }
 
+  componentWillUnmount = () => {
+    window.removeEventListener('scroll', this.handleScroll);
+  };
+
   render() {
-    const { products, bottomLink } = this.state;
+    const { firstProducts, secondProducts, bottomLink } = this.state;
 
     return (
       <div className='Main'>
@@ -50,8 +64,11 @@ class Main extends Component {
             <span>CART</span>
           </div>
         </div>
-        <div className='mainSection'>
-          <ProductList products={products} />
+        <div className='productSlide'>
+          <ProductsSlide products={firstProducts} />
+        </div>
+        <div className='productSlide'>
+          <ProductsSlide products={secondProducts} />
         </div>
         <div className='bottomLink'>
           <BottomLink bottomLink={bottomLink} />
