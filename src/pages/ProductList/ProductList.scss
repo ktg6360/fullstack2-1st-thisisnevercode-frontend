@@ -1,0 +1,13 @@
+.ProductList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-rows: repeat(auto-fill, 1fr);
+  padding: 48px 40px 60px 40px;
+}
+
+@media only screen and (max-width: 1140px) {
+  .ProductList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(450px, 1fr));
+  }
+}

@@ -3,7 +3,7 @@ import './Nav.scss';
 
 class Nav extends Component {
   render() {
-    return <div></div>;
+    return <nav>나는 내브</nav>;
   }
 }
 
