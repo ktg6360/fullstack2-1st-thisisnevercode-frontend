@@ -1,0 +1,166 @@
+.signUp {
+  .signUpBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 130px 40px 100px 40px;
+    font-family: Helvetica;
+
+    .inputBox {
+      display: flex;
+      flex-direction: column;
+      width: 600px;
+
+      .name,
+      .email,
+      .password,
+      .address {
+        margin-bottom: 6px;
+        font-size: large;
+      }
+
+      .nameBox,
+      .emailBox,
+      .passwordBox,
+      .addressBox {
+        height: 43px;
+        margin-bottom: 20px;
+        padding-left: 10px;
+        border: solid 1px;
+        font-size: 15px;
+        opacity: 0.8;
+      }
+
+      .onEye {
+        position: relative;
+        bottom: 50px;
+        left: 560px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .line {
+    border: solid 1px black;
+    margin-bottom: 20px;
+  }
+
+  .checkBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 600px;
+    margin-top: 30px;
+
+    .agreement {
+      font-size: 15px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .checkInput {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding-left: 150px;
+      margin: 10px 0px 40px;
+
+      .allAgree {
+        display: flex;
+        position: relative;
+        align-items: center;
+        margin-bottom: 30px;
+
+        .headPoint {
+          margin-right: 20px;
+          width: 15px;
+          height: 15px;
+          cursor: pointer;
+        }
+
+        .agreedName {
+          font-size: 25px;
+        }
+      }
+    }
+
+    .subCheck {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      width: 500px;
+
+      .choose {
+        margin-left: 5px;
+        color: gray;
+      }
+
+      .checkPoint {
+        margin-right: 20px;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+      }
+
+      .checkPoint:checked {
+        color: white;
+        background-color: black;
+      }
+
+      .readMore {
+        position: absolute;
+        margin-left: 300px;
+        text-decoration: underline;
+      }
+    }
+
+    .registerBox {
+      height: 40px;
+      margin-bottom: 21px;
+      color: white;
+      background-color: black;
+      border-radius: 45px;
+      border: none;
+      font-size: large;
+      cursor: pointer;
+
+      .registerStyle {
+        font-size: 23px;
+        -webkit-transition: all 0.1s linear;
+        transition: all 0.1s linear;
+      }
+    }
+
+    .registerBox:hover {
+      background-color: white;
+      border: solid 1px black;
+
+      .registerStyle:hover {
+        color: black;
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .signUp {
+    .signUpBox {
+      width: 100vw;
+    }
+
+    .onEye {
+      position: absolute;
+      top: 255px;
+      left: auto;
+      bottom: auto;
+      right: 30px;
+      cursor: pointer;
+    }
+  }
+}
