@@ -1,54 +1,71 @@
 .Nav {
-  font-family: Helvetica, sans-serif;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: fixed;
-  width: 100vw;
   top: 0;
   background-color: white;
-  .productsNavMenu {
+  z-index: 9999;
+  font-family: Helvetica, sans-serif;
+  .navWrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 300px;
-    margin-left: 40px;
-  }
-  .mainLogoContainer {
-    margin-right: 80px;
-    .mainLogo {
-      width: 180px;
-      height: 47px;
+    width: 100vw;
+    .productsNavMenu {
+      display: flex;
+      align-items: center;
+      margin-left: 40px;
+      .navMenuItem {
+        margin-right: 20px;
+        padding: 16px 0;
+        .navMenuLink {
+          display: block;
+          &:hover {
+            color: #0e0;
+            transition: color 0.4s;
+          }
+        }
+      }
     }
-  }
-  .userNavMenu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 220px;
-    margin-right: 40px;
-    .navMenuItem {
-      .cartItem {
-        margin-right: 4px;
+    .mainLogoContainer {
+      margin-right: 150px;
+      .mainLogo {
+        width: 180px;
+        height: 47px;
       }
-      .cartCountIcon {
-        position: relative;
-      }
-      .cartCountNum {
-        position: absolute;
-        color: white;
-        top: 17px;
-        right: 46px;
+    }
+    .userNavMenu {
+      display: flex;
+      align-items: center;
+      position: relative;
+      min-width: 243px;
+      margin-right: 20px;
+      .navMenuItem {
+        margin-right: 20px;
+        .cartItem {
+          margin-right: 4px;
+        }
+        .cartCountNum {
+          position: absolute;
+          top: 3px;
+          right: 27px;
+          color: white;
+        }
+        .navMenuLink {
+          display: inline-block;
+          &:hover {
+            color: #0e0;
+            transition: color 0.4s;
+          }
+        }
       }
     }
   }
 }
-.active {
+.navActive {
   visibility: visible;
   transition: all 0.5s;
 }
-.hidden {
+.navHidden {
   visibility: hidden;
-  transition: all 0.5s;
-  transform: translateY(-100%);
+  transition: all 0.3s;
+  transform: translateY(-100px);
 }
