@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import BreadCrumb from '../../components/BreadCrumb';
-import Nav from '../../components/Nav';
+import Nav from '../../components/Nav/Nav';
 import './Main.scss';
 
 class Main extends Component {
   render() {
+    console.log(this.props.location);
     return (
       <div className='Main'>
-        <Nav />
-        {/* <BreadCrumb /> */}
+        <Nav location={this.props.location} />
         <div className='test'></div>
       </div>
     );

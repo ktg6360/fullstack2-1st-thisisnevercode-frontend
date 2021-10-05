@@ -1,0 +1,29 @@
+.viewOption {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .checkBack {
+    position: relative;
+    height: 18px;
+    width: 18px;
+    margin-right: 8px;
+    border-radius: 2px;
+    background-color: rgb(194, 194, 194);
+    cursor: pointer;
+  }
+
+  .checkIcon {
+    position: absolute;
+    right: 175px;
+    cursor: pointer;
+  }
+
+  .checkVisible {
+    opacity: 1;
+  }
+
+  .checkInvisible {
+    opacity: 0;
+  }
+}

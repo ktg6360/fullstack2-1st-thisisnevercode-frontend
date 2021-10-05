@@ -4,16 +4,19 @@
   left: 0;
   width: 350px;
   height: 100vh;
-  overflow-y: scroll;
   z-index: 1;
+  overflow-y: scroll;
   background-color: white;
+
   .dropdownBox {
     padding: 0 40px 40px;
+
     .dropdownItem {
       display: flex;
       align-items: center;
       position: relative;
       margin-bottom: 14px;
+
       .dropdownIcon {
         position: absolute;
         height: 10px;
@@ -23,12 +26,14 @@
         background-color: transparent;
         transition: background-color 0.3s;
       }
+
       &:hover {
         .dropdownIcon {
           background-color: #0e0;
           transition: background-color 0.3s;
         }
       }
+
       .dropdownLink {
         margin-left: 20px;
       }
@@ -36,34 +41,41 @@
 
     .archiveDropdownItem {
       position: relative;
+
       &:hover {
         .archiveMenuBox {
           display: block;
         }
       }
+
       .archiveMenuBox {
         position: absolute;
         top: 0;
         right: 80px;
         display: none;
+
         .archiveMenuItem {
           margin-bottom: 10px;
         }
       }
     }
   }
+
   .dropdownCardBox {
     margin-top: 30px;
     margin-bottom: 100px;
     padding: 0 40px 40px;
+
     .dropdownCardImg {
       width: 265px;
       margin-bottom: 10px;
     }
+
     .dropdownCardDescBox {
       display: flex;
       flex-direction: column;
       align-items: center;
+
       .dropdownCardDescItem {
         margin-bottom: 5px;
       }

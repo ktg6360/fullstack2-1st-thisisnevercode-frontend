@@ -1,0 +1,42 @@
+.ViewBtn {
+  position: fixed;
+  top: 65px;
+  right: 40px;
+  display: flex;
+  min-width: 45px;
+  height: 32px;
+  padding: 8px 13px 6px 13px;
+  border-radius: 15px;
+  opacity: 0.7;
+  background-color: rgb(204, 204, 204);
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+    background-color: black;
+    color: white;
+    transition: all 0.3s;
+  }
+
+  .viewBtntext {
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+.viewBtnOn {
+  opacity: 1;
+  background-color: black;
+  color: white;
+}
+
+.viewBtnNotOn {
+  opacity: 0.7;
+  background-color: rgb(204, 204, 204);
+
+  &:hover {
+    opacity: 0.7;
+    background-color: rgb(204, 204, 204);
+    color: black;
+  }
+}

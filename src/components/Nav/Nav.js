@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import BreadCrumb from './BreadCrumb';
 import Dropdown from './Dropdown';
+import SortBtn from './SortBtn';
+import ViewBtn from './ViewBtn';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import './Nav.scss';
@@ -13,6 +15,8 @@ class Nav extends Component {
     productsNavMenuData: [],
     usersNavMenuData: [],
     dropdownMenuData: [],
+    isViewWindowOn: false,
+    isSortWindowOn: false,
   };
 
   componentDidMount() {
@@ -60,17 +64,46 @@ class Nav extends Component {
       isDropdownVisible: false,
     });
   };
+  openViewWindow = () => {
+    this.setState({
+      isViewWindowOn: true,
+      isSortWindowOn: false,
+    });
+  };
+
+  closeViewWindow = () => {
+    this.setState({
+      isViewWindowOn: false,
+    });
+  };
+  openSortWindow = () => {
+    this.setState({
+      isSortWindowOn: true,
+      isViewWindowOn: false,
+    });
+  };
+
+  closeSortWindow = () => {
+    this.setState({
+      isSortWindowOn: false,
+    });
+  };
 
   render() {
-    const { productsNavMenuData, usersNavMenuData } = this.state;
+    const {
+      productsNavMenuData,
+      usersNavMenuData,
+      isNavVisible,
+      dropdownMenuData,
+      isDropdownVisible,
+      isSortWindowOn,
+      isViewWindowOn,
+    } = this.state;
+    const { location } = this.props;
 
     return (
       <>
-        <nav
-          className={
-            this.state.isNavVisible ? 'Nav navActive' : 'Nav navHidden'
-          }
-        >
+        <nav className={isNavVisible ? 'Nav navActive' : 'Nav navHidden'}>
           <div className='navWrapper'>
             {/* productsNavMenu */}
             <ul className='productsNavMenu'>
@@ -85,8 +118,8 @@ class Nav extends Component {
                 >
                   SHOP
                 </Link>
-                {this.state.isDropdownVisible && (
-                  <Dropdown dropdownMenuData={this.state.dropdownMenuData} />
+                {isDropdownVisible && (
+                  <Dropdown dropdownMenuData={dropdownMenuData} />
                 )}
               </li>
               {productsNavMenuData.map(productNavMenu => {
@@ -134,7 +167,17 @@ class Nav extends Component {
               </li>
             </ul>
           </div>
-          <BreadCrumb dropdownMenuData={this.state.dropdownMenuData} />
+          <BreadCrumb dropdownMenuData={dropdownMenuData} location={location} />
+          <SortBtn
+            openSortWindow={this.openSortWindow}
+            closeSortWindow={this.closeSortWindow}
+            isSortWindowOn={isSortWindowOn}
+          />
+          <ViewBtn
+            openViewWindow={this.openViewWindow}
+            closeViewWindow={this.closeViewWindow}
+            isViewWindowOn={isViewWindowOn}
+          />
         </nav>
       </>
     );
