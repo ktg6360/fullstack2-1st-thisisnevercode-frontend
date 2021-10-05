@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GoBackToTopButton from './Components/GoBackToTopButton';
 import ProductCard from './Components/ProductCard';
 // import Nav from '../../components/Nav';
 
@@ -48,21 +49,26 @@ class ProductList extends Component {
   render() {
     const { productsData } = this.state;
     return (
-      <div className='ProductList'>
-        {productsData.map(product => {
-          return (
-            <ProductCard
-              key={product.id}
-              productImg={product.img}
-              productSubImg={product.subImg}
-              productDetailImg={product.detailImg}
-              productName={product.name}
-              productPrice={product.price}
-              productsData={this.state.productsData}
-            />
-          );
-        })}
-      </div>
+      <main className='ProductList'>
+        <div className='ProductComponentWrapper'>
+          {productsData.map(product => {
+            return (
+              <ProductCard
+                key={product.id}
+                productImg={product.img}
+                productSubImg={product.subImg}
+                productDetailImg={product.detailImg}
+                productName={product.name}
+                productPrice={product.price}
+                productsData={this.state.productsData}
+              />
+            );
+          })}
+
+          <br />
+        </div>
+        <GoBackToTopButton />
+      </main>
     );
   }
 }
