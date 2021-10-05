@@ -14,10 +14,16 @@ class ProductsSlide extends Component {
   }
 
   onChangeImage = position => {
-    if (this.props.products.length - 9 <= position) position = 0;
+    let maxPosition;
+    if (window.innerWidth > 1140) {
+      maxPosition = Math.ceil((this.props.products.length - 4) / 2); // 큰 화면용
+    } else {
+      maxPosition = Math.ceil((this.props.products.length - 2) / 2); // 작은 화면용
+    }
+    if (maxPosition < position) position = 0;
     // 오른쪽 최대치 넘어가면 제일 왼쪽으로 되돌림
-    if (position < 0) position = this.props.products.length - 10;
-    // 왼쪽 최대치 넘기면 제일 오른쪽으로 되돌림
+    if (position < 0) position = maxPosition;
+    // 왼쪽 최대치 넘어가면 제일 오른쪽으로 되돌림
     this.setState({
       imagePosition: position,
     });
@@ -25,27 +31,28 @@ class ProductsSlide extends Component {
 
   render() {
     const { products } = this.props;
+    const { imagePosition } = this.state;
+
     return (
       <div className='productsSlide'>
         <div className='slideBox'>
           <div
             className='buttonPrev'
-            onClick={() => this.onChangeImage(this.state.imagePosition - 1)}
+            onClick={() => this.onChangeImage(imagePosition - 1)}
           >
             <FontAwesomeIcon icon={faChevronLeft} size='4x' />
           </div>
           <div
             className='buttonNext'
-            onClick={() => this.onChangeImage(this.state.imagePosition + 1)}
+            onClick={() => this.onChangeImage(imagePosition + 1)}
           >
             <FontAwesomeIcon icon={faChevronRight} size='4x' />
           </div>
-
           <div
             className='slideList'
             style={{
-              transform: `translate3d(
-                ${this.state.imagePosition * -50}vw, 0px, 0px`,
+              transform: `translateX(
+                ${imagePosition * (window.innerWidth > 1140 ? -50 : -100)}vw`,
             }}
           >
             {products.map(image => (

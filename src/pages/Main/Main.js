@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import ProductList from './Components/ProductList';
 import BottomLink from './Components/BottomLink';
 import ProductsSlide from './Components/ProductsSlide';
 import './Main.scss';
@@ -36,12 +35,7 @@ class Main extends Component {
           bottomLink: data,
         });
       });
-    window.addEventListener('scroll', this.handleScroll);
   }
-
-  componentWillUnmount = () => {
-    window.removeEventListener('scroll', this.handleScroll);
-  };
 
   render() {
     const { firstProducts, secondProducts, bottomLink } = this.state;

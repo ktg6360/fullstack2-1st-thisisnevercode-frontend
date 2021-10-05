@@ -2,19 +2,20 @@
   font-family: Helvetica;
   display: flex;
 
-  div {
+  .bottomLinkBox {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    font-size: 60px;
+    font-weight: 500;
+
     a {
       .bottomLinkText {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 25vw;
-        height: 540px;
-        border-top: 1px solid black;
-        border-right: 1px solid black;
-        border-bottom: 1px solid black;
-        font-size: 60px;
-        font-weight: 500;
+        height: calc(25vw * 2880 / 1920);
 
         &:hover {
           color: white;
@@ -31,18 +32,19 @@
     grid-template-rows: repeat(1, 1fr);
     grid-template-columns: repeat(2, 1fr);
 
-    :nth-child(3) .bottomLinkText,
-    :nth-child(4) .bottomLinkText {
+    &:nth-child(3) .bottomLinkBox,
+    &:nth-child(4) .bottomLinkBox {
       border-top: none;
     }
 
-    &:first-child {
-      border-bottom: none;
-    }
-
-    div a .bottomLinkText {
-      font-size: 20px;
-      width: 50vw;
+    .bottomLinkBox {
+      a {
+        .bottomLinkText {
+          font-size: 20px;
+          width: 50vw;
+          height: calc(50vw * 2880 / 1920);
+        }
+      }
     }
   }
 }
