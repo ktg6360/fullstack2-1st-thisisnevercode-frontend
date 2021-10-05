@@ -23,13 +23,6 @@ class ProductList extends Component {
           productsData: data.PRODUCT_DATA.product,
         });
       });
-    fetch('/data/ProductList/PRODUCT_DETAIL_DATA.json')
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          productDetailImg: data.DETAIL_IMAGE_DATA.product,
-        });
-      });
   }
 
   changeDetailProductImage = e => {
@@ -53,19 +46,19 @@ class ProductList extends Component {
   };
 
   render() {
-    const { productsData, productDetailImg, productMainImg } = this.state;
+    const { productsData } = this.state;
     return (
       <div className='ProductList'>
         {productsData.map(product => {
           return (
             <ProductCard
               key={product.id}
-              productSubImg={product.subImg}
               productImg={product.img}
-              productDetailImg={productDetailImg}
+              productSubImg={product.subImg}
+              productDetailImg={product.detailImg}
               productName={product.name}
               productPrice={product.price}
-              mainData={this.changeDetailProductImage}
+              productsData={this.state.productsData}
             />
           );
         })}

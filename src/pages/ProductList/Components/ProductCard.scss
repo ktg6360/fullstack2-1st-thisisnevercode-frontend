@@ -3,51 +3,50 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin: 0;
 
   .productImageWrapper {
     position: relative;
     .eventArea1 {
       z-index: 1;
+      // background-color: red;
       position: absolute;
-      width: 15%;
-      height: 100%;
-      left: 30px;
+      min-width: 50px;
+      min-height: 160px;
+      left: 0;
     }
     .eventArea2 {
       z-index: 1;
+      // background-color: yellow;
       position: absolute;
-      width: 15%;
-      height: 100%;
-      left: 67.5px;
+      min-width: 50px;
+      min-height: 160px;
+      left: 50px;
     }
     .eventArea3 {
       z-index: 1;
+      // background-color: orange;
       position: absolute;
-      width: 15%;
-      height: 100%;
-      left: 97.5px;
+      min-width: 50px;
+      min-height: 160px;
+      left: 100px;
     }
     .eventArea4 {
       z-index: 1;
       position: absolute;
-      width: 15%;
-      height: 100%;
-      left: 97.5+37.5px;
+      // background-color: blue;
+      min-width: 50px;
+      min-height: 160px;
+      left: 150px;
     }
-    .productImage {
-      width: 250px;
-      height: 200px;
-    }
-    .productDetailImage {
-      // display: none;
-      position: absolute;
-      width: 250px;
-      height: 200px;
-    }
+  }
+  .productMainImg {
+    width: 240px;
+    height: 200px;
   }
   .productName {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 25px;
     line-height: 28px;
   }
   .subImgWrapper {
@@ -61,17 +60,54 @@
 }
 @media only screen and (max-width: 1140px) {
   .ProductCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0;
     .productImageWrapper {
-      .productImage {
+      position: relative;
+      .eventArea1 {
+        z-index: 1;
+        // background-color: red;
+        position: absolute;
+        min-width: 110px;
+        min-height: 600px;
+        top: 80px;
+        left: 60px;
+      }
+      .eventArea2 {
+        z-index: 1;
+        // background-color: yellow;
+        position: absolute;
+        min-width: 110px;
+        min-height: 600px;
+        top: 80px;
+        left: 170px;
+      }
+      .eventArea3 {
+        z-index: 1;
+        // background-color: orange;
+        position: absolute;
+        min-width: 110px;
+        min-height: 600px;
+        top: 80px;
+        left: 280px;
+      }
+      .eventArea4 {
+        z-index: 1;
+        position: absolute;
+        // background-color: blue;
+        min-width: 110px;
+        min-height: 600px;
+        top: 80px;
+        left: 390px;
+      }
+      .productMainImg {
         width: 522px;
         height: 701px;
       }
-      .productDetailImage {
-        display: none;
-        position: absolute;
-        width: 247px;
-        height: 332px;
-      }
+
       .productName {
         font-weight: 600;
         font-size: 40px;
