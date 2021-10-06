@@ -1,3 +1,5 @@
+@import '../../styles/_variables.scss';
+
 .SortBtn {
   position: fixed;
   top: 65px;
@@ -8,13 +10,13 @@
   padding: 8px 13px 6px 13px;
   border-radius: 15px;
   opacity: 0.7;
-  background-color: rgb(204, 204, 204);
+  background-color: $buttonColorNotFocused;
   cursor: pointer;
 
   &:hover {
-    background-color: black;
     opacity: 1;
-    color: white;
+    background-color: $buttonColor;
+    color: $textColor;
     transition: all 0.3s;
   }
 
@@ -26,17 +28,6 @@
 
 .sortBtnOn {
   opacity: 1;
-  background-color: black;
-  color: white;
-}
-
-.sortBtnNotOn {
-  opacity: 0.7;
-  background-color: rgb(204, 204, 204);
-
-  &:hover {
-    opacity: 0.7;
-    background-color: rgb(204, 204, 204);
-    color: black;
-  }
+  background-color: $buttonColor;
+  color: $textColor;
 }

@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import './BreadCrumb.scss';
+import { convertToUrlForBreadCrumb } from '../../utils/urlConverter';
 
 class BreadCrumb extends Component {
   render() {
     const { pathname } = this.props.location;
-    const splitted = pathname.split('');
-    splitted.shift();
-    splitted[0] = splitted[0].toUpperCase();
-    const categoryName = splitted.join('');
+    const categoryName = convertToUrlForBreadCrumb(pathname);
     return (
       <div className='BreadCrumb'>
         <div className='categoryBox'>{categoryName}</div>

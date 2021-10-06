@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Dropdown.scss';
+import { convertToUrlForDropdown } from '../../utils/urlConverter';
 
 class Dropdown extends Component {
   state = {
@@ -27,46 +28,48 @@ class Dropdown extends Component {
     const dropdownMenuDataWithSubCategory = dropdownMenuData.filter(
       data => data.subCategoryName
     );
-    if (dropdownMenuDataWithSubCategory[0] === undefined) {
-      dropdownMenuDataWithSubCategory[0] = [];
-      dropdownMenuDataWithSubCategory[0].subCategoryName = [];
-    }
     const { categoryName, subCategoryName } =
       dropdownMenuDataWithSubCategory[0];
     return (
       <div className='Dropdown'>
         <ul className='dropdownBox'>
-          {dropdownMenuDataWithoutSubCategory.map(dropdownMenu => {
-            return (
-              <li key={dropdownMenu.id} className='dropdownItem'>
-                <div className='dropdownIcon'></div>
-                <Link
-                  to={`/${dropdownMenu.categoryName}`}
-                  className='dropdownLink'
-                >
-                  {dropdownMenu.categoryName}
-                </Link>
-              </li>
-            );
-          })}
+          {dropdownMenuDataWithoutSubCategory &&
+            dropdownMenuDataWithoutSubCategory.map(dropdownMenu => {
+              const { id, categoryName } = dropdownMenu;
+              return (
+                <li key={id} className='dropdownItem'>
+                  <div className='dropdownIcon'></div>
+                  <Link
+                    to={`/${convertToUrlForDropdown(categoryName)}`}
+                    className='dropdownLink'
+                  >
+                    {categoryName}
+                  </Link>
+                </li>
+              );
+            })}
           <li className='dropdownItem archiveDropdownItem'>
             <div className='dropdownIcon'></div>
-            <Link to='/archievs' className='dropdownLink'>
+            <Link
+              to={`/${convertToUrlForDropdown(categoryName)}`}
+              className='dropdownLink'
+            >
               {`${categoryName} ⟩`}
             </Link>
             <ul className='archiveMenuBox'>
               {subCategoryName.map(subCategory => {
+                const { id, name } = subCategory;
                 return (
-                  <li key={subCategory.id} className='archiveMenuItem'>
-                    {subCategory.name}
+                  <li key={id} className='archiveMenuItem'>
+                    {name}
                   </li>
                 );
               })}
             </ul>
           </li>
         </ul>
+        {/* // ! Link to 속성 해결하기 */}
         <div className='dropdownCardBox'>
-          {/* //TODO */}
           <Link to='/todo' className='dropdownLink'>
             <img
               alt='dropdownCardImg'

@@ -7,20 +7,22 @@ import ViewBtn from './ViewBtn';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import './Nav.scss';
+import { convertToUrlForNav } from '../../utils/urlConverter';
 class Nav extends Component {
   state = {
     isNavVisible: true,
     prevScrollPos: 0,
-    isDropdownVisible: false,
     productsNavMenuData: [],
     usersNavMenuData: [],
+    isDropdownVisible: false,
     dropdownMenuData: [],
-    isViewWindowOn: false,
-    isSortWindowOn: false,
+    isViewModalOn: false,
+    isSortModalOn: false,
   };
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
+
     fetch('/data/Nav/navMenu.json')
       .then(res => res.json())
       .then(navMenuData =>
@@ -30,6 +32,7 @@ class Nav extends Component {
         })
       )
       .catch(console.log);
+
     fetch('/data/Nav/dropdownMenu.json')
       .then(res => res.json())
       .then(dropdownMenuData =>
@@ -43,8 +46,9 @@ class Nav extends Component {
   handleScroll = () => {
     const { prevScrollPos } = this.state;
     const currentScrollPos = document.body.getBoundingClientRect().top;
+    const setStateChangePoint = currentScrollPos % 10 === 0;
     this.setState(state => {
-      if (currentScrollPos % 10 === 0) {
+      if (setStateChangePoint) {
         return {
           prevScrollPos: currentScrollPos,
           isNavVisible: currentScrollPos >= prevScrollPos,
@@ -64,28 +68,29 @@ class Nav extends Component {
       isDropdownVisible: false,
     });
   };
-  openViewWindow = () => {
+
+  openViewModal = () => {
     this.setState({
-      isViewWindowOn: true,
-      isSortWindowOn: false,
+      isViewModalOn: true,
+      isSortModalOn: false,
     });
   };
 
-  closeViewWindow = () => {
+  closeViewModal = () => {
     this.setState({
-      isViewWindowOn: false,
+      isViewModalOn: false,
     });
   };
-  openSortWindow = () => {
+  openSortModal = () => {
     this.setState({
-      isSortWindowOn: true,
-      isViewWindowOn: false,
+      isSortModalOn: true,
+      isViewModalOn: false,
     });
   };
 
-  closeSortWindow = () => {
+  closeSortModal = () => {
     this.setState({
-      isSortWindowOn: false,
+      isSortModalOn: false,
     });
   };
 
@@ -96,8 +101,8 @@ class Nav extends Component {
       isNavVisible,
       dropdownMenuData,
       isDropdownVisible,
-      isSortWindowOn,
-      isViewWindowOn,
+      isSortModalOn,
+      isViewModalOn,
     } = this.state;
     const { location } = this.props;
 
@@ -112,7 +117,7 @@ class Nav extends Component {
                 onMouseLeave={this.makeInvisibleDropdown}
               >
                 <Link
-                  to='/SHOP'
+                  to='/shop'
                   className='navMenuLink'
                   onMouseEnter={this.makeVisibleDropdown}
                 >
@@ -123,13 +128,14 @@ class Nav extends Component {
                 )}
               </li>
               {productsNavMenuData.map(productNavMenu => {
+                const { id, name } = productNavMenu;
                 return (
-                  <li key={productNavMenu.id} className='navMenuItem'>
+                  <li key={id} className='navMenuItem'>
                     <Link
                       className='navMenuLink'
-                      to={`/${productNavMenu.name}`}
+                      to={`/${convertToUrlForNav(name)}`}
                     >
-                      {productNavMenu.name}
+                      {name}
                     </Link>
                   </li>
                 );
@@ -146,10 +152,14 @@ class Nav extends Component {
             {/* userNavMenu */}
             <ul className='userNavMenu'>
               {usersNavMenuData.map(userNavMenu => {
+                const { id, name } = userNavMenu;
                 return (
-                  <li key={userNavMenu.id} className='navMenuItem'>
-                    <Link className='navMenuLink' to={`/${userNavMenu.name}`}>
-                      {userNavMenu.name}
+                  <li key={id} className='navMenuItem'>
+                    <Link
+                      className='navMenuLink'
+                      to={`/${convertToUrlForNav(name)}`}
+                    >
+                      {name}
                     </Link>
                   </li>
                 );
@@ -169,14 +179,14 @@ class Nav extends Component {
           </div>
           <BreadCrumb dropdownMenuData={dropdownMenuData} location={location} />
           <SortBtn
-            openSortWindow={this.openSortWindow}
-            closeSortWindow={this.closeSortWindow}
-            isSortWindowOn={isSortWindowOn}
+            openSortModal={this.openSortModal}
+            closeSortModal={this.closeSortModal}
+            isSortModalOn={isSortModalOn}
           />
           <ViewBtn
-            openViewWindow={this.openViewWindow}
-            closeViewWindow={this.closeViewWindow}
-            isViewWindowOn={isViewWindowOn}
+            openViewModal={this.openViewModal}
+            closeViewModal={this.closeViewModal}
+            isViewModalOn={isViewModalOn}
           />
         </nav>
       </>

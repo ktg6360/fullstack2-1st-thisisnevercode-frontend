@@ -4,62 +4,54 @@ import './ViewOptionBox.scss';
 
 class ViewOptionBox extends Component {
   state = {
-    viewOptionData: [
+    viewOptions: [
       { id: 1, name: 'Large', isChecked: false },
       { id: 2, name: 'Small', isChecked: false },
     ],
   };
 
   handleCheckIcon = id => {
-    const viewOptionData = this.state;
-    const newViewOptionData = [...viewOptionData];
-    newViewOptionData.forEach(data => {
-      if (data.id === id) {
-        data.isChecked = true;
-      } else {
-        data.isChecked = false;
-      }
-    });
-    this.setState({ viewOptionData: newViewOptionData });
+    const { viewOptions } = this.state;
+    const newViewOptions = [...viewOptions];
+    newViewOptions.forEach(data => (data.isChecked = data.id === id));
+    this.setState({ viewOptions: newViewOptions });
   };
 
   onClick = () => {
-    const { closeViewWindow } = this.props;
-    closeViewWindow();
+    const { closeViewModal } = this.props;
+    closeViewModal();
   };
 
   render() {
-    const { isViewWindowOn } = this.props;
-    const { viewOptionData } = this.state;
+    const { isViewModalOn } = this.props;
+    const { viewOptions } = this.state;
     return (
-      <>
-        <div
-          className={`viewOptionBoxScrollUp ${
-            isViewWindowOn ? 'viewOptionBox' : 'viewWindowInvisible'
-          }`}
-        >
-          <div className='viewOptionHeader'>
-            <p className='viewOptionHeaderTitle'>VIEW BY</p>
-            <button className='viewOptionCloseBtn' onClick={this.onClick}>
-              X
-            </button>
-          </div>
-
-          <ul className='ViewList'>
-            {viewOptionData.map(menu => {
-              return (
-                <ViewOption
-                  isChecked={menu.isChecked}
-                  key={menu.id}
-                  name={menu.name}
-                  id={menu.id}
-                  handleCheckIcon={this.handleCheckIcon}
-                />
-              );
-            })}
-          </ul>
+      <div
+        className={`viewOptionBoxScrollUp ${
+          isViewModalOn ? 'viewOptionBox' : 'viewModalInvisible'
+        }`}
+      >
+        <div className='viewOptionHeader'>
+          <p className='viewOptionHeaderTitle'>VIEW BY</p>
+          <button className='viewOptionCloseBtn' onClick={this.onClick}>
+            X
+          </button>
         </div>
-      </>
+        <ul className='ViewList'>
+          {viewOptions.map(viewOption => {
+            const { isChecked, id, name } = viewOption;
+            return (
+              <ViewOption
+                isChecked={isChecked}
+                key={id}
+                name={name}
+                id={id}
+                handleCheckIcon={this.handleCheckIcon}
+              />
+            );
+          })}
+        </ul>
+      </div>
     );
   }
 }

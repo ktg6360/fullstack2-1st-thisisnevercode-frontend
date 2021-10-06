@@ -4,18 +4,18 @@ import './ViewBtn.scss';
 
 class ViewBtn extends Component {
   render() {
-    const { openViewWindow, isViewWindowOn, closeViewWindow } = this.props;
+    const { openViewModal, isViewModalOn, closeViewModal } = this.props;
     return (
       <>
         <div
-          onClick={openViewWindow}
-          className={`ViewBtn ${isViewWindowOn ? 'viewBtnOn' : 'viewBtnNotOn'}`}
+          onClick={openViewModal}
+          className={`ViewBtn ${isViewModalOn ? 'viewBtnOn' : 'viewBtnNotOn'}`}
         >
           <p className='viewBtntext'>View</p>
         </div>
         <ViewOptionBox
-          closeViewWindow={closeViewWindow}
-          isViewWindowOn={isViewWindowOn}
+          closeViewModal={closeViewModal}
+          isViewModalOn={isViewModalOn}
         />
       </>
     );

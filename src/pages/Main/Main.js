@@ -4,7 +4,6 @@ import './Main.scss';
 
 class Main extends Component {
   render() {
-    console.log(this.props.location);
     return (
       <div className='Main'>
         <Nav location={this.props.location} />

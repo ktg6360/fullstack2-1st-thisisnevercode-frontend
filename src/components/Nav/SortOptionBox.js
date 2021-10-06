@@ -4,7 +4,7 @@ import './SortOptionBox.scss';
 
 class SortOptionBox extends Component {
   state = {
-    sortOptionData: [
+    sortOptions: [
       { id: 1, name: 'Recent', isChecked: false },
       { id: 2, name: 'Price (Low)', isChecked: false },
       { id: 3, name: 'Price (High)', isCheckd: false },
@@ -13,55 +13,47 @@ class SortOptionBox extends Component {
   };
 
   handleCheckIcon = id => {
-    const { sortOptionData } = this.state;
-    const newSortOptionData = [...sortOptionData];
-    newSortOptionData.forEach(data => {
-      if (data.id === id) {
-        data.isChecked = true;
-      } else {
-        data.isChecked = false;
-      }
-    });
-    this.setState({ sortOptionData: newSortOptionData });
+    const { sortOptions } = this.state;
+    const newsortOptions = [...sortOptions];
+    newsortOptions.forEach(data => (data.isChecked = data.id === id));
+    this.setState({ sortOptions: newsortOptions });
   };
 
   onClick = () => {
-    const { closeSortWindow } = this.props;
-    closeSortWindow();
+    const { closeSortModal } = this.props;
+    closeSortModal();
   };
 
   render() {
-    const { isSortWindowOn } = this.props;
-    const { sortOptionData } = this.state;
+    const { isSortModalOn } = this.props;
+    const { sortOptions } = this.state;
     return (
-      <>
-        <div
-          className={`sortOptionBoxScrollUp ${
-            isSortWindowOn ? 'sortOptionBox' : 'sortWindowInvisible'
-          }`}
-        >
-          <div className='sortOptionHeader'>
-            <p className='sortOptionHeaderTitle'>SORT BY</p>
-            <button className='sortOptionCloseBtn' onClick={this.onClick}>
-              X
-            </button>
-          </div>
-
-          <ul className='sortList'>
-            {sortOptionData.map(menu => {
-              return (
-                <SortOption
-                  isChecked={menu.isChecked}
-                  key={menu.id}
-                  name={menu.name}
-                  id={menu.id}
-                  handleCheckIcon={this.handleCheckIcon}
-                />
-              );
-            })}
-          </ul>
+      <div
+        className={`sortOptionBoxScrollUp ${
+          isSortModalOn ? 'sortOptionBox' : 'sortModalInvisible'
+        }`}
+      >
+        <div className='sortOptionHeader'>
+          <p className='sortOptionHeaderTitle'>SORT BY</p>
+          <button className='sortOptionCloseBtn' onClick={this.onClick}>
+            X
+          </button>
         </div>
-      </>
+        <ul className='sortList'>
+          {sortOptions.map(sortOption => {
+            const { isChecked, id, name } = sortOption;
+            return (
+              <SortOption
+                isChecked={isChecked}
+                key={id}
+                name={name}
+                id={id}
+                handleCheckIcon={this.handleCheckIcon}
+              />
+            );
+          })}
+        </ul>
+      </div>
     );
   }
 }

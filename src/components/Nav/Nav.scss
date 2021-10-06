@@ -3,7 +3,7 @@
   top: 0;
   z-index: 9999;
   background-color: white;
-  font-family: Helvetica, sans-serif; //! common.scss로 빼기
+  font-family: Arial, Helvetica, sans-serif; //! common에 넣었는데 적용안됨. 머지해보고 확인
 
   .navWrapper {
     display: flex;

@@ -4,18 +4,18 @@ import './SortBtn.scss';
 
 class SortBtn extends Component {
   render() {
-    const { openSortWindow, closeSortWindow, isSortWindowOn } = this.props;
+    const { openSortModal, closeSortModal, isSortModalOn } = this.props;
     return (
       <>
         <div
-          onClick={openSortWindow}
-          className={`SortBtn ${isSortWindowOn ? 'sortBtnOn' : 'sortBtnNotOn'}`}
+          onClick={openSortModal}
+          className={`SortBtn ${isSortModalOn ? 'sortBtnOn' : 'sortBtnNotOn'}`}
         >
           <p className='sortBtntext'>Sort</p>
         </div>
         <SortOptionBox
-          closeSortWindow={closeSortWindow}
-          isSortWindowOn={isSortWindowOn}
+          closeSortModal={closeSortModal}
+          isSortModalOn={isSortModalOn}
         />
       </>
     );

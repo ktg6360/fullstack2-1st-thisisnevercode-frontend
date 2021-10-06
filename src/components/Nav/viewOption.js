@@ -15,7 +15,7 @@ class ViewOption extends Component {
     const { isChecked, name } = this.props;
     return (
       <li className='viewOption'>
-        <div className='recentBack checkBack'></div>
+        <div className='checkBack' />
         <FontAwesomeIcon
           onClick={this.onClick}
           icon={faCheck}
