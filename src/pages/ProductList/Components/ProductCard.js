@@ -104,28 +104,30 @@ class ProductCard extends Component {
                 backgroundPosition: 'center',
               }}
             ></div>
-            {productDetailImg.map(product => {
-              return (
-                <ProductDetailCard
-                  key={product.detail_id}
-                  detailImage={mainImage}
-                  name={product.name}
-                />
-              );
-            })}
+            {productDetailImg &&
+              productDetailImg.map(product => {
+                return (
+                  <ProductDetailCard
+                    key={product.detail_id}
+                    detailImage={mainImage}
+                    name={product.name}
+                  />
+                );
+              })}
           </div>
         </div>
         <div className='subImgWrapper'>
-          {productSubImg.map(product => {
-            return (
-              <ProductOtherColorCard
-                key={product.id}
-                subImage={product.img}
-                name={product.name}
-                changeSubImage={this.changeSubImage}
-              />
-            );
-          })}
+          {productSubImg &&
+            productSubImg.map(product => {
+              return (
+                <ProductOtherColorCard
+                  key={product.id}
+                  subImage={product.img}
+                  name={product.name}
+                  changeSubImage={this.changeSubImage}
+                />
+              );
+            })}
         </div>
         <p className='productName'>{productName}</p>
         <p className='productPrice'>{productPrice}</p>

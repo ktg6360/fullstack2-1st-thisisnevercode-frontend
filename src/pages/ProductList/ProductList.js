@@ -51,19 +51,20 @@ class ProductList extends Component {
     return (
       <main className='ProductList'>
         <div className='ProductComponentWrapper'>
-          {productsData.map(product => {
-            return (
-              <ProductCard
-                key={product.id}
-                productImg={product.img}
-                productSubImg={product.subImg}
-                productDetailImg={product.detailImg}
-                productName={product.name}
-                productPrice={product.price}
-                productsData={this.state.productsData}
-              />
-            );
-          })}
+          {productsData &&
+            productsData.map(product => {
+              return (
+                <ProductCard
+                  key={product.id}
+                  productImg={product.img}
+                  productSubImg={product.subImg}
+                  productDetailImg={product.detailImg}
+                  productName={product.name}
+                  productPrice={product.price}
+                  productsData={this.state.productsData}
+                />
+              );
+            })}
 
           <br />
         </div>

@@ -1,14 +1,16 @@
+$media-size: 1440px;
+
 .ProductDetailCard {
-  width: 240px;
-  height: 200px;
   position: absolute;
   bottom: 0px;
+  width: 240px;
+  height: 200px;
 }
-@media only screen and (max-width: 1140px) {
+@media only screen and (max-width: $media-size) {
   .ProductDetailCard {
-    width: 522px;
-    height: 701px;
     position: absolute;
     bottom: 0px;
+    width: 522px;
+    height: 701px;
   }
 }
