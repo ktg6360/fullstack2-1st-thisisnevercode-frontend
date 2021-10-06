@@ -8,76 +8,68 @@ class SignIn extends Component {
   constructor() {
     super();
     this.state = {
-      id: '',
+      email: '',
       password: '',
-      isActive: false,
-      seePw: false,
+      showPw: false,
     };
   }
 
   handleInput = event => {
     const { name, value } = event.target;
-    this.setState({ [name]: value }, () => this.handleBtn());
+    this.setState({ [name]: value });
   };
 
-  handleBtn = () => {
-    const { id, password } = this.state;
-    this.setState({ isActive: id.includes('@') && password.length >= 5 });
-  };
-
-  openAlert = () => {
+  signInFailAlert = () => {
     alert('유효한 이메일과 비밀번호가 아닙니다.');
   };
 
   changeIcon = () => {
     this.setState({
-      seePw: !this.state.seePw,
+      showPw: !this.state.showPw,
     });
   };
 
   goToList = () => {
-    if (this.state.isActive) {
+    const { email, password } = this.state;
+    if (email.includes('@') && password.length >= 5) {
       this.props.history.push('./ProductList');
     }
   };
 
   render() {
-    const { isActive, seePw } = this.state;
+    const { showPw, email, password } = this.state;
+    const userValidate = email.includes('@') && password.length >= 5;
     return (
-      <section className='signIn'>
-        <form action='' className='form'>
+      <section className='SignIn'>
+        <form className='form'>
           <div className='signInBox'>
             <p className='email'>이메일</p>
             <input
-              className='text'
+              className='emailText'
               type='text'
               placeholder='이메일'
-              name='id'
+              name='email'
               onChange={this.handleInput}
-              onKeyPress={this.handleBtn}
             />
             <p className='password'>비밀번호</p>
             <input
-              className='passwordBox'
-              type={seePw ? 'text' : 'password'}
+              className='passwordInput'
+              type={showPw ? 'text' : 'password'}
               placeholder='비밀번호'
               name='password'
               onChange={this.handleInput}
-              onKeyPress={this.handleBtn}
             />
-            {seePw ? (
-              <FaEyeSlash className='onEye' onClick={this.changeIcon} />
-            ) : (
-              <FaEye className='onEye' onClick={this.changeIcon} />
-            )}
+            <div className='onEye' onClick={this.changeIcon}>
+              {showPw ? <FaEyeSlash /> : <FaEye />}
+            </div>
             <button
-              className='loginButton'
-              onClick={isActive ? this.goToList : this.openAlert}
+              className='signInButton'
+              onClick={userValidate ? this.goToList : this.signInFailAlert}
             >
-              <p className='loginStyle'>LOGIN</p>
+              <p className='signInText'>LOGIN</p>
             </button>
-            <div className='search'>
-              <Link className='signUp' to='/SignUP'>
+            <div className='addFunction'>
+              <Link className='signUp' to='/SignUp'>
                 회원가입
               </Link>
               <Link className='findPassword' to=''>

@@ -1,4 +1,6 @@
-.signIn {
+@import '../../styles/variables';
+
+.SignIn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,8 +26,8 @@
     cursor: pointer;
   }
 
-  .text,
-  .passwordBox {
+  .emailText,
+  .passwordInput {
     height: 43px;
     margin-bottom: 20px;
     padding-left: 10px;
@@ -34,7 +36,7 @@
     opacity: 0.8;
   }
 
-  .loginButton {
+  .signInButton {
     height: 40px;
     margin-bottom: 21px;
     color: white;
@@ -44,18 +46,18 @@
     font-size: large;
     cursor: pointer;
 
-    .loginStyle {
-      font-size: 23px;
-      -webkit-transition: all 0.1s linear;
-      transition: all 0.1s linear;
+    &:hover {
+      background-color: white;
+      border: solid 1px black;
     }
   }
 
-  .loginButton:hover {
-    background-color: white;
-    border: solid 1px black;
+  .signInText {
+    font-size: 23px;
+    -webkit-transition: all 0.1s linear;
+    transition: all 0.1s linear;
 
-    .loginStyle:hover {
+    &:hover {
       color: black;
       -webkit-transform: scale(1.2);
       -moz-transform: scale(1.2);
@@ -65,7 +67,7 @@
     }
   }
 
-  .search {
+  .addFunction {
     display: flex;
     justify-content: space-around;
   }
@@ -99,8 +101,8 @@
   }
 }
 
-@media only screen and (max-width: 1000px) {
-  .signIn {
+@media only screen and (max-width: $widthBreakPoint) {
+  .SignIn {
     .signInBox {
       width: 100vw;
       padding-left: 10px;
