@@ -1,4 +1,6 @@
-.signUp {
+@import '../../styles/variables.scss';
+
+.SignUp {
   .signUpBox {
     display: flex;
     justify-content: center;
@@ -152,7 +154,7 @@
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and ($mediaQueryWidth) {
   .signUp {
     .signUpBox {
       width: 100vw;

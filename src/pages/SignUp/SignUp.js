@@ -11,7 +11,6 @@ class SignUp extends Component {
       name: '',
       email: '',
       password: '',
-      isActive: false,
       seePw: false,
     };
   }
@@ -52,7 +51,7 @@ class SignUp extends Component {
   render() {
     const { seePw, isActive } = this.state;
     return (
-      <section className='signUp'>
+      <section className='SignUp'>
         <form action='' className='form'>
           <div className='signUpBox'>
             <div className='inputBox'>
@@ -99,7 +98,7 @@ class SignUp extends Component {
               />
             </div>
             <div className='checkBox'>
-              <div className='line'></div>
+              <div className='line' />
               <p className='agreement'>이용악관 동의</p>
               <div className='checkInput'>
                 <div className='allAgree'>
