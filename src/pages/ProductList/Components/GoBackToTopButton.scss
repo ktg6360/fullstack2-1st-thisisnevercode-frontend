@@ -1,7 +1,7 @@
 .goBackToTopButton {
   display: block;
-  text-align: center;
   padding: 30px;
+  text-align: center;
 
   .button {
     display: inline;
@@ -9,9 +9,11 @@
     font-weight: 500;
     text-decoration: underline;
   }
+
   .button::selection {
     background-color: greenyellow;
   }
+
   :hover {
     cursor: pointer;
   }

@@ -1,27 +1,26 @@
-$media-size: 1440px;
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .ProductList {
   .ProductComponentWrapper {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(auto, 5fr));
-    grid-template-rows: repeat(3, minmax(350px, auto));
+    @include gridTemplate(
+      grid,
+      repeat(5, minmax(auto, 5fr)),
+      repeat(auto, minmax(350px, auto))
+    );
+    @include preventDrag;
     padding: 48px 40px 60px 40px;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-user-drag: none;
-    font-family: Helvetica, sans-serif;
   }
 }
 
-@media only screen and (max-width: $media-size) {
+@media screen and (max-width: $mediaQueryWidth) {
   .ProductList {
     .ProductComponentWrapper {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(500px, 1fr));
+      @include gridTemplate(
+        grid,
+        repeat(2, minmax(520px, 2fr)),
+        repeat(auto-fill, auto)
+      );
     }
   }
 }

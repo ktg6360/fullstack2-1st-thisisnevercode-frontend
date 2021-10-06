@@ -1,16 +1,12 @@
-$media-size: 1440px;
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
 
 .ProductDetailCard {
-  position: absolute;
-  bottom: 0px;
-  width: 240px;
-  height: 200px;
+  @include productDetailCardTemplate(absolute, 0px, 240px, 200px);
 }
-@media only screen and (max-width: $media-size) {
+
+@media screen and (max-width: $mediaQueryWidth) {
   .ProductDetailCard {
-    position: absolute;
-    bottom: 0px;
-    width: 522px;
-    height: 701px;
+    @include productDetailCardTemplate(absolute, 0px, 522px, 701px);
   }
 }

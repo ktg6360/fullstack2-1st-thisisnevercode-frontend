@@ -1,4 +1,5 @@
-$media-size: 1440px;
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
 
 .ProductCard {
   display: flex;
@@ -10,47 +11,33 @@ $media-size: 1440px;
   .productImageWrapper {
     position: relative;
     .eventArea1 {
-      // background-color: red;
-      position: absolute;
-      left: 0;
-      min-width: 50px;
-      min-height: 160px;
-      z-index: 1;
+      @include eventAreaPosition(absolute, 0, 50px, 160px, 1);
     }
+
     .eventArea2 {
-      // background-color: yellow;
-      position: absolute;
-      min-width: 50px;
-      min-height: 160px;
-      left: 50px;
-      z-index: 1;
+      @include eventAreaPosition(absolute, 50px, 50px, 160px, 1);
     }
+
     .eventArea3 {
-      // background-color: orange;
-      position: absolute;
-      left: 100px;
-      min-width: 50px;
-      min-height: 160px;
-      z-index: 1;
+      @include eventAreaPosition(absolute, 100px, 50px, 160px, 1);
     }
+
     .eventArea4 {
-      position: absolute;
-      // background-color: blue;
-      min-width: 50px;
-      min-height: 160px;
-      left: 150px;
-      z-index: 1;
+      @include eventAreaPosition(absolute, 150px, 50px, 160px, 1);
     }
   }
+
   .productMainImg {
-    width: 240px;
-    height: 200px;
+    min-width: 240px;
+    min-height: 200px;
   }
+
   .productName {
     font-weight: 600;
-    font-size: 25px;
+    font-size: 20px;
     line-height: 28px;
   }
+
   .subImgWrapper {
     display: flex;
     justify-content: center;
@@ -60,51 +47,61 @@ $media-size: 1440px;
     @extend .productName;
   }
 }
-@media only screen and (max-width: $media-size) {
+
+@media screen and (max-width: $mediaQueryWidth) {
   .ProductCard {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0;
     text-align: center;
+
     .productImageWrapper {
       position: relative;
       .eventArea1 {
-        // background-color: red;
-        position: absolute;
-        top: 80px;
-        left: 60px;
-        min-width: 110px;
-        min-height: 600px;
-        z-index: 1;
+        @include meDiaQueryEventAreaPosition(
+          absolute,
+          80px,
+          60px,
+          110px,
+          600px,
+          1
+        );
       }
+
       .eventArea2 {
-        // background-color: yellow;
-        position: absolute;
-        top: 80px;
-        left: 170px;
-        min-width: 110px;
-        min-height: 600px;
-        z-index: 1;
+        @include meDiaQueryEventAreaPosition(
+          absolute,
+          80px,
+          170px,
+          110px,
+          600px,
+          1
+        );
       }
+
       .eventArea3 {
-        // background-color: orange;
-        position: absolute;
-        top: 80px;
-        left: 280px;
-        min-width: 110px;
-        min-height: 600px;
-        z-index: 1;
+        @include meDiaQueryEventAreaPosition(
+          absolute,
+          80px,
+          280px,
+          110px,
+          600px,
+          1
+        );
       }
+
       .eventArea4 {
-        position: absolute;
-        // background-color: blue;
-        top: 80px;
-        left: 390px;
-        min-width: 110px;
-        min-height: 600px;
-        z-index: 1;
+        @include meDiaQueryEventAreaPosition(
+          absolute,
+          390px,
+          60px,
+          110px,
+          600px,
+          1
+        );
       }
+
       .productMainImg {
         width: 522px;
         height: 701px;
@@ -112,16 +109,18 @@ $media-size: 1440px;
 
       .productName {
         font-weight: 600;
-        font-size: 40px;
+        font-size: 20px;
         line-height: 28px;
       }
+
       .subImgWrapper {
         display: flex;
         justify-content: center;
       }
+
       .productPrice {
         font-weight: 600;
-        font-size: 40px;
+        font-size: 20px;
         line-height: 28px;
       }
     }
