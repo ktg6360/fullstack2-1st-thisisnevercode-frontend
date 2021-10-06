@@ -1,34 +1,4 @@
 .Main {
+  position: relative;
   overflow-x: hidden;
-
-  .Nav {
-    font-family: Helvetica;
-    display: flex;
-    justify-content: center;
-
-    div {
-      width: 33%;
-      padding: 17px 25px 8px 25px;
-      font-size: 16px;
-
-      span {
-        margin: 0 10px;
-      }
-
-      .middle {
-        font-size: 24px;
-        font-weight: 900;
-      }
-    }
-
-    div:nth-child(2) {
-      display: flex;
-      justify-content: center;
-    }
-
-    div:last-child {
-      display: flex;
-      justify-content: flex-end;
-    }
-  }
 }

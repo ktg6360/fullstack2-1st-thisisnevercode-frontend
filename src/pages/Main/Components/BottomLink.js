@@ -7,18 +7,17 @@ class BottomLink extends Component {
     const { bottomLink } = this.props;
 
     return (
-      <div className='bottomLink'>
-        {bottomLink.map(text => {
-          return (
-            <div className='bottomLinkBox' key={text.id}>
-              <Link to='/productList'>
-                <div className='bottomLinkText'>
-                  <span>{text.linkName}</span>
-                </div>
-              </Link>
-            </div>
-          );
-        })}
+      <div className='BottomLink'>
+        {bottomLink &&
+          bottomLink.map(text => {
+            return (
+              <div className='bottomLinkBox' key={text.id}>
+                <Link to='/productList'>
+                  <div className='bottomLinkText'>{text.linkName}</div>
+                </Link>
+              </div>
+            );
+          })}
       </div>
     );
   }

@@ -1,5 +1,6 @@
-.bottomLink {
-  font-family: Helvetica;
+@import '../../../styles/variables';
+
+.BottomLink {
   display: flex;
 
   .bottomLinkBox {
@@ -15,7 +16,7 @@
         justify-content: center;
         align-items: center;
         width: 25vw;
-        height: calc(25vw * 2880 / 1920);
+        height: calc(25vw * #{$mainImageRatio});
 
         &:hover {
           color: white;
@@ -26,10 +27,9 @@
   }
 }
 
-@media screen and (max-width: 1140px) {
-  .bottomLink {
+@media screen and (max-width: $widthBreakPoint) {
+  .BottomLink {
     display: grid;
-    grid-template-rows: repeat(1, 1fr);
     grid-template-columns: repeat(2, 1fr);
 
     &:nth-child(3) .bottomLinkBox,
@@ -42,7 +42,7 @@
         .bottomLinkText {
           font-size: 20px;
           width: 50vw;
-          height: calc(50vw * 2880 / 1920);
+          height: calc(50vw * #{$mainImageRatio});
         }
       }
     }

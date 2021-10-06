@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import ImageSlide from './Components/ImageSlide';
 import BottomLink from './Components/BottomLink';
-import ProductsSlide from './Components/ProductsSlide';
+import SplashScreen from './Components/SplashScreen';
 import './Main.scss';
 
 class Main extends Component {
   constructor() {
     super();
     this.state = {
-      firstProducts: [],
-      secondProducts: [],
+      firstImages: [],
+      secondImages: [],
       bottomLink: [],
     };
   }
@@ -18,55 +19,39 @@ class Main extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          firstProducts: data,
+          firstImages: data,
         });
-      });
+      })
+      .catch(console.log);
+
     fetch('/data/Main/secondMainImgData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
-          secondProducts: data,
+          secondImages: data,
         });
-      });
+      })
+      .catch(console.log);
+
     fetch('/data/Main/mainBottomLinkData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
           bottomLink: data,
         });
-      });
+      })
+      .catch(console.log);
   }
 
   render() {
-    const { firstProducts, secondProducts, bottomLink } = this.state;
+    const { firstImages, secondImages, bottomLink } = this.state;
 
     return (
       <div className='Main'>
-        <div className='Nav'>
-          <div>
-            <span>SHOP</span>
-            <span>TOP20</span>
-            <span>FEATURES</span>
-            <span>SEARCH</span>
-          </div>
-          <div>
-            <span className='middle'>thisisnevercode</span>
-          </div>
-          <div>
-            <span>KOR / ₩</span>
-            <span>LOGIN</span>
-            <span>CART</span>
-          </div>
-        </div>
-        <div className='productSlide'>
-          <ProductsSlide products={firstProducts} />
-        </div>
-        <div className='productSlide'>
-          <ProductsSlide products={secondProducts} />
-        </div>
-        <div className='bottomLink'>
-          <BottomLink bottomLink={bottomLink} />
-        </div>
+        <ImageSlide images={firstImages} />
+        <ImageSlide images={secondImages} />
+        <BottomLink bottomLink={bottomLink} />
+        <SplashScreen />
       </div>
     );
   }
