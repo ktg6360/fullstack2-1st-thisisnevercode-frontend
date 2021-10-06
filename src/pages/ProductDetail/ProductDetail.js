@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './ProductDetail.scss';
-import { PRODUCT_DETAIL } from './ProductDetailData';
-import { IMAGE_URL } from './images';
 import PaginationBox from './PaginationBox';
 import ProductImgSlide from './ProductImgSlide';
 
@@ -10,42 +8,49 @@ class ProductDetail extends Component {
     super();
     this.state = {
       imageCurrentNo: 0,
-      images: [],
+      product: null,
     };
   }
 
   onChangeImage = index => {
-    if (this.state.images.length <= index) index = 0;
-    if (index < 0) index = this.state.images.length - 1;
+    if (this.state.product.subImg.length <= index) index = 0;
+    if (index < 0) index = this.state.product.subImg.length - 1;
     this.setState({ imageCurrentNo: index });
   };
 
   componentDidMount() {
-    this.setState({ images: IMAGE_URL });
+    fetch('/data/ProductDetail/ProductDetail.json')
+      .then(res => res.json())
+      .then(res => {
+        this.setState({ product: res.products[0] });
+      });
   }
 
   render() {
-    const images = this.state.images;
-    return (
-      <section className='productDetail'>
+    const productInfo = this.state.product;
+    return productInfo == null ? null : (
+      <section className='ProductDetail'>
         <figure>
-          <PaginationBox img={images} onChangeImage={this.onChangeImage} />
+          <PaginationBox
+            productInfo={productInfo}
+            onChangeImage={this.onChangeImage}
+          />
         </figure>
 
         <article>
           <ProductImgSlide
-            img={images}
+            productInfo={productInfo}
             imgNo={this.state.imageCurrentNo}
             onChangeImage={this.onChangeImage}
           />
         </article>
 
         <aside>
-          <h1 className='name'>{PRODUCT_DETAIL[0].name}</h1>
-          <div className='price'>{PRODUCT_DETAIL[0].price}</div>
+          <h1 className='name'>{productInfo.name}</h1>
+          <div className='price'>{productInfo.price}</div>
           <div className='box'></div>
-          <p className='description'>{PRODUCT_DETAIL[0].description}</p>
-          <p className='textileInformation'>{PRODUCT_DETAIL[0].textileInfo}</p>
+          <p className='description'>{productInfo.description}</p>
+          <p className='textileInformation'>{productInfo.textileInfo}</p>
         </aside>
       </section>
     );

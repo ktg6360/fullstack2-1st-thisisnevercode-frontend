@@ -2,10 +2,13 @@
   position: relative;
   .imgNumbering {
     position: absolute;
+    right: 0;
     background-color: lightgray;
     border-radius: 10px;
+    color: white;
     width: 2vw;
     height: 1vw;
     text-align: center;
+    padding-top: 4px;
   }
 }

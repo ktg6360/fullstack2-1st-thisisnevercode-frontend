@@ -1,19 +1,19 @@
 import { Component } from 'react';
-import { IMAGE_URL } from './images';
 import './PaginationBox.scss';
 
 class PaginationBox extends Component {
   render() {
+    console.log(this.props.productInfo);
     return (
-      <div className='paginationBox'>
-        {IMAGE_URL[0].img.map((image, idx) => (
+      <div className='PaginationBox'>
+        {this.props.productInfo.subImg.map((image, idx) => (
           <div
-            key={IMAGE_URL[0].id}
+            key={idx}
             onClick={() => {
               this.props.onChangeImage(idx);
             }}
           >
-            <img src={IMAGE_URL[0].img} alt={IMAGE_URL[0].alt} />
+            <img src={image.imgUrl} alt={image.alt} />
           </div>
         ))}
       </div>
