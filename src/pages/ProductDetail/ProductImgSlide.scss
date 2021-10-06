@@ -1,0 +1,11 @@
+.productImgSlide {
+  position: relative;
+  .imgNumbering {
+    position: absolute;
+    background-color: lightgray;
+    border-radius: 10px;
+    width: 2vw;
+    height: 1vw;
+    text-align: center;
+  }
+}

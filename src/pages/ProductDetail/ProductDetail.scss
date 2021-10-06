@@ -6,9 +6,11 @@
   margin: auto;
   padding-top: 45px;
   padding-bottom: 60px;
+  font-family: Helvetica;
 
   figure {
     width: 18%;
+    position: relative;
   }
   article {
     width: 30%;
@@ -41,6 +43,7 @@
     .textileInformation {
       font-size: 1.3rem;
       line-height: 130%;
+      white-space: pre-line;
     }
   }
 }

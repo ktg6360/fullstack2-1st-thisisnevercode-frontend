@@ -1,33 +1,26 @@
 const IMAGE_URL = [
   {
     id: 1,
-    img_url1:
-      'https:i.pinimg.com/originals/43/27/64/4327640f59bc54639a43526bae2a54f2.gif',
-    img_url2:
-      'https:i.pinimg.com/originals/43/27/64/4327640f59bc54639a43526bae2a54f2.gif',
-    img_url3:
-      'https:i.pinimg.com/originals/43/27/64/4327640f59bc54639a43526bae2a54f2.gif',
-    img_url4:
-      'https:i.pinimg.com/originals/43/27/64/4327640f59bc54639a43526bae2a54f2.gif',
-    img_url5:
-      'https:i.pinimg.com/originals/43/27/64/4327640f59bc54639a43526bae2a54f2.gif',
-    alt: 'drami1',
+    img: [
+      'https://image.shutterstock.com/image-photo/chlumcany-czech-republic-march-28-600w-269042048.jpg',
+      'https://image.shutterstock.com/image-photo/chlumcany-czech-republic-march-27-600w-267973937.jpg',
+      'https://image.shutterstock.com/image-photo/sport-shoes-isolated-on-white-600w-53553910.jpg',
+      ' https://image.shutterstock.com/image-photo/chlumcany-czech-republic-march-27-600w-279129371.jpg',
+      'https://image.shutterstock.com/image-photo/sport-shoes-isolated-on-white-600w-53553910.jpg',
+      'https://image.shutterstock.com/image-photo/chlumcany-czech-republic-march-27-600w-272288309.jpg ',
+    ],
+    alt: 'product1',
   },
   {
     id: 2,
-    img_url1:
-      'https:item.kakaocdn.net/do/c044f68e2c0d439588d41a773f81d1dd9f5287469802eca457586a25a096fd31',
-    img_url2:
-      'https:item.kakaocdn.net/do/c044f68e2c0d439588d41a773f81d1dd9f5287469802eca457586a25a096fd31',
-    img_url3:
-      'https:item.kakaocdn.net/do/c044f68e2c0d439588d41a773f81d1dd9f5287469802eca457586a25a096fd31',
-    img_url4:
-      'https:item.kakaocdn.net/do/c044f68e2c0d439588d41a773f81d1dd9f5287469802eca457586a25a096fd31',
-    img_url5:
-      'https:item.kakaocdn.net/do/c044f68e2c0d439588d41a773f81d1dd9f5287469802eca457586a25a096fd31',
-    img_url6:
-      'https:item.kakaocdn.net/do/c044f68e2c0d439588d41a773f81d1dd9f5287469802eca457586a25a096fd31',
-    alt: 'drami2',
+    img: [
+      'https://image.shutterstock.com/image-photo/vintage-green-shoe-isolated-on-600w-208105795.jpg',
+      'https://image.shutterstock.com/image-photo/vintage-green-shoe-isolated-on-600w-205162939.jpg',
+      'https://image.shutterstock.com/image-photo/vintage-green-shoes-isolated-on-600w-208105753.jpg',
+      'https://image.shutterstock.com/image-photo/vintage-green-shoes-isolated-on-600w-201838402.jpg',
+      'https://image.shutterstock.com/image-photo/vintage-green-sneakers-on-white-600w-1782354755.jpg',
+    ],
+    alt: 'product2',
   },
 ];
 
