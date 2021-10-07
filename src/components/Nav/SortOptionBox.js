@@ -12,6 +12,7 @@ class SortOptionBox extends Component {
     ],
   };
 
+  //!!!!!Fix!!!!!!!
   componentDidMount() {
     document.addEventListener('click', event => {
       const hasSameClassOrIdForSort =
