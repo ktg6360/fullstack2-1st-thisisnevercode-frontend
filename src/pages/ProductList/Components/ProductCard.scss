@@ -10,6 +10,7 @@
 
   .productImageWrapper {
     position: relative;
+
     .eventArea1 {
       @include eventAreaPosition(absolute, 0, 50px, 160px, 1);
     }
@@ -26,10 +27,9 @@
       @include eventAreaPosition(absolute, 150px, 50px, 160px, 1);
     }
   }
-
-  .productMainImg {
-    min-width: 240px;
-    min-height: 200px;
+  .productMainImage {
+    width: 265px;
+    height: 230px;
   }
 
   .productName {
@@ -58,6 +58,7 @@
 
     .productImageWrapper {
       position: relative;
+
       .eventArea1 {
         @include meDiaQueryEventAreaPosition(
           absolute,
@@ -102,9 +103,9 @@
         );
       }
 
-      .productMainImg {
+      .productMainImage {
         width: 522px;
-        height: 701px;
+        height: 601px;
       }
 
       .productName {

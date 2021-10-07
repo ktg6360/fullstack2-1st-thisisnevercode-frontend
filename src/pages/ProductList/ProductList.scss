@@ -2,6 +2,8 @@
 @import '../../styles/mixins.scss';
 
 .ProductList {
+  position: relative;
+
   .ProductComponentWrapper {
     @include gridTemplate(
       grid,

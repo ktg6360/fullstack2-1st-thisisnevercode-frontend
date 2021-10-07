@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ProductOtherColorCard from './ProductOtherColorCard';
 import ProductDetailCard from './ProductDetailCard';
+import ProductOtherColorCard from './ProductOtherColorCard';
 import './ProductCard.scss';
 
 class ProductCard extends Component {
@@ -11,12 +11,12 @@ class ProductCard extends Component {
     };
   }
 
-  changeSubImage = e => {
-    let { productDetailImg } = this.props;
-    for (let detailImg of productDetailImg) {
-      if (detailImg.img !== e.target.src) {
+  changeSubImage = event => {
+    let { detailImage } = this.props;
+    for (let detailImg of detailImage) {
+      if (detailImg.img !== event.target.src) {
         this.setState({
-          mainImage: e.target.src,
+          mainImage: event.target.src,
         });
       } else {
         this.setState({
@@ -26,28 +26,28 @@ class ProductCard extends Component {
     }
   };
 
-  hover = e => {
-    const { productDetailImg } = this.props;
-    for (let detailImg = 0; detailImg < productDetailImg.length; detailImg++) {
-      switch (e.target.className) {
+  hover = event => {
+    const { detailImage } = this.props;
+    for (let detailImg = 0; detailImg < detailImage.length; detailImg++) {
+      switch (event.target.className) {
         case 'eventArea1':
           this.setState({
-            mainImage: productDetailImg[0].img,
+            mainImage: detailImage[0].image,
           });
           break;
         case 'eventArea2':
           this.setState({
-            mainImage: productDetailImg[1].img,
+            mainImage: detailImage[1].image,
           });
           break;
         case 'eventArea3':
           this.setState({
-            mainImage: productDetailImg[2].img,
+            mainImage: detailImage[2].image,
           });
           break;
         case 'eventArea4':
           this.setState({
-            mainImage: productDetailImg[3].img,
+            mainImage: detailImage[3].image,
           });
           break;
         default:
@@ -62,14 +62,9 @@ class ProductCard extends Component {
   };
 
   render() {
-    const {
-      productImg,
-      productSubImg,
-      productName,
-      productPrice,
-      productDetailImg,
-    } = this.props;
+    const { image, subImage, name, price, detailImage } = this.props;
     const { mainImage } = this.state;
+
     return (
       <div className='ProductCard'>
         <div className='productImageWrapper'>
@@ -95,17 +90,18 @@ class ProductCard extends Component {
           ></div>
 
           <div className='detailImgWrapper'>
-            <div
-              className='productMainImg'
+            <img src={image} alt={name} className='productMainImage' />
+            {/* <div
+              className='productMainImage'
               style={{
-                backgroundImage: `url(${productImg})`,
+                backgroundImage: `url(${image})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'contain',
                 backgroundPosition: 'center',
               }}
-            ></div>
-            {productDetailImg &&
-              productDetailImg.map(product => {
+            ></div> */}
+            {detailImage &&
+              detailImage.map(product => {
                 return (
                   <ProductDetailCard
                     key={product.detail_id}
@@ -114,23 +110,34 @@ class ProductCard extends Component {
                   />
                 );
               })}
+            {/* {detailImage &&
+              detailImage.map(product => {
+                return (
+                  <img
+                    className='ProductDetailCard'
+                    key={product.detail_id}
+                    src={mainImage}
+                    name={product.name}
+                  />
+                );
+              })} */}
           </div>
         </div>
         <div className='subImgWrapper'>
-          {productSubImg &&
-            productSubImg.map(product => {
+          {subImage &&
+            subImage.map(product => {
               return (
                 <ProductOtherColorCard
                   key={product.id}
-                  subImage={product.img}
+                  subImage={product.image}
                   name={product.name}
                   changeSubImage={this.changeSubImage}
                 />
               );
             })}
         </div>
-        <p className='productName'>{productName}</p>
-        <p className='productPrice'>{productPrice}</p>
+        <p className='productName'>{name}</p>
+        <p className='productPrice'>{price}</p>
       </div>
     );
   }

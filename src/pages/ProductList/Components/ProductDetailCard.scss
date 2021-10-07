@@ -2,11 +2,11 @@
 @import '../../../styles/mixins.scss';
 
 .ProductDetailCard {
-  @include productDetailCardTemplate(absolute, 0px, 240px, 200px);
+  @include productDetailCardTemplate(absolute, -15px, 265px, 230px);
 }
 
 @media screen and (max-width: $mediaQueryWidth) {
   .ProductDetailCard {
-    @include productDetailCardTemplate(absolute, 0px, 522px, 701px);
+    @include productDetailCardTemplate(absolute, -15px, 522px, 701px);
   }
 }
