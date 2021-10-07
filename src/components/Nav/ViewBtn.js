@@ -4,11 +4,11 @@ import './ViewBtn.scss';
 
 class ViewBtn extends Component {
   render() {
-    const { openViewModal, isViewModalOn, closeViewModal } = this.props;
+    const { isViewModalOn, closeViewModal, toggleViewModal } = this.props;
     return (
       <>
         <div
-          onClick={openViewModal}
+          onClick={toggleViewModal}
           className={`ViewBtn ${isViewModalOn ? 'viewBtnOn' : 'viewBtnNotOn'}`}
         >
           <p className='viewBtntext'>View</p>

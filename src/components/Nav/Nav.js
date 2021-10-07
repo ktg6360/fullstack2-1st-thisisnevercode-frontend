@@ -69,28 +69,30 @@ class Nav extends Component {
     });
   };
 
-  openViewModal = () => {
-    this.setState({
-      isViewModalOn: true,
-      isSortModalOn: false,
-    });
-  };
-
   closeViewModal = () => {
     this.setState({
       isViewModalOn: false,
     });
   };
 
-  openSortModal = () => {
+  closeSortModal = () => {
     this.setState({
-      isSortModalOn: true,
+      isSortModalOn: false,
+    });
+  };
+
+  toggleSortModal = () => {
+    const { isSortModalOn } = this.state;
+    this.setState({
+      isSortModalOn: !isSortModalOn,
       isViewModalOn: false,
     });
   };
 
-  closeSortModal = () => {
+  toggleViewModal = () => {
+    const { isViewModalOn } = this.state;
     this.setState({
+      isViewModalOn: !isViewModalOn,
       isSortModalOn: false,
     });
   };
@@ -104,6 +106,7 @@ class Nav extends Component {
       isDropdownVisible,
       isSortModalOn,
       isViewModalOn,
+      toggleSortModal,
     } = this.state;
     const { location } = this.props;
     return (
@@ -179,13 +182,13 @@ class Nav extends Component {
           </div>
           <BreadCrumb dropdownMenuData={dropdownMenuData} location={location} />
           <SortBtn
-            openSortModal={this.openSortModal}
             closeSortModal={this.closeSortModal}
+            toggleSortModal={this.toggleSortModal}
             isSortModalOn={isSortModalOn}
           />
           <ViewBtn
-            openViewModal={this.openViewModal}
             closeViewModal={this.closeViewModal}
+            toggleViewModal={this.toggleViewModal}
             isViewModalOn={isViewModalOn}
           />
         </nav>

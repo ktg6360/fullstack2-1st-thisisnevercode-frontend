@@ -12,6 +12,14 @@ class SortOptionBox extends Component {
     ],
   };
 
+  // componentDidMount() {
+  //   document.addEventListener('click', this.props.closeSortModal);
+  // }
+
+  // componentWillUnmount() {
+  //   document.removeEventListener('click', this.props.closeSortModal);
+  // }
+
   handleCheckIcon = id => {
     const { sortOptions } = this.state;
     const newsortOptions = [...sortOptions];
@@ -21,6 +29,7 @@ class SortOptionBox extends Component {
 
   onClick = () => {
     const { closeSortModal } = this.props;
+    document.addEventListener('click', this.closeSortModal);
     closeSortModal();
   };
 

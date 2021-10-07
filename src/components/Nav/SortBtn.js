@@ -4,11 +4,11 @@ import './SortBtn.scss';
 
 class SortBtn extends Component {
   render() {
-    const { openSortModal, closeSortModal, isSortModalOn } = this.props;
+    const { closeSortModal, isSortModalOn, toggleSortModal } = this.props;
     return (
       <>
         <div
-          onClick={openSortModal}
+          onClick={toggleSortModal}
           className={`SortBtn ${isSortModalOn ? 'sortBtnOn' : 'sortBtnNotOn'}`}
         >
           <p className='sortBtntext'>Sort</p>
