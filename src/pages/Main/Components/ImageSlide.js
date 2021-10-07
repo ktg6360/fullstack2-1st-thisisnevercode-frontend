@@ -17,13 +17,14 @@ class ImageSlide extends Component {
     const slideLength = this.props.images.length;
     let newPosition = position - 1;
     let maxPosition;
-    console.log(document.body.scrollHeight);
+
     if (window.innerWidth > 1140) {
       maxPosition = Math.ceil((slideLength - 4) / 2); // 큰 화면용
     } else {
       maxPosition = Math.ceil(slideLength - 2); // 작은 화면용
     }
     if (newPosition < 0) newPosition = maxPosition; // 오른쪽 최대치 넘어가면 제일 왼쪽으로 되돌림
+
     this.setState({
       imagePosition: newPosition,
     });
@@ -40,6 +41,7 @@ class ImageSlide extends Component {
       maxPosition = Math.ceil(slideLength - 2); // 작은 화면용
     }
     if (maxPosition < newPosition) newPosition = 0; // 왼쪽 최대치 넘어가면 제일 오른쪽으로 되돌림
+
     this.setState({
       imagePosition: newPosition,
     });

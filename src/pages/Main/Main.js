@@ -11,6 +11,7 @@ class Main extends Component {
       firstImages: [],
       secondImages: [],
       bottomLink: [],
+      isSpreadSheetOn: true,
     };
   }
 
@@ -41,13 +42,24 @@ class Main extends Component {
         });
       })
       .catch(console.log);
+
+    setTimeout(this.handleSpreadSheet, 2500);
   }
 
+  handleSpreadSheet = () => {
+    this.setState({
+      isSpreadSheetOn: false,
+    });
+  };
+
   render() {
-    const { firstImages, secondImages, bottomLink } = this.state;
+    const { firstImages, secondImages, bottomLink, isSpreadSheetOn } =
+      this.state;
+    const spreadSheet = isSpreadSheetOn ? 'spreadSheetOn' : 'spreadSheetOff';
+    const mainClasses = `Main ${spreadSheet}`;
 
     return (
-      <div className='Main'>
+      <div className={mainClasses}>
         <ImageSlide images={firstImages} />
         <ImageSlide images={secondImages} />
         <BottomLink bottomLink={bottomLink} />

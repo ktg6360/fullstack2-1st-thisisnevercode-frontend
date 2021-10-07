@@ -8,17 +8,35 @@
   }
 }
 
+@keyframes moveTitle {
+  from {
+    top: 50%;
+    font-size: 50px;
+  }
+  to {
+    top: 2%;
+    font-size: 30px;
+  }
+}
+
 .SplashScreen {
+  position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
   color: white;
   background-color: black;
   position: absolute;
   height: 100vh;
   width: 100vw;
   top: 0;
-  font-size: 60px;
+  font-size: 50px;
   animation: hideSplashScreen 2s ease-in-out forwards;
-  animation-delay: 1.5s;
+  animation-delay: 2s;
+
+  span {
+    position: absolute;
+    top: 50%;
+    animation: moveTitle 1.5s ease-in-out forwards;
+    animation-delay: 1.5s;
+  }
 }

@@ -3,7 +3,11 @@ import './SplashScreen.scss';
 
 class SplashScreen extends Component {
   render() {
-    return <div className='SplashScreen'>thisisnevercode</div>;
+    return (
+      <div className='SplashScreen'>
+        <span>thisisnevercode</span>
+      </div>
+    );
   }
 }
 
