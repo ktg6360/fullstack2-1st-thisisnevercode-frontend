@@ -74,6 +74,27 @@
       }
     }
   }
+  .navForResponsive {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 50px;
+    .hamburgerBtnBox {
+      margin-left: 15px;
+    }
+    .cartBoxForResponsive {
+      position: relative;
+      margin-right: 15px;
+      .cartCountNumForResponsive {
+        position: absolute;
+        top: 5px;
+        left: 12px;
+        color: white;
+        font-size: 10px;
+      }
+    }
+  }
 }
 
 .navActive {
@@ -85,4 +106,21 @@
   visibility: hidden;
   transition: all 0.3s;
   transform: translateY(-100px);
+}
+
+@media screen and (max-width: 1140px) {
+  .Nav {
+    .navWrapper {
+      display: none;
+    }
+    .navForResponsive {
+      display: flex;
+      .mainLogoContainer {
+        .mainLogo {
+          width: 180px;
+          height: 47px;
+        }
+      }
+    }
+  }
 }

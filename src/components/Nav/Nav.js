@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import BreadCrumb from './BreadCrumb';
 import Dropdown from './Dropdown';
 import SortBtn from './SortBtn';
@@ -18,6 +20,7 @@ class Nav extends Component {
     dropdownMenuData: [],
     isViewModalOn: false,
     isSortModalOn: false,
+    isShorterThanResponsiveBreakPoin: false,
   };
 
   componentDidMount() {
@@ -112,6 +115,30 @@ class Nav extends Component {
     return (
       <>
         <nav className={isNavVisible ? 'Nav navActive' : 'Nav navHidden'}>
+          <div className='navForResponsive'>
+            <div className='hamburgerBtnBox'>
+              <FontAwesomeIcon
+                className='hamburgerBtn'
+                icon={faBars}
+                size='lg'
+              />
+            </div>
+            <div className='mainLogoContainer'>
+              <img
+                className='mainLogo'
+                src='/images/Nav/mainlogo.svg'
+                alt='main logo'
+              />
+            </div>
+            <div className='cartBoxForResponsive'>
+              <FontAwesomeIcon
+                className='cartIconForResponsive'
+                icon={faShoppingCart}
+                size='lg'
+              />
+              <span className='cartCountNumForResponsive'>1</span>
+            </div>
+          </div>
           <div className='navWrapper'>
             {/* productsNavMenu */}
             <ul className='productsNavMenu'>
