@@ -40,7 +40,7 @@ class SignIn extends Component {
     const { showPw, email, password } = this.state;
     const userValidate = email.includes('@') && password.length >= 5;
     const wrongInput =
-      (email.includes('wecode@') && password.includes('12345')) ||
+      (email.includes('@') && password.length >= 5) ||
       (email === '' && password === '');
     return (
       <section className='SignIn'>
