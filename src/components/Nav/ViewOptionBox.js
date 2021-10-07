@@ -10,16 +10,17 @@ class ViewOptionBox extends Component {
     ],
   };
 
-  componentDidMount() {
-    document.addEventListener('click', event => {
-      const hasSameClassOrIdForView =
-        !event.target.getAttribute('class').includes('classForViewClose') &&
-        event.target.id !== 'idForViewClose';
-      if (hasSameClassOrIdForView) {
-        this.props.closeViewModal();
-      }
-    });
-  }
+  //!!!!!Fix!!!!!!!
+  // componentDidMount() {
+  //   document.addEventListener('click', event => {
+  //     const hasSameClassOrIdForView =
+  //       !event.target.getAttribute('class').includes('classForViewClose') &&
+  //       event.target.id !== 'idForViewClose';
+  //     if (hasSameClassOrIdForView) {
+  //       this.props.closeViewModal();
+  //     }
+  //   });
+  // }
 
   handleCheckIcon = id => {
     const { viewOptions } = this.state;

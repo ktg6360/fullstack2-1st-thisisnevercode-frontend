@@ -13,16 +13,16 @@ class SortOptionBox extends Component {
   };
 
   //!!!!!Fix!!!!!!!
-  componentDidMount() {
-    document.addEventListener('click', event => {
-      const hasSameClassOrIdForSort =
-        !event.target.getAttribute('class').includes('classForSortClose') &&
-        event.target.id !== 'idForSortClose';
-      if (hasSameClassOrIdForSort) {
-        this.props.closeSortModal();
-      }
-    });
-  }
+  // componentDidMount() {
+  //   document.addEventListener('click', event => {
+  //     const hasSameClassOrIdForSort =
+  //       !event.target.getAttribute('class').includes('classForSortClose') &&
+  //       event.target.id !== 'idForSortClose';
+  //     if (hasSameClassOrIdForSort) {
+  //       this.props.closeSortModal();
+  //     }
+  //   });
+  // }
 
   handleCheckIcon = id => {
     const { sortOptions } = this.state;
