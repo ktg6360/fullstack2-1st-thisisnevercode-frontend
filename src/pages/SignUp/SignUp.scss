@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/variables';
 
 .SignUp {
   .signUpBox {
@@ -7,7 +7,6 @@
     align-items: center;
     flex-direction: column;
     margin: 130px 40px 100px 40px;
-    font-family: Helvetica;
 
     .inputBox {
       display: flex;
@@ -32,6 +31,16 @@
         border: solid 1px;
         font-size: 15px;
         opacity: 0.8;
+      }
+
+      .wrongShow {
+        font-weight: bold;
+        color: red;
+        opacity: 0.5;
+      }
+
+      .wrongHide {
+        display: none;
       }
 
       .passwordBox {
@@ -154,17 +163,19 @@
   }
 }
 
-@media only screen and ($mediaQueryWidth) {
-  .signUp {
+@media only screen and (max-width: $widthBreakPoint) {
+  .SignUp {
     .signUpBox {
       width: 100vw;
+      padding-left: 10px;
+      padding-right: 10px;
     }
 
     .onEye {
       position: absolute;
-      top: 255px;
+      top: auto;
       left: auto;
-      bottom: auto;
+      bottom: 40px;
       right: 30px;
       cursor: pointer;
     }
