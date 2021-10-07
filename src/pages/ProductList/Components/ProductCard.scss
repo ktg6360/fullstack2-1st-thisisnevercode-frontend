@@ -11,20 +11,20 @@
   .productWrapper {
     position: relative;
 
-    .firstHoverEventArea {
-      @include eventAreaPosition(absolute, 0, 50px, 160px, 1);
+    .hoverEventArea0 {
+      @include eventAreaPosition(absolute, 15px, 60px, 230px, 1);
     }
 
-    .secondHoverEventArea {
-      @include eventAreaPosition(absolute, 50px, 50px, 160px, 1);
+    .hoverEventArea1 {
+      @include eventAreaPosition(absolute, 75px, 60px, 230px, 1);
     }
 
-    .thirdHoverEventArea {
-      @include eventAreaPosition(absolute, 100px, 50px, 160px, 1);
+    .hoverEventArea2 {
+      @include eventAreaPosition(absolute, 135px, 60px, 230px, 1);
     }
 
-    .fourthHoverEventArea {
-      @include eventAreaPosition(absolute, 150px, 50px, 160px, 1);
+    .hoverEventArea3 {
+      @include eventAreaPosition(absolute, 19px, 60px, 230px, 1);
     }
 
     .imageWrapper {
@@ -67,7 +67,7 @@
     .productWrapper {
       position: relative;
 
-      .firstHoverEventArea {
+      .hoverEventArea0 {
         @include meDiaQueryEventAreaPosition(
           absolute,
           80px,
@@ -78,7 +78,7 @@
         );
       }
 
-      .secondHoverEventArea {
+      .hoverEventArea1 {
         @include meDiaQueryEventAreaPosition(
           absolute,
           80px,
@@ -89,7 +89,7 @@
         );
       }
 
-      .thirdHoverEventArea {
+      .hoverEventArea2 {
         @include meDiaQueryEventAreaPosition(
           absolute,
           80px,
@@ -100,7 +100,7 @@
         );
       }
 
-      .fourthHoverEventArea {
+      .hoverEventArea3 {
         @include meDiaQueryEventAreaPosition(
           absolute,
           390px,

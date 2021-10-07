@@ -19,8 +19,6 @@ class ProductList extends Component {
     return window.addEventListener('scroll', this.handleScroll);
   }
 
-  componentDidUpdate() {}
-
   fetchMoreData = async () => {
     const LIST_API = '/data/ProductList/PRODUCT_LIST_DATA.json';
 
@@ -60,7 +58,7 @@ class ProductList extends Component {
   };
 
   handleScroll = async () => {
-    const { totalCountDataFetched, listData, loading } = this.state;
+    const { totalCountDataFetched } = this.state;
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
     let scrollTotalHeight = scrollHeight;
     let scrollHeightFromTop = scrollTop;
@@ -80,9 +78,6 @@ class ProductList extends Component {
 
   render() {
     const { listData, loading, totalCountDataFetched } = this.state;
-    console.log('1번순서 render, 현재 받아진 데이터 리스트', listData);
-    console.log('1번 순서 render, 전체 데이터 갯수', listData.length);
-
     const noData = listData.length !== totalCountDataFetched;
 
     return (

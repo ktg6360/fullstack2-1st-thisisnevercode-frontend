@@ -30,34 +30,43 @@ class ProductCard extends Component {
     }
   };
 
-  changeMainToDetailImage = () => {
+  changeMainToDetailImage = event => {
     const { detailImage } = this.props;
 
-    for (let data = 0; data < detailImage.length; data++) {
-      const hoverEventArea = {
-        firstHoverEventArea: 0,
-        secondHoverEventArea: 1,
-        thirdHoverEventArea: 2,
-        fourthHoverEventArea: 3,
-      };
-      [
-        'firstHoverEventArea',
-        'secondHoverEventArea',
-        'thirdHoverEventArea',
-        'fourthHoverEventArea',
-      ].map(area => {
-        const idx = hoverEventArea[area];
-        return this.setState({
-          mainImage: detailImage[idx].image,
-        });
-      });
-    }
+    // for (let data = 0; data < detailImage.length; data++) {
+    const hoverEventArea = {
+      hoverEventArea0: 0,
+      hoverEventArea1: 1,
+      hoverEventArea2: 2,
+      hoverEventArea3: 3,
+    };
+
+    [
+      'hoverEventArea0',
+      'hoverEventArea1',
+      'hoverEventArea2',
+      'hoverEventArea3',
+    ].map(area => {
+      const idx = hoverEventArea[area];
+      switch (event.target.className) {
+        case `hoverEventArea${idx}`:
+          this.setState({
+            mainImage: detailImage[idx].image,
+          });
+          break;
+        default:
+      }
+    });
   };
 
   changeMainImage = () => {
     this.setState({
       mainImage: this.props.mainImage,
     });
+  };
+
+  goToDetailPage = () => {
+    this.props.history.push();
   };
 
   render() {
@@ -68,10 +77,10 @@ class ProductCard extends Component {
       <div className='ProductCard'>
         <div className='productWrapper'>
           {[
-            'firstHoverEventArea',
-            'secondHoverEventArea',
-            'thirdHoverEventArea',
-            'fourthHoverEventArea',
+            'hoverEventArea0',
+            'hoverEventArea1',
+            'hoverEventArea2',
+            'hoverEventArea3',
           ].map(className => {
             return (
               <div
