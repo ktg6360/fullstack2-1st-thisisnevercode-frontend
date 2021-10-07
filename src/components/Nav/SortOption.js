@@ -14,16 +14,17 @@ class SortOption extends Component {
   render() {
     const { isChecked, name } = this.props;
     return (
-      <li className='sortOption'>
-        <div className='checkBackground' />
+      <li className='sortOption classForSortClose'>
+        <div className='checkBackground classForSortClose' />
         <FontAwesomeIcon
+          id='idForSortClose'
           onClick={this.onClick}
           icon={faCheck}
           className={`checkIcon ${
             isChecked ? 'checkVisible' : 'checkInvisible'
           }`}
         />
-        <Link to='/' onClick={this.onClick}>
+        <Link className='classForSortClose' to='/' onClick={this.onClick}>
           {name}
         </Link>
       </li>

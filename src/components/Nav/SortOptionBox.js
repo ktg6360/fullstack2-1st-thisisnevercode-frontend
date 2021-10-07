@@ -12,13 +12,17 @@ class SortOptionBox extends Component {
     ],
   };
 
-  // componentDidMount() {
-  //   document.addEventListener('click', this.props.closeSortModal);
-  // }
-
-  // componentWillUnmount() {
-  //   document.removeEventListener('click', this.props.closeSortModal);
-  // }
+  componentDidMount() {
+    document.addEventListener('click', event => {
+      if (
+        !event.target.getAttribute('class').includes('classForSortClose') &&
+        event.target.id !== 'idForSortClose'
+      ) {
+        this.props.closeSortModal();
+      }
+      console.log(event.target.id);
+    });
+  }
 
   handleCheckIcon = id => {
     const { sortOptions } = this.state;
@@ -29,7 +33,6 @@ class SortOptionBox extends Component {
 
   onClick = () => {
     const { closeSortModal } = this.props;
-    document.addEventListener('click', this.closeSortModal);
     closeSortModal();
   };
 
@@ -38,17 +41,17 @@ class SortOptionBox extends Component {
     const { sortOptions } = this.state;
     return (
       <div
-        className={`sortOptionBoxScrollUp ${
+        className={`sortOptionBoxScrollUp classForSortClose ${
           isSortModalOn ? 'sortOptionBox' : 'sortModalInvisible'
         }`}
       >
-        <div className='sortOptionHeader'>
-          <p className='sortOptionHeaderTitle'>SORT BY</p>
-          <button className='sortOptionCloseBtn' onClick={this.onClick}>
+        <div className='sortOptionHeader classForSortClose'>
+          <p className='sortOptionHeaderTitle classForSortClose'>SORT BY</p>
+          <button className='sortOptionCloseBtn ' onClick={this.onClick}>
             X
           </button>
         </div>
-        <ul className='sortList'>
+        <ul className='sortList classForSortClose'>
           {sortOptions.map(sortOption => {
             const { isChecked, id, name } = sortOption;
             return (

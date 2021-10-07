@@ -9,7 +9,18 @@ class ViewOptionBox extends Component {
       { id: 2, name: 'Small', isChecked: false },
     ],
   };
-
+  componentDidMount() {
+    document.addEventListener('click', event => {
+      if (
+        !event.target.getAttribute('class').includes('classForViewClose') &&
+        event.target.id !== 'idForViewClose'
+      ) {
+        this.props.closeViewModal();
+      }
+      console.log(event.target.id);
+      console.log(event.target.className);
+    });
+  }
   handleCheckIcon = id => {
     const { viewOptions } = this.state;
     const newViewOptions = [...viewOptions];
@@ -27,17 +38,17 @@ class ViewOptionBox extends Component {
     const { viewOptions } = this.state;
     return (
       <div
-        className={`viewOptionBoxScrollUp ${
+        className={`viewOptionBoxScrollUp classForViewClose ${
           isViewModalOn ? 'viewOptionBox' : 'viewModalInvisible'
         }`}
       >
-        <div className='viewOptionHeader'>
-          <p className='viewOptionHeaderTitle'>VIEW BY</p>
+        <div className='viewOptionHeader classForViewClose'>
+          <p className='viewOptionHeaderTitle classForViewClose'>VIEW BY</p>
           <button className='viewOptionCloseBtn' onClick={this.onClick}>
             X
           </button>
         </div>
-        <ul className='ViewList'>
+        <ul className='ViewList classForViewClose'>
           {viewOptions.map(viewOption => {
             const { isChecked, id, name } = viewOption;
             return (

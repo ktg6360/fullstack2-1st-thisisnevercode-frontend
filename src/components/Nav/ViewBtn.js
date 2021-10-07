@@ -9,9 +9,11 @@ class ViewBtn extends Component {
       <>
         <div
           onClick={toggleViewModal}
-          className={`ViewBtn ${isViewModalOn ? 'viewBtnOn' : 'viewBtnNotOn'}`}
+          className={`ViewBtn classForViewClose${
+            isViewModalOn ? 'viewBtnOn' : 'viewBtnNotOn'
+          }`}
         >
-          <p className='viewBtntext'>View</p>
+          <p className='viewBtntext classForViewClose'>View</p>
         </div>
         <ViewOptionBox
           closeViewModal={closeViewModal}

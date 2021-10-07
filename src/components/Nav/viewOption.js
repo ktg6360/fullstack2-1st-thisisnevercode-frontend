@@ -14,16 +14,17 @@ class ViewOption extends Component {
   render() {
     const { isChecked, name } = this.props;
     return (
-      <li className='viewOption'>
-        <div className='checkBack' />
+      <li className='viewOption classForViewClose'>
+        <div className='checkBack classForViewClose' />
         <FontAwesomeIcon
+          id='idForViewClose'
           onClick={this.onClick}
           icon={faCheck}
           className={`checkIcon ${
             isChecked ? 'checkVisible' : 'checkInvisible'
           }`}
         />
-        <Link to='/' onClick={this.onClick}>
+        <Link className='classForViewClose' to='/' onClick={this.onClick}>
           {name}
         </Link>
       </li>
