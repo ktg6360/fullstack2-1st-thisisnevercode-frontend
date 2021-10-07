@@ -39,13 +39,16 @@ class SignIn extends Component {
   render() {
     const { showPw, email, password } = this.state;
     const userValidate = email.includes('@') && password.length >= 5;
+    const wrongInput =
+      (email.includes('wecode@') && password.includes('12345')) ||
+      (email === '' && password === '');
     return (
       <section className='SignIn'>
         <form className='form'>
           <div className='signInBox'>
             <p className='email'>이메일</p>
             <input
-              className='emailText'
+              className='emailInput'
               type='text'
               placeholder='이메일'
               name='email'
@@ -62,6 +65,9 @@ class SignIn extends Component {
             <div className='onEye' onClick={this.changeIcon}>
               {showPw ? <FaEyeSlash /> : <FaEye />}
             </div>
+            <p className={wrongInput ? 'wrongIdHide' : 'wrongId'}>
+              이메일 또는 비밀번호가 잘못되었습니다.
+            </p>
             <button
               className='signInButton'
               onClick={userValidate ? this.goToList : this.signInFailAlert}

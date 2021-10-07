@@ -10,7 +10,6 @@
     flex-direction: column;
     width: 600px;
     margin: 130px 40px 100px 40px;
-    font-family: Helvetica;
   }
 
   .email,
@@ -26,7 +25,7 @@
     cursor: pointer;
   }
 
-  .emailText,
+  .emailInput,
   .passwordInput {
     height: 43px;
     margin-bottom: 20px;
@@ -34,6 +33,17 @@
     border: solid 1px;
     font-size: 15px;
     opacity: 0.8;
+  }
+
+  .wrongId {
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: red;
+    opacity: 0.5;
+  }
+
+  .wrongIdHide {
+    display: none;
   }
 
   .signInButton {
