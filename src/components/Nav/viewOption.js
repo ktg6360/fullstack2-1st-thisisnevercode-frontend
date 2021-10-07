@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import './ViewOption.scss';
 
 class ViewOption extends Component {
@@ -16,10 +14,9 @@ class ViewOption extends Component {
     return (
       <li className='viewOption classForViewClose'>
         <div className='checkBack classForViewClose' />
-        <FontAwesomeIcon
-          id='idForViewClose'
+        <div
           onClick={this.onClick}
-          icon={faCheck}
+          id='idForViewClose'
           className={`checkIcon ${
             isChecked ? 'checkVisible' : 'checkInvisible'
           }`}

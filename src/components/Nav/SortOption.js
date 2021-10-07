@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import './SortOption.scss';
 
 class SortOption extends Component {
@@ -16,10 +14,9 @@ class SortOption extends Component {
     return (
       <li className='sortOption classForSortClose'>
         <div className='checkBackground classForSortClose' />
-        <FontAwesomeIcon
-          id='idForSortClose'
+        <div
           onClick={this.onClick}
-          icon={faCheck}
+          id='idForSortClose'
           className={`checkIcon ${
             isChecked ? 'checkVisible' : 'checkInvisible'
           }`}

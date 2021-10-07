@@ -14,10 +14,10 @@ class SortOptionBox extends Component {
 
   componentDidMount() {
     document.addEventListener('click', event => {
-      if (
+      const hasSameClassOrIdForSort =
         !event.target.getAttribute('class').includes('classForSortClose') &&
-        event.target.id !== 'idForSortClose'
-      ) {
+        event.target.id !== 'idForSortClose';
+      if (hasSameClassOrIdForSort) {
         this.props.closeSortModal();
       }
       console.log(event.target.id);

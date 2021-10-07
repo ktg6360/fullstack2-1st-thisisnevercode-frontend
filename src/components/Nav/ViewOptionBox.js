@@ -9,18 +9,18 @@ class ViewOptionBox extends Component {
       { id: 2, name: 'Small', isChecked: false },
     ],
   };
+
   componentDidMount() {
     document.addEventListener('click', event => {
-      if (
+      const hasSameClassOrIdForView =
         !event.target.getAttribute('class').includes('classForViewClose') &&
-        event.target.id !== 'idForViewClose'
-      ) {
+        event.target.id !== 'idForViewClose';
+      if (hasSameClassOrIdForView) {
         this.props.closeViewModal();
       }
-      console.log(event.target.id);
-      console.log(event.target.className);
     });
   }
+
   handleCheckIcon = id => {
     const { viewOptions } = this.state;
     const newViewOptions = [...viewOptions];

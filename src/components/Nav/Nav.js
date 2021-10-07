@@ -81,13 +81,6 @@ class Nav extends Component {
     });
   };
 
-  // closeAllModal = (event, target) => {
-  //   const { isViewModalOn, isSortModalOn } = this.state;
-  //   // console.log(event.target.className);
-  //   console.log('event target:', event.target);
-  //   console.log('ref:', target);
-  // };
-
   toggleSortModal = () => {
     const { isSortModalOn } = this.state;
     this.setState({
