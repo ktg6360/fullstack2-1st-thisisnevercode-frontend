@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './Dropdown.scss';
 import { convertToUrlForDropdown } from '../../utils/urlConverter';
+import './Dropdown.scss';
 
 class Dropdown extends Component {
   state = {

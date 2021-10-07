@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .Dropdown {
   position: absolute;
   top: 50px;
@@ -29,7 +31,7 @@
 
       &:hover {
         .dropdownIcon {
-          background-color: #0e0;
+          background-color: $pointColor;
           transition: background-color 0.3s;
         }
       }

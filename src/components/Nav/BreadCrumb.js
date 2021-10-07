@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './BreadCrumb.scss';
 import { convertToUrlForBreadCrumb } from '../../utils/urlConverter';
+import './BreadCrumb.scss';
 
 class BreadCrumb extends Component {
   render() {

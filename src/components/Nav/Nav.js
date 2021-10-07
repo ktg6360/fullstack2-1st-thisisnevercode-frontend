@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import BreadCrumb from './BreadCrumb';
 import Dropdown from './Dropdown';
 import SortBtn from './SortBtn';
 import ViewBtn from './ViewBtn';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle } from '@fortawesome/free-solid-svg-icons';
-import './Nav.scss';
 import { convertToUrlForNav } from '../../utils/urlConverter';
+import './Nav.scss';
 class Nav extends Component {
   state = {
     isNavVisible: true,
@@ -81,6 +81,7 @@ class Nav extends Component {
       isViewModalOn: false,
     });
   };
+
   openSortModal = () => {
     this.setState({
       isSortModalOn: true,
@@ -105,7 +106,6 @@ class Nav extends Component {
       isViewModalOn,
     } = this.state;
     const { location } = this.props;
-
     return (
       <>
         <nav className={isNavVisible ? 'Nav navActive' : 'Nav navHidden'}>
