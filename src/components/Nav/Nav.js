@@ -109,7 +109,6 @@ class Nav extends Component {
       isDropdownVisible,
       isSortModalOn,
       isViewModalOn,
-      toggleSortModal,
     } = this.state;
     const { location } = this.props;
     return (
@@ -211,7 +210,6 @@ class Nav extends Component {
           <SortBtn
             closeSortModal={this.closeSortModal}
             toggleSortModal={this.toggleSortModal}
-            closeAllModal={this.closeAllModal}
             isSortModalOn={isSortModalOn}
           />
           <ViewBtn

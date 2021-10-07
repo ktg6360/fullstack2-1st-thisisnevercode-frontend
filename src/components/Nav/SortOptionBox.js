@@ -20,7 +20,6 @@ class SortOptionBox extends Component {
       if (hasSameClassOrIdForSort) {
         this.props.closeSortModal();
       }
-      console.log(event.target.id);
     });
   }
 
