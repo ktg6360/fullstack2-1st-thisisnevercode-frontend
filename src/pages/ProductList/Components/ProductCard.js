@@ -12,50 +12,49 @@ class ProductCard extends Component {
   }
 
   changeSubImage = event => {
-    let { detailImage } = this.props;
-    for (let detailImg of detailImage) {
-      if (detailImg.img !== event.target.src) {
+    let { image } = this.props;
+    const otherColorSubImageUrl = event.target.src;
+
+    for (let data of image) {
+      const mainImageUrl = data.image;
+
+      if (mainImageUrl !== otherColorSubImageUrl) {
         this.setState({
-          mainImage: event.target.src,
+          mainImage: otherColorSubImageUrl,
         });
       } else {
         this.setState({
-          mainImage: detailImg.img,
+          mainImage: mainImageUrl,
         });
       }
     }
   };
 
-  hover = event => {
+  changeMainToDetailImage = () => {
     const { detailImage } = this.props;
-    for (let detailImg = 0; detailImg < detailImage.length; detailImg++) {
-      switch (event.target.className) {
-        case 'eventArea1':
-          this.setState({
-            mainImage: detailImage[0].image,
-          });
-          break;
-        case 'eventArea2':
-          this.setState({
-            mainImage: detailImage[1].image,
-          });
-          break;
-        case 'eventArea3':
-          this.setState({
-            mainImage: detailImage[2].image,
-          });
-          break;
-        case 'eventArea4':
-          this.setState({
-            mainImage: detailImage[3].image,
-          });
-          break;
-        default:
-      }
+
+    for (let data = 0; data < detailImage.length; data++) {
+      const hoverEventArea = {
+        firstHoverEventArea: 0,
+        secondHoverEventArea: 1,
+        thirdHoverEventArea: 2,
+        fourthHoverEventArea: 3,
+      };
+      [
+        'firstHoverEventArea',
+        'secondHoverEventArea',
+        'thirdHoverEventArea',
+        'fourthHoverEventArea',
+      ].map(area => {
+        const idx = hoverEventArea[area];
+        return this.setState({
+          mainImage: detailImage[idx].image,
+        });
+      });
     }
   };
 
-  hoverOut = e => {
+  changeMainImage = () => {
     this.setState({
       mainImage: this.props.mainImage,
     });
@@ -67,62 +66,36 @@ class ProductCard extends Component {
 
     return (
       <div className='ProductCard'>
-        <div className='productImageWrapper'>
-          <div
-            className='eventArea1'
-            onMouseEnter={this.hover}
-            onMouseLeave={this.hoverOut}
-          ></div>
-          <div
-            className='eventArea2'
-            onMouseEnter={this.hover}
-            onMouseLeave={this.hoverOut}
-          ></div>
-          <div
-            className='eventArea3'
-            onMouseEnter={this.hover}
-            onMouseLeave={this.hoverOut}
-          ></div>
-          <div
-            className='eventArea4'
-            onMouseEnter={this.hover}
-            onMouseLeave={this.hoverOut}
-          ></div>
+        <div className='productWrapper'>
+          {[
+            'firstHoverEventArea',
+            'secondHoverEventArea',
+            'thirdHoverEventArea',
+            'fourthHoverEventArea',
+          ].map(className => {
+            return (
+              <div
+                className={className}
+                onMouseEnter={this.changeMainToDetailImage}
+                onMouseLeave={this.changeMainImage}
+              />
+            );
+          })}
 
-          <div className='detailImgWrapper'>
-            <img src={image} alt={name} className='productMainImage' />
-            {/* <div
-              className='productMainImage'
+          <div className='imageWrapper'>
+            <div
+              className='mainImage'
               style={{
                 backgroundImage: `url(${image})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'contain',
-                backgroundPosition: 'center',
               }}
-            ></div> */}
+            />
             {detailImage &&
               detailImage.map(product => {
-                return (
-                  <ProductDetailCard
-                    key={product.detail_id}
-                    detailImage={mainImage}
-                    name={product.name}
-                  />
-                );
+                return <ProductDetailCard detailImage={mainImage} />;
               })}
-            {/* {detailImage &&
-              detailImage.map(product => {
-                return (
-                  <img
-                    className='ProductDetailCard'
-                    key={product.detail_id}
-                    src={mainImage}
-                    name={product.name}
-                  />
-                );
-              })} */}
           </div>
         </div>
+
         <div className='subImgWrapper'>
           {subImage &&
             subImage.map(product => {
@@ -136,6 +109,7 @@ class ProductCard extends Component {
               );
             })}
         </div>
+
         <p className='productName'>{name}</p>
         <p className='productPrice'>{price}</p>
       </div>

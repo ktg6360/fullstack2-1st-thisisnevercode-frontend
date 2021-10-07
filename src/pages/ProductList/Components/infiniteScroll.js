@@ -3,6 +3,7 @@ import './InfiniteScroll.scss';
 class infiniteScroll extends Component {
   render() {
     return (
+      // 무료 SVG 태그 사용
       <div className='infiniteScroll'>
         <div className='loadingio-spinner-pulse-6aqa9utoonk'>
           <div className='ldio-emridzl9wij'>

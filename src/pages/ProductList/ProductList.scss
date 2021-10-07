@@ -10,8 +10,8 @@
       repeat(5, minmax(auto, 5fr)),
       repeat(auto, minmax(350px, auto))
     );
-    @include preventDrag;
     padding: 48px 40px 60px 40px;
+    @include preventDrag;
   }
 }
 

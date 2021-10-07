@@ -42,9 +42,16 @@
   z-index: $zIndex;
 }
 // Mixins in ProductDetailCard
-@mixin productDetailCardTemplate($position, $bottom, $width, $height) {
-  position: $position;
-  bottom: $bottom;
+@mixin productDetailCardTemplate(
+  $backgroundSize,
+  $backgroundRepeat,
+  $backgroundPosition,
+  $width,
+  $height
+) {
+  background-size: $backgroundSize;
+  background-repeat: $backgroundRepeat;
+  background-position: $backgroundPosition;
   width: $width;
   height: $height;
 }

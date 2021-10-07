@@ -10,9 +10,6 @@ class ProductDetailCard extends Component {
         className='ProductDetailCard'
         style={{
           backgroundImage: `url(${detailImage})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
         }}
       ></div>
     );

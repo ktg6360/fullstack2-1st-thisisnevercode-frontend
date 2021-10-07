@@ -84,7 +84,6 @@ class ProductList extends Component {
     console.log('1번 순서 render, 전체 데이터 갯수', listData.length);
 
     const noData = listData.length !== totalCountDataFetched;
-    const noLoad = listData.length !== totalCountDataFetched;
 
     return (
       <main className='ProductList'>

@@ -8,39 +8,47 @@
   margin: 0;
   text-align: center;
 
-  .productImageWrapper {
+  .productWrapper {
     position: relative;
 
-    .eventArea1 {
+    .firstHoverEventArea {
       @include eventAreaPosition(absolute, 0, 50px, 160px, 1);
     }
 
-    .eventArea2 {
+    .secondHoverEventArea {
       @include eventAreaPosition(absolute, 50px, 50px, 160px, 1);
     }
 
-    .eventArea3 {
+    .thirdHoverEventArea {
       @include eventAreaPosition(absolute, 100px, 50px, 160px, 1);
     }
 
-    .eventArea4 {
+    .fourthHoverEventArea {
       @include eventAreaPosition(absolute, 150px, 50px, 160px, 1);
     }
+
+    .imageWrapper {
+      .mainImage {
+        @include productDetailCardTemplate(
+          contain,
+          no-repeat,
+          bottom,
+          265px,
+          230px
+        );
+      }
+    }
   }
-  .productMainImage {
-    width: 265px;
-    height: 230px;
+
+  .subImgWrapper {
+    display: flex;
+    justify-content: center;
   }
 
   .productName {
     font-weight: 600;
     font-size: 20px;
     line-height: 28px;
-  }
-
-  .subImgWrapper {
-    display: flex;
-    justify-content: center;
   }
 
   .productPrice {
@@ -56,10 +64,10 @@
     margin: 0;
     text-align: center;
 
-    .productImageWrapper {
+    .productWrapper {
       position: relative;
 
-      .eventArea1 {
+      .firstHoverEventArea {
         @include meDiaQueryEventAreaPosition(
           absolute,
           80px,
@@ -70,7 +78,7 @@
         );
       }
 
-      .eventArea2 {
+      .secondHoverEventArea {
         @include meDiaQueryEventAreaPosition(
           absolute,
           80px,
@@ -81,7 +89,7 @@
         );
       }
 
-      .eventArea3 {
+      .thirdHoverEventArea {
         @include meDiaQueryEventAreaPosition(
           absolute,
           80px,
@@ -92,7 +100,7 @@
         );
       }
 
-      .eventArea4 {
+      .fourthHoverEventArea {
         @include meDiaQueryEventAreaPosition(
           absolute,
           390px,
@@ -103,15 +111,9 @@
         );
       }
 
-      .productMainImage {
+      .mainImage {
         width: 522px;
         height: 601px;
-      }
-
-      .productName {
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 28px;
       }
 
       .subImgWrapper {
@@ -123,6 +125,9 @@
         font-weight: 600;
         font-size: 20px;
         line-height: 28px;
+      }
+      .productName {
+        @extend .productPrice;
       }
     }
   }
