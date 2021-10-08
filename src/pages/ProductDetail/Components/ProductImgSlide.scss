@@ -10,7 +10,7 @@
 
 .ProductImgSlide {
   position: relative;
-  width: 600px;
+  width: 500px;
   height: 100%;
   overflow-x: hidden;
 
@@ -31,22 +31,23 @@
 
   .slideimgBox {
     position: relative;
-    width: 600px;
+    width: 100%;
     height: 780px;
     overflow: hidden;
 
     .imgList {
       display: flex;
+      align-items: center;
       position: absolute;
       float: left;
       transition: all 400ms ease 0s;
       width: 100%;
-      height: 100%;
       @include preventDrag;
 
       .slideImg {
-        width: 600px;
+        width: 100%;
         height: 100%;
+        margin-top: 100px;
       }
     }
   }
@@ -73,8 +74,10 @@
 }
 
 @media screen and (max-width: 1140px) {
-  .buttonPrev,
-  .buttonNext {
-    display: none;
+  .ProductImgSlide {
+    .buttonPrev,
+    .buttonNext {
+      display: none;
+    }
   }
 }

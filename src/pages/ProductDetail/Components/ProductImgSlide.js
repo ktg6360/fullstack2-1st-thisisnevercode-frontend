@@ -22,7 +22,7 @@ class ProductImgSlide extends Component {
             className='imgList'
             style={{
               transform: `translate3d(
-                ${this.props.imgNo * -600}px, 0px, 0px`,
+                ${this.props.imgNo * -500}px, 0px, 0px`,
             }}
           >
             {this.props.productInfo.subImg.map((info, idx) => (
