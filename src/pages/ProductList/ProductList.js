@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ProductCard from './Components/ProductCard';
 import GoBackToTopButton from './Components/GoBackToTopButton';
-import InfiniteScroll from './Components/InfiniteScroll';
+import InfiniteScroll from './Components/infiniteScroll';
 import './ProductList.scss';
 
 class ProductList extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './InfiniteScroll.scss';
-class infiniteScroll extends Component {
+class InfiniteScroll extends Component {
   render() {
     return (
       // 무료 SVG 태그 사용
@@ -17,4 +17,4 @@ class infiniteScroll extends Component {
   }
 }
 
-export default infiniteScroll;
+export default InfiniteScroll;
