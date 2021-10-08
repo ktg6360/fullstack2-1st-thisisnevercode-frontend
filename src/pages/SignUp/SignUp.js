@@ -70,6 +70,28 @@ class SignUp extends Component {
     }
   };
 
+  // returnAllChecked = () => {
+  //   const {
+  //     isAllAgreeChecked,
+  //     isUseAgreeChecked,
+  //     isInformationAgreeChecked,
+  //     isMarketingAgreeChecked,
+  //     isMyselfAgreeChecked,
+  //   } = this.state;
+  //   if (
+  //     isInformationAgreeChecked &&
+  //     checked &&
+  //     isUseAgreeChecked &&
+  //     checked &&
+  //     isMarketingAgreeChecked &&
+  //     checked &&
+  //     isMyselfAgreeChecked
+  //   )
+  //     this.setState({
+  //       isAllAgreeChecked: true,
+  //     });
+  // };
+
   changeIcon = () => {
     this.setState({
       showPw: !this.state.showPw,
