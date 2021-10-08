@@ -6,7 +6,6 @@
   .bottomLinkBox {
     border-top: 1px solid black;
     border-right: 1px solid black;
-    border-bottom: 1px solid black;
     font-size: 60px;
     font-weight: 500;
 
@@ -31,11 +30,6 @@
   .BottomLink {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
-    &:nth-child(3) .bottomLinkBox,
-    &:nth-child(4) .bottomLinkBox {
-      border-top: none;
-    }
 
     .bottomLinkBox {
       a {

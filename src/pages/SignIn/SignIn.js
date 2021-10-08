@@ -78,7 +78,7 @@ class SignIn extends Component {
               <p className='signInText'>LOGIN</p>
             </button>
             <div className='addFunction'>
-              <Link className='signUp' to='/SignUp'>
+              <Link className='signUp' to='/signup'>
                 회원가입
               </Link>
               <Link className='findPassword' to=''>

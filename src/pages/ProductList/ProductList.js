@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import ProductCard from './Components/ProductCard';
 import GoBackToTopButton from './Components/GoBackToTopButton';
 import InfiniteScroll from './Components/infiniteScroll';
@@ -102,15 +103,17 @@ class ProductList extends Component {
             listData.map(product => {
               const { id, image, subImage, detailImage, name, price } = product;
               return (
-                <ProductCard
-                  key={id}
-                  image={image}
-                  subImage={subImage}
-                  detailImage={detailImage}
-                  name={name}
-                  price={price}
-                  fetchMoreData={this.fetchMoreData}
-                />
+                <Link to='/product/1'>
+                  <ProductCard
+                    key={id}
+                    image={image}
+                    subImage={subImage}
+                    detailImage={detailImage}
+                    name={name}
+                    price={price}
+                    fetchMoreData={this.fetchMoreData}
+                  />
+                </Link>
               );
             })}
         </div>
