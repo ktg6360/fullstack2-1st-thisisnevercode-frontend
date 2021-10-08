@@ -1,0 +1,68 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "T.N.T. Classic HDP Hoodie Black",
+      "price": "₩85,000",
+      "description": "T.N.T Classic HDP Series is the most basic high-quality sweatshirt in thisisneverthat. Consiting of zip-up hooded sweatshirt, hooded sweatshirt, crewneck sweatshirt, sweatpants, this series was created each in six colors.",
+      "textileInfo": "Fabric developed by thisisneverthat\nFluffy lining\nCotton 100%\nMade in China\n",
+      "mainImg": "https://image.shutterstock.com/image-photo/chlumcany-czech-republic-march-28-600w-269042048.jpg",
+      "subImg": [
+        {
+          "imgUrl": "https://image.shutterstock.com/image-photo/chlumcany-czech-republic-march-28-600w-269042048.jpg",
+          "alt": "mainshoes"
+        },
+        {
+          "imgUrl": "https://image.shutterstock.com/image-photo/chlumcany-czech-republic-march-27-600w-267973937.jpg",
+          "alt": "mainshoes"
+        },
+        {
+          "imgUrl": "https://image.shutterstock.com/image-photo/sport-shoes-isolated-on-white-600w-53553910.jpg",
+          "alt": "mainshoes"
+        },
+        {
+          "imgUrl": "https://image.shutterstock.com/image-photo/sport-shoes-isolated-on-white-600w-53553910.jpg",
+          "alt": "mainshoes"
+        },
+        {
+          "imgUrl": "https://image.shutterstock.com/image-photo/chlumcany-czech-republic-march-27-600w-272288309.jpg ",
+          "alt": "mainshoes"
+        },
+        {
+          "imgUrl": " https://image.shutterstock.com/image-photo/chlumcany-czech-republic-march-27-600w-279129371.jpg",
+          "alt": "mainshoes"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "T.N.T. Classic HDP Hoodie Black",
+      "price": "₩85,000",
+      "description": "T.N.T Classic HDP Series is the most basic high-quality sweatshirt in thisisneverthat. Consiting of zip-up hooded sweatshirt, hooded sweatshirt, crewneck sweatshirt, sweatpants, this series was created each in six colors.",
+      "textileInfo": "Fabric developed by thisisneverthat\nFluffy lining\nCotton 100%\nMade in China\n",
+      "mainImg": "https://image.shutterstock.com/image-photo/chlumcany-czech-republic-march-28-600w-269042048.jpg",
+      "subImg": [
+        {
+          "imgUrl": "https://image.shutterstock.com/image-photo/chlumcany-czech-republic-march-28-600w-269042048.jpg",
+          "alt": "mainshoes"
+        },
+        {
+          "imgUrl": "https://image.shutterstock.com/image-photo/chlumcany-czech-republic-march-27-600w-267973937.jpg",
+          "alt": "mainshoes"
+        },
+        {
+          "imgUrl": "https://image.shutterstock.com/image-photo/sport-shoes-isolated-on-white-600w-53553910.jpg",
+          "alt": "mainshoes"
+        },
+        {
+          "imgUrl": "https://image.shutterstock.com/image-photo/sport-shoes-isolated-on-white-600w-53553910.jpg",
+          "alt": "mainshoes"
+        },
+        {
+          "imgUrl": "https://image.shutterstock.com/image-photo/chlumcany-czech-republic-march-27-600w-272288309.jpg ",
+          "alt": "mainshoes"
+        }
+      ]
+    }
+  ]
+}
