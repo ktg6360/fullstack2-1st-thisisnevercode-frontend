@@ -1,0 +1,27 @@
+{
+  "productsNavMenus": [
+    {
+      "id": 1,
+      "name": "TOP20"
+    },
+    {
+      "id": 2,
+      "name": "FEATURES"
+    },
+    {
+      "id": 3,
+      "name": "SEARCH"
+    }
+  ],
+
+  "usersNavMenus": [
+    {
+      "id": 1,
+      "name": "KOR / ₩"
+    },
+    {
+      "id": 2,
+      "name": "LOGIN"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+.ProductDetail {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  height: 780px;
+  margin: auto;
+  margin-top: 45px;
+  margin-bottom: 60px;
+  font-family: Helvetica;
+
+  .subImgBox {
+    width: 300px;
+  }
+
+  .mainImgBox {
+    width: 600px;
+  }
+
+  .productInfoBox {
+    width: 300px;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .ProductDetail {
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+
+    .subImgBox {
+      width: 100px;
+    }
+
+    .mainImgBox {
+      width: 700px;
+    }
+
+    .productInfoBox {
+      width: 100%;
+    }
+  }
+}

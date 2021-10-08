@@ -1,0 +1,40 @@
+.ProductInfo {
+  width: 100%;
+
+  .name {
+    margin-bottom: 15px;
+    padding-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 120%;
+    color: #111;
+  }
+
+  .price {
+    font-size: 1.5rem;
+  }
+
+  .addCartBtn {
+    width: 200px;
+    height: 40px;
+    margin: 40px 0;
+    background-color: black;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  .description {
+    margin-bottom: 30px;
+    font-size: 1.3rem;
+    line-height: 100%;
+  }
+
+  .textileInformation {
+    font-size: 1.3rem;
+    line-height: 130%;
+    white-space: pre-line;
+  }
+}

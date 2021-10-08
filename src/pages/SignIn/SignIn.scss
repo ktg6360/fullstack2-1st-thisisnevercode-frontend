@@ -1,0 +1,131 @@
+@import '../../styles/variables';
+
+.SignIn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .signInBox {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: 130px 40px 100px 40px;
+  }
+
+  .email,
+  .password {
+    margin-bottom: 6px;
+    font-size: large;
+  }
+
+  .onEye {
+    position: relative;
+    bottom: 50px;
+    left: 560px;
+    cursor: pointer;
+  }
+
+  .emailInput,
+  .passwordInput {
+    height: 43px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border: solid 1px;
+    font-size: 15px;
+    opacity: 0.8;
+  }
+
+  .wrongId {
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: red;
+    opacity: 0.5;
+  }
+
+  .wrongIdHide {
+    display: none;
+  }
+
+  .signInButton {
+    height: 40px;
+    margin-bottom: 21px;
+    color: white;
+    background-color: black;
+    border-radius: 45px;
+    border: none;
+    font-size: large;
+    cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      border: solid 1px black;
+    }
+  }
+
+  .signInText {
+    font-size: 23px;
+    -webkit-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+
+    &:hover {
+      color: black;
+      -webkit-transform: scale(1.2);
+      -moz-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      -o-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+  }
+
+  .addFunction {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .signUp,
+  .findPassword {
+    margin-bottom: 90px;
+    font-size: 17px;
+    text-decoration: underline;
+    -webkit-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+  }
+
+  .signUp:hover,
+  .findPassword:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  .button {
+    height: 45px;
+    margin-bottom: 10px;
+    background-color: white;
+    border: solid 0.1px;
+    border-radius: 45px;
+    font-size: large;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: $widthBreakPoint) {
+  .SignIn {
+    .signInBox {
+      width: 100vw;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .onEye {
+      position: absolute;
+      top: 255px;
+      left: auto;
+      bottom: auto;
+      right: 30px;
+      cursor: pointer;
+    }
+  }
+}

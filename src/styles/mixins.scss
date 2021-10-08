@@ -1,0 +1,60 @@
+// Mixins in allFiles
+
+// Mixins in ProductList
+@mixin preventDrag {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@mixin gridTemplate($display, $columns, $row) {
+  display: $display;
+  grid-template-columns: $columns;
+  grid-template-rows: $row;
+}
+
+// Mixins in ProductCard
+@mixin eventAreaPosition($position, $left, $minWith, $minHeight, $zIndex) {
+  position: $position;
+  left: $left;
+  min-width: $minWith;
+  min-height: $minHeight;
+  z-index: $zIndex;
+}
+
+@mixin meDiaQueryEventAreaPosition(
+  $position,
+  $top,
+  $left,
+  $minWith,
+  $minHeight,
+  $zIndex
+) {
+  position: $position;
+  top: $top;
+  left: $left;
+  min-width: $minWith;
+  min-height: $minHeight;
+  z-index: $zIndex;
+}
+// Mixins in ProductDetailCard
+@mixin productDetailCardTemplate(
+  $backgroundSize,
+  $backgroundRepeat,
+  $backgroundPosition,
+  $width,
+  $height
+) {
+  background-size: $backgroundSize;
+  background-repeat: $backgroundRepeat;
+  background-position: $backgroundPosition;
+  width: $width;
+  height: $height;
+}
+// Mixins in ProductOtherColorCard
+
+// Mixins in GoBackToTopButton
