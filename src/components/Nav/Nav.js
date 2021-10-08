@@ -125,7 +125,7 @@ class Nav extends Component {
             <div className='mainLogoContainer'>
               <img
                 className='mainLogo'
-                src='/images/Nav/mainlogo.svg'
+                src='/images/Nav/thisisnevercode.svg'
                 alt='main logo'
               />
             </div>
@@ -175,7 +175,7 @@ class Nav extends Component {
               <Link to={'/main'}>
                 <img
                   className='mainLogo'
-                  src='/images/Nav/mainlogo.svg'
+                  src='/images/Nav/thisisnevercode.svg'
                   alt='main logo'
                 />
               </Link>
@@ -214,16 +214,20 @@ class Nav extends Component {
               location={location}
             />
           )}
-          <SortBtn
-            closeSortModal={this.closeSortModal}
-            toggleSortModal={this.toggleSortModal}
-            isSortModalOn={isSortModalOn}
-          />
-          <ViewBtn
-            closeViewModal={this.closeViewModal}
-            toggleViewModal={this.toggleViewModal}
-            isViewModalOn={isViewModalOn}
-          />
+          {location !== ('main' || 'siginin' || 'signup') || (
+            <SortBtn
+              closeSortModal={this.closeSortModal}
+              toggleSortModal={this.toggleSortModal}
+              isSortModalOn={isSortModalOn}
+            />
+          )}
+          {location !== ('main' || 'siginin' || 'signup') || (
+            <ViewBtn
+              closeViewModal={this.closeViewModal}
+              toggleViewModal={this.toggleViewModal}
+              isViewModalOn={isViewModalOn}
+            />
+          )}
         </nav>
       </>
     );

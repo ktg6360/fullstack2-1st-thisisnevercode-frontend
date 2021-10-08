@@ -78,6 +78,7 @@
   width: 100vw;
   top: 0;
   font-size: 50px;
+  z-index: 99999;
   animation: blinkSplashScreen 1s ease, hideSplashScreen 2s ease-in-out forwards;
   animation-delay: 0.5s, 2s;
 
