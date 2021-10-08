@@ -12,5 +12,6 @@ export const convertToUrlForDropdown = function (str) {
 };
 
 export const convertToUrlForNav = function (str) {
+  if (str === 'LOGIN') return 'signin';
   return str.toLowerCase();
 };

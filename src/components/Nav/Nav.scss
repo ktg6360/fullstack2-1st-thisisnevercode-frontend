@@ -5,7 +5,6 @@
   top: 0;
   z-index: 9999;
   background-color: $navBgColor;
-  font-family: Arial, Helvetica, sans-serif; //! common에 넣었는데 적용안됨. 머지해보고 확인
 
   .navWrapper {
     display: flex;
@@ -16,6 +15,7 @@
     .productsNavMenu {
       display: flex;
       align-items: center;
+      width: 33%;
       margin-left: 40px;
 
       .navMenuItem {
@@ -34,18 +34,23 @@
     }
 
     .mainLogoContainer {
-      margin-right: 150px;
+      display: flex;
+      justify-content: center;
+      width: 33%;
 
       .mainLogo {
         width: 180px;
         height: 47px;
+        margin-right: 20px;
       }
     }
 
     .userNavMenu {
       display: flex;
+      justify-content: flex-end;
       align-items: center;
       position: relative;
+      width: 33%;
       min-width: 243px;
       margin-right: 20px;
 
@@ -59,7 +64,7 @@
         .cartCountNum {
           position: absolute;
           top: 3px;
-          right: 27px;
+          right: 26px;
           color: white;
         }
 
