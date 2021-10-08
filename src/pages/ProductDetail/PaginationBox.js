@@ -3,7 +3,6 @@ import './PaginationBox.scss';
 
 class PaginationBox extends Component {
   render() {
-    console.log(this.props.productInfo);
     return (
       <div className='PaginationBox'>
         {this.props.productInfo.subImg.map((image, idx) => (
@@ -13,7 +12,7 @@ class PaginationBox extends Component {
               this.props.onChangeImage(idx);
             }}
           >
-            <img src={image.imgUrl} alt={image.alt} />
+            <img className='paginationImg' src={image.imgUrl} alt={image.alt} />
           </div>
         ))}
       </div>

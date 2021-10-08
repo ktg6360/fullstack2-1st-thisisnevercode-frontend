@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import './ProductDetail.scss';
 import PaginationBox from './PaginationBox';
 import ProductImgSlide from './ProductImgSlide';
+import ProductInfo from './ProductInfo';
+import './ProductDetail.scss';
 
 class ProductDetail extends Component {
   constructor() {
@@ -9,6 +10,7 @@ class ProductDetail extends Component {
     this.state = {
       imageCurrentNo: 0,
       product: null,
+      modalOn: false,
     };
   }
 
@@ -26,31 +28,35 @@ class ProductDetail extends Component {
       });
   }
 
+  handleModal = () => {
+    this.setState({ modalOn: !this.state.modalOn });
+  };
+
   render() {
     const productInfo = this.state.product;
+
     return productInfo == null ? null : (
       <section className='ProductDetail'>
-        <figure>
+        <figure className='subImgBox'>
           <PaginationBox
             productInfo={productInfo}
             onChangeImage={this.onChangeImage}
           />
         </figure>
-
-        <article>
+        <article className='mainImgBox'>
           <ProductImgSlide
             productInfo={productInfo}
             imgNo={this.state.imageCurrentNo}
             onChangeImage={this.onChangeImage}
           />
         </article>
-
-        <aside>
-          <h1 className='name'>{productInfo.name}</h1>
-          <div className='price'>{productInfo.price}</div>
-          <div className='box'></div>
-          <p className='description'>{productInfo.description}</p>
-          <p className='textileInformation'>{productInfo.textileInfo}</p>
+        <aside className='productInfoBox'>
+          <ProductInfo
+            productInfo={productInfo}
+            imgNo={this.state.imageCurrentNo}
+            modalOn={this.state.modalOn}
+            handleModal={this.handleModal}
+          />
         </aside>
       </section>
     );

@@ -1,0 +1,30 @@
+.PaginationBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 1rem;
+  width: 95px;
+  height: 100%;
+
+  .paginationImg {
+    width: 100%;
+    height: 80px;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .PaginationBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60px;
+    height: 100%;
+
+    .paginationImg {
+      width: 60px;
+      height: 48px;
+    }
+  }
+}
