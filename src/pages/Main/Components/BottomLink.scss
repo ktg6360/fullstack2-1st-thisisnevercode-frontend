@@ -1,0 +1,50 @@
+@import '../../../styles/variables';
+
+.BottomLink {
+  display: flex;
+
+  .bottomLinkBox {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    font-size: 60px;
+    font-weight: 500;
+
+    a {
+      .bottomLinkText {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25vw;
+        height: calc(25vw * #{$mainImageRatio});
+
+        &:hover {
+          color: white;
+          background-color: black;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $widthBreakPoint) {
+  .BottomLink {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    &:nth-child(3) .bottomLinkBox,
+    &:nth-child(4) .bottomLinkBox {
+      border-top: none;
+    }
+
+    .bottomLinkBox {
+      a {
+        .bottomLinkText {
+          font-size: 20px;
+          width: 50vw;
+          height: calc(50vw * #{$mainImageRatio});
+        }
+      }
+    }
+  }
+}
