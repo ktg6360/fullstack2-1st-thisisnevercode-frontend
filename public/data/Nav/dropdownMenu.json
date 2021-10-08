@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "categoryName": "New"
+  },
+
+  {
+    "id": 2,
+    "categoryName": "All"
+  },
+  {
+    "id": 3,
+    "categoryName": "Outerwear"
+  },
+  {
+    "id": 4,
+    "categoryName": "Sweatshirts"
+  },
+  {
+    "id": 5,
+    "categoryName": "Tees"
+  },
+  {
+    "id": 6,
+    "categoryName": "Shirts"
+  },
+  {
+    "id": 7,
+    "categoryName": "Tops"
+  },
+  {
+    "id": 8,
+    "categoryName": "Bottoms"
+  },
+  {
+    "id": 9,
+    "categoryName": "Shorts"
+  },
+  {
+    "id": 10,
+    "categoryName": "Headwear"
+  },
+  {
+    "id": 11,
+    "categoryName": "Bags"
+  },
+  {
+    "id": 12,
+    "categoryName": "Shoes"
+  },
+  {
+    "id": 13,
+    "categoryName": "Accessories"
+  },
+  {
+    "id": 14,
+    "categoryName": "Collaboration"
+  },
+  {
+    "id": 15,
+    "categoryName": "Archives",
+    "subCategoryName": [
+      { "id": 1, "name": "Tops" },
+      { "id": 2, "name": "Bottoms" },
+      { "id": 3, "name": "Accessoreis" }
+    ]
+  }
+]
