@@ -37,6 +37,20 @@
           230px
         );
       }
+      .ProductDetailCard {
+        @include productDetailCardTemplate(
+          contain,
+          no-repeat,
+          bottom,
+          265px,
+          230px
+        );
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+      }
     }
   }
 
@@ -114,6 +128,21 @@
       .mainImage {
         width: 522px;
         height: 601px;
+      }
+
+      .ProductDetailCard {
+        @include productDetailCardTemplate(
+          contain,
+          no-repeat,
+          bottom,
+          265px,
+          230px
+        );
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
       }
 
       .subImgWrapper {

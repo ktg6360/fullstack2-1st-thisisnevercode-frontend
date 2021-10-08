@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ProductDetailCard from './ProductDetailCard';
+// import ProductDetailCard from './ProductDetailCard';
 import ProductOtherColorCard from './ProductOtherColorCard';
 import './ProductCard.scss';
 
@@ -81,27 +81,32 @@ class ProductCard extends Component {
             'hoverEventArea1',
             'hoverEventArea2',
             'hoverEventArea3',
-          ].map(className => {
+          ].map((className, index) => {
             return (
               <div
                 className={className}
                 onMouseEnter={this.changeMainToDetailImage}
                 onMouseLeave={this.changeMainImage}
+                key={index}
               />
             );
           })}
 
           <div className='imageWrapper'>
-            <div
+            <img
               className='mainImage'
-              style={{
-                backgroundImage: `url(${image})`,
-              }}
+              src={`${image}`}
+              alt={name}
+              key={image.id}
             />
-            {detailImage &&
-              detailImage.map(product => {
-                return <ProductDetailCard detailImage={mainImage} />;
-              })}
+            {mainImage ? (
+              <img
+                className='ProductDetailCard'
+                src={`${mainImage}`}
+                alt={detailImage.image}
+                key={detailImage.id}
+              />
+            ) : null}
           </div>
         </div>
 
