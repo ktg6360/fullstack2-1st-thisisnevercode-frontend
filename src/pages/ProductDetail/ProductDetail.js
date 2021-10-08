@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PaginationBox from './PaginationBox';
 import ProductImgSlide from './ProductImgSlide';
 import ProductInfo from './ProductInfo';
+import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer';
 import './ProductDetail.scss';
 
 class ProductDetail extends Component {
@@ -32,6 +34,7 @@ class ProductDetail extends Component {
 
     return productInfo == null ? null : (
       <section className='ProductDetail'>
+        <Nav />
         <figure className='subImgBox'>
           <PaginationBox
             productInfo={productInfo}
@@ -51,6 +54,7 @@ class ProductDetail extends Component {
             imgNo={this.state.imageCurrentNo}
           />
         </aside>
+        <Footer />
       </section>
     );
   }

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import ImageSlide from './Components/ImageSlide';
 import BottomLink from './Components/BottomLink';
 import SplashScreen from './Components/SplashScreen';
+import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer';
+
 import './Main.scss';
 
 class Main extends Component {
@@ -60,10 +63,12 @@ class Main extends Component {
 
     return (
       <div className={mainClasses}>
+        <Nav />
         <ImageSlide images={firstImages} />
         <ImageSlide images={secondImages} />
         <BottomLink bottomLink={bottomLink} />
         <SplashScreen />
+        <Footer />
       </div>
     );
   }

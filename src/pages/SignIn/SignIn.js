@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa';
+import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer';
 import './SignIn.scss';
 
 class SignIn extends Component {
@@ -44,6 +46,7 @@ class SignIn extends Component {
       (email === '' && password === '');
     return (
       <section className='SignIn'>
+        <Nav />
         <form className='form'>
           <div className='signInBox'>
             <p className='email'>이메일</p>
@@ -87,6 +90,7 @@ class SignIn extends Component {
             <button className='button'>LOGIN WITH GARGLE</button>
           </div>
         </form>
+        <Footer />
       </section>
     );
   }
