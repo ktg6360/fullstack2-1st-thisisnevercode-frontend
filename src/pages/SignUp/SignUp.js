@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa';
+import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer';
 import './SignUp.scss';
 
 class SignUp extends Component {
@@ -119,6 +121,7 @@ class SignUp extends Component {
 
     return (
       <section className='SignUp'>
+        <Nav />
         <form action='' className='form'>
           <div className='signUpBox'>
             <div className='inputBox'>
@@ -245,6 +248,7 @@ class SignUp extends Component {
             </div>
           </div>
         </form>
+        <Footer />
       </section>
     );
   }

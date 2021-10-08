@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ProductCard from './Components/ProductCard';
 import GoBackToTopButton from './Components/GoBackToTopButton';
 import InfiniteScroll from './Components/infiniteScroll';
+import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer';
 import './ProductList.scss';
 
 class ProductList extends Component {
@@ -82,6 +84,7 @@ class ProductList extends Component {
 
     return (
       <main className='ProductList'>
+        <Nav />
         <div className='ProductComponentWrapper'>
           {listData &&
             listData.map(product => {
@@ -108,6 +111,7 @@ class ProductList extends Component {
           ''
         )}
         {noData ? <GoBackToTopButton /> : ''}
+        <Footer />
       </main>
     );
   }
