@@ -1,24 +1,29 @@
+@import '../../styles/_variables.scss';
+
 .ProductDetail {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 95%;
-  height: 780px;
+  height: 100%;
   margin: auto;
-  margin-top: 45px;
-  margin-bottom: 60px;
+  margin-top: 60px;
   font-family: Helvetica;
 
   .subImgBox {
-    width: 300px;
+    width: 18vw;
   }
 
   .mainImgBox {
-    width: 600px;
+    width: 30vw;
   }
 
   .productInfoBox {
-    width: 300px;
+    width: 18vw;
     height: 100%;
+  }
+  Footer {
+    margin-top: 50px;
   }
 }
 
@@ -38,6 +43,7 @@
 
     .productInfoBox {
       width: 100%;
+      height: 100%;
     }
   }
 }
