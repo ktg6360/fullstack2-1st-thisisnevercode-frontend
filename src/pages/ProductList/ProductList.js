@@ -13,6 +13,7 @@ class ProductList extends Component {
       listData: [],
       totalCountDataFetched: 10,
       loading: false,
+      noData: false,
     };
   }
 
@@ -21,10 +22,14 @@ class ProductList extends Component {
     return window.addEventListener('scroll', this.handleScroll);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
   fetchMoreData = async () => {
     const LIST_API = '/data/ProductList/PRODUCT_LIST_DATA.json';
 
-    const { totalCountDataFetched } = this.state;
+    const { totalCountDataFetched, noData } = this.state;
 
     fetch(LIST_API)
       .then(res => {
@@ -37,6 +42,12 @@ class ProductList extends Component {
         this.setState({
           listData: newDatalistData,
         });
+        if (this.state.listData.length === 50) {
+          this.setState({
+            noData: !noData,
+          });
+          return window.removeEventListener('scroll', this.handleScroll);
+        }
       })
       .catch(console.error);
   };
@@ -67,6 +78,7 @@ class ProductList extends Component {
     let scrollHeightOfListCard = clientHeight;
     const isOverEndPointScroll =
       scrollHeightFromTop + scrollHeightOfListCard >= scrollTotalHeight;
+
     if (isOverEndPointScroll) {
       this.setState(
         {
@@ -79,8 +91,8 @@ class ProductList extends Component {
   };
 
   render() {
-    const { listData, loading, totalCountDataFetched } = this.state;
-    const noData = listData.length !== totalCountDataFetched;
+    const { listData, loading, totalCountDataFetched, noData } = this.state;
+    // const noData = listData.length !== totalCountDataFetched;
 
     return (
       <main className='ProductList'>
@@ -110,7 +122,7 @@ class ProductList extends Component {
         ) : (
           ''
         )}
-        {noData ? <GoBackToTopButton /> : ''}
+        {noData && <GoBackToTopButton />}
         <Footer />
       </main>
     );
