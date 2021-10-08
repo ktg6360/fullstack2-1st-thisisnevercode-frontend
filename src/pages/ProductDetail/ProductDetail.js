@@ -10,7 +10,6 @@ class ProductDetail extends Component {
     this.state = {
       imageCurrentNo: 0,
       product: null,
-      modalOn: false,
     };
   }
 
@@ -27,10 +26,6 @@ class ProductDetail extends Component {
         this.setState({ product: res.products[0] });
       });
   }
-
-  handleModal = () => {
-    this.setState({ modalOn: !this.state.modalOn });
-  };
 
   render() {
     const productInfo = this.state.product;
@@ -54,8 +49,6 @@ class ProductDetail extends Component {
           <ProductInfo
             productInfo={productInfo}
             imgNo={this.state.imageCurrentNo}
-            modalOn={this.state.modalOn}
-            handleModal={this.handleModal}
           />
         </aside>
       </section>
