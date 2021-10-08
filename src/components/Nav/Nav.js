@@ -172,11 +172,13 @@ class Nav extends Component {
             </ul>
             {/* Main Logo */}
             <div className='mainLogoContainer'>
-              <img
-                className='mainLogo'
-                src='/images/Nav/mainlogo.svg'
-                alt='main logo'
-              />
+              <Link to={'/main'}>
+                <img
+                  className='mainLogo'
+                  src='/images/Nav/mainlogo.svg'
+                  alt='main logo'
+                />
+              </Link>
             </div>
             {/* userNavMenu */}
             <ul className='userNavMenu'>
@@ -206,7 +208,12 @@ class Nav extends Component {
               </li>
             </ul>
           </div>
-          <BreadCrumb dropdownMenuData={dropdownMenuData} location={location} />
+          {location !== 'main' || (
+            <BreadCrumb
+              dropdownMenuData={dropdownMenuData}
+              location={location}
+            />
+          )}
           <SortBtn
             closeSortModal={this.closeSortModal}
             toggleSortModal={this.toggleSortModal}

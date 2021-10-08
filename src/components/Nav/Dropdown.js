@@ -61,7 +61,9 @@ class Dropdown extends Component {
                 const { id, name } = subCategory;
                 return (
                   <li key={id} className='archiveMenuItem'>
-                    {name}
+                    <Link to={`/archives/${convertToUrlForDropdown(name)}`}>
+                      {name}
+                    </Link>
                   </li>
                 );
               })}
