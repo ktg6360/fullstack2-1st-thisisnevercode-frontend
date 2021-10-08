@@ -31,11 +31,6 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
-    &:nth-child(3) .bottomLinkBox,
-    &:nth-child(4) .bottomLinkBox {
-      border-top: none;
-    }
-
     .bottomLinkBox {
       a {
         .bottomLinkText {

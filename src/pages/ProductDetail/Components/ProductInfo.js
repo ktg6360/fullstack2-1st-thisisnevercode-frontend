@@ -9,7 +9,14 @@ class ProductInfo extends Component {
         <div>
           <h1 className='name'>{name}</h1>
           <p className='price'>{price}</p>
-          <button className='addCartBtn'>Add To Cart</button>
+          <div className='addBox'>
+            <button className='addToCartBtn'>ADD TO CART</button>
+            <p className='addToWishList'>
+              ADD TO
+              <br />
+              WISHLIST
+            </p>
+          </div>
           <p className='description'>{description}</p>
           <p className='textileInformation'>{textileInfo}</p>
         </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import ProductCard from './Components/ProductCard';
 import GoBackToTopButton from './Components/GoBackToTopButton';
 import InfiniteScroll from './Components/infiniteScroll';
@@ -13,6 +14,7 @@ class ProductList extends Component {
       listData: [],
       totalCountDataFetched: 10,
       loading: false,
+      noData: false,
     };
   }
 
@@ -21,10 +23,14 @@ class ProductList extends Component {
     return window.addEventListener('scroll', this.handleScroll);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
   fetchMoreData = async () => {
     const LIST_API = '/data/ProductList/PRODUCT_LIST_DATA.json';
 
-    const { totalCountDataFetched } = this.state;
+    const { totalCountDataFetched, noData } = this.state;
 
     fetch(LIST_API)
       .then(res => {
@@ -37,6 +43,12 @@ class ProductList extends Component {
         this.setState({
           listData: newDatalistData,
         });
+        if (this.state.listData.length === 50) {
+          this.setState({
+            noData: !noData,
+          });
+          return window.removeEventListener('scroll', this.handleScroll);
+        }
       })
       .catch(console.error);
   };
@@ -67,6 +79,7 @@ class ProductList extends Component {
     let scrollHeightOfListCard = clientHeight;
     const isOverEndPointScroll =
       scrollHeightFromTop + scrollHeightOfListCard >= scrollTotalHeight;
+
     if (isOverEndPointScroll) {
       this.setState(
         {
@@ -79,8 +92,8 @@ class ProductList extends Component {
   };
 
   render() {
-    const { listData, loading, totalCountDataFetched } = this.state;
-    const noData = listData.length !== totalCountDataFetched;
+    const { listData, loading, totalCountDataFetched, noData } = this.state;
+    // const noData = listData.length !== totalCountDataFetched;
 
     return (
       <main className='ProductList'>
@@ -90,15 +103,17 @@ class ProductList extends Component {
             listData.map(product => {
               const { id, image, subImage, detailImage, name, price } = product;
               return (
-                <ProductCard
-                  key={id}
-                  image={image}
-                  subImage={subImage}
-                  detailImage={detailImage}
-                  name={name}
-                  price={price}
-                  fetchMoreData={this.fetchMoreData}
-                />
+                <Link to='/product/1'>
+                  <ProductCard
+                    key={id}
+                    image={image}
+                    subImage={subImage}
+                    detailImage={detailImage}
+                    name={name}
+                    price={price}
+                    fetchMoreData={this.fetchMoreData}
+                  />
+                </Link>
               );
             })}
         </div>
@@ -110,7 +125,7 @@ class ProductList extends Component {
         ) : (
           ''
         )}
-        {noData ? <GoBackToTopButton /> : ''}
+        {noData && <GoBackToTopButton />}
         <Footer />
       </main>
     );

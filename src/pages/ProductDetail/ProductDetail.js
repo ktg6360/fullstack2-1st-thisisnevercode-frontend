@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import PaginationBox from './PaginationBox';
-import ProductImgSlide from './ProductImgSlide';
-import ProductInfo from './ProductInfo';
+import PaginationBox from './Components/PaginationBox';
+import ProductImgSlide from './Components/ProductImgSlide';
+import ProductInfo from './Components/ProductInfo';
 import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer';
 import './ProductDetail.scss';
