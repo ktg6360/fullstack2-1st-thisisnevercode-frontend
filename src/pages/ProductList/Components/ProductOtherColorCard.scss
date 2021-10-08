@@ -1,0 +1,25 @@
+@import '../../../styles/variables.scss';
+
+.ProductOtherColorCard {
+  .productSubImgList {
+    list-style: none;
+
+    .productSubImg {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .ProductOtherColorCard {
+    .productSubImgList {
+      list-style: none;
+
+      .productSubImg {
+        width: 85px;
+        height: 100px;
+      }
+    }
+  }
+}
