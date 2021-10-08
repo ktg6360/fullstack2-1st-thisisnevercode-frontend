@@ -46,7 +46,7 @@ class Main extends Component {
       })
       .catch(console.log);
 
-    setTimeout(this.handleSpreadSheet, 2500);
+    setTimeout(this.handleSpreadSheet, 3300);
   }
 
   handleSpreadSheet = () => {

@@ -75,7 +75,7 @@ class ImageSlide extends Component {
           >
             {images &&
               images.map(image => (
-                <Link className='slideContent' to='/productList' key={image.id}>
+                <Link className='slideContent' to='/products' key={image.id}>
                   <img
                     className='slideImage'
                     alt={image.name}
@@ -85,7 +85,7 @@ class ImageSlide extends Component {
               ))}
             {images &&
               images.map(image => (
-                <Link className='slideContent' to='/productList' key={image.id}>
+                <Link className='slideContent' to='/products' key={image.id}>
                   <img
                     className='slideImage'
                     alt={image.name}
