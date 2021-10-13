@@ -22,10 +22,11 @@ class ProductDetail extends Component {
   };
 
   componentDidMount() {
-    fetch('/data/ProductDetail/ProductDetail.json')
+    const id = this.props.match.params.id;
+    fetch(`/product/${id}`)
       .then(res => res.json())
       .then(res => {
-        this.setState({ product: res.products[0] });
+        this.setState({ product: res });
       });
   }
 

@@ -23,6 +23,29 @@ class SignUp extends Component {
     };
   }
 
+  handleClick = e => {
+    const { name, email, password, address } = this.state;
+    e.preventDefault();
+    fetch('/account/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+        address,
+      }),
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+      });
+  };
+
   handleInput = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -79,7 +102,37 @@ class SignUp extends Component {
   };
 
   signUpFailAlert = () => {
-    alert('유효한 형식으로 작성해주세요.');
+    const {
+      name,
+      email,
+      password,
+      address,
+      isUseAgreeChecked,
+      isInformationAgreeChecked,
+      isMyselfAgreeChecked,
+    } = this.state;
+    if (name === '') {
+      return alert('이름을 입력해주세요');
+    } else if (email === '') {
+      return alert('이메일을 입력해주세요');
+    } else if (password === '') {
+      return alert('비밀번호를 입력해주세요');
+    } else if (address === '') {
+      return alert('주소를 입력해주세요');
+    } else if (
+      !isUseAgreeChecked &&
+      !isInformationAgreeChecked &&
+      !isMyselfAgreeChecked
+    ) {
+      return alert('필수 동의버튼을 눌러주세요');
+    } else if (
+      name !== '' &&
+      email !== '' &&
+      password !== '' &&
+      address !== ''
+    ) {
+      return alert('유효한 형식으로 작성해주세요');
+    }
   };
 
   goToList = () => {
@@ -142,7 +195,7 @@ class SignUp extends Component {
               </p>
               <input
                 className='emailBox'
-                type='text'
+                type='email'
                 placeholder='이메일'
                 name='email'
                 onChange={this.handleInput}
@@ -241,7 +294,11 @@ class SignUp extends Component {
               </div>
               <button
                 className='registerBox'
-                onClick={inputComplete ? this.goToList : this.signUpFailAlert}
+                type='button'
+                onClick={
+                  (this.handleClick,
+                  inputComplete ? this.goToList : this.signUpFailAlert)
+                }
               >
                 <p className='registerStyle'>REGISTER</p>
               </button>
