@@ -36,8 +36,11 @@ class Nav extends Component {
       )
       .catch(console.log);
 
-    fetch('/data/Nav/dropdownMenu.json')
-      .then(res => res.json())
+    const dropdown = '/data/Nav/dropdownMenu.json';
+    fetch('/category')
+      .then(res => {
+        return res.json();
+      })
       .then(dropdownMenuData =>
         this.setState({
           dropdownMenuData,
@@ -110,7 +113,10 @@ class Nav extends Component {
       isSortModalOn,
       isViewModalOn,
     } = this.state;
-    const { location } = this.props;
+    const { location } = window;
+    const { pathname } = location;
+    const pathCondition =
+      pathname !== '/main' && pathname !== '/signin' && pathname !== '/signup';
     return (
       <>
         <nav className={isNavVisible ? 'Nav navActive' : 'Nav navHidden'}>
@@ -208,20 +214,20 @@ class Nav extends Component {
               </li>
             </ul>
           </div>
-          {location !== 'main' || (
+          {pathCondition && (
             <BreadCrumb
               dropdownMenuData={dropdownMenuData}
               location={location}
             />
           )}
-          {location !== ('main' || 'siginin' || 'signup') || (
+          {pathCondition && (
             <SortBtn
               closeSortModal={this.closeSortModal}
               toggleSortModal={this.toggleSortModal}
               isSortModalOn={isSortModalOn}
             />
           )}
-          {location !== ('main' || 'siginin' || 'signup') || (
+          {pathCondition && (
             <ViewBtn
               closeViewModal={this.closeViewModal}
               toggleViewModal={this.toggleViewModal}
