@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import ProductCard from './Components/ProductCard';
 import GoBackToTopButton from './Components/GoBackToTopButton';
 import InfiniteScroll from './Components/infiniteScroll';
@@ -28,12 +27,11 @@ class ProductList extends Component {
   }
 
   fetchMoreData = async () => {
-    const LIST_API = '/data/ProductList/PRODUCT_LIST_DATA.json';
-    const LIST_API2 = 'localhost:8000/sort/list';
+    const LIST_API = '/list';
 
     const { totalCountDataFetched, noData } = this.state;
 
-    fetch(LIST_API2)
+    fetch(LIST_API)
       .then(res => {
         return res.json();
       })
@@ -44,7 +42,7 @@ class ProductList extends Component {
         this.setState({
           listData: newDatalistData,
         });
-        if (this.state.listData.length === 50) {
+        if (this.state.listData.length === 30) {
           this.setState({
             noData: !noData,
           });
@@ -102,19 +100,19 @@ class ProductList extends Component {
         <div className='ProductComponentWrapper'>
           {listData &&
             listData.map(product => {
-              const { id, image, subImage, detailImage, name, price } = product;
+              const { id, mainImageUrl, subImage, detailImage, name, price } =
+                product;
               return (
-                <Link to='/product/1'>
-                  <ProductCard
-                    key={id}
-                    image={image}
-                    subImage={subImage}
-                    detailImage={detailImage}
-                    name={name}
-                    price={price}
-                    fetchMoreData={this.fetchMoreData}
-                  />
-                </Link>
+                <ProductCard
+                  key={id}
+                  mainImageUrl={mainImageUrl}
+                  subImage={subImage}
+                  detailImage={detailImage}
+                  name={name}
+                  price={price}
+                  fetchMoreData={this.fetchMoreData}
+                  id={id}
+                />
               );
             })}
         </div>
