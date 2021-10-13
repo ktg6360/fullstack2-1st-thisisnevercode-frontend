@@ -35,7 +35,7 @@ class Footer extends Component {
             <li className='upperFooterMenuItem'>PRIVACY POLICY</li>
             <li className='upperFooterMenuItem'>TERMS&CONDITIONS</li>
           </ul>
-          <div class='copyrightBox'>&copy; 2021 thisisnevercode</div>
+          <div className='copyrightBox'>&copy; 2021 thisisnevercode</div>
         </div>
         <div className='lowerFooter'>
           <ul className='lowerFooterMenuBox'>

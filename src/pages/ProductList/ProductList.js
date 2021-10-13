@@ -29,10 +29,11 @@ class ProductList extends Component {
 
   fetchMoreData = async () => {
     const LIST_API = '/data/ProductList/PRODUCT_LIST_DATA.json';
+    const LIST_API2 = 'localhost:8000/sort/list';
 
     const { totalCountDataFetched, noData } = this.state;
 
-    fetch(LIST_API)
+    fetch(LIST_API2)
       .then(res => {
         return res.json();
       })
