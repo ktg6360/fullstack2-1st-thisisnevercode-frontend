@@ -4,16 +4,15 @@ import { convertToUrlForDropdown } from '../../utils/urlConverter';
 import './Dropdown.scss';
 
 class Dropdown extends Component {
-  state = {
-    dropdownMenuData: [],
-  };
-
   componentDidMount() {
     document.body.style.overflow = 'hidden';
+<<<<<<< HEAD
     fetch('/category')
       .then(res => res.json())
       .then(dropdownMenuData => this.setState({ dropdownMenuData }))
       .catch(console.log);
+=======
+>>>>>>> master
   }
 
   componentWillUnmount() {
@@ -23,10 +22,10 @@ class Dropdown extends Component {
   render() {
     const { dropdownMenuData } = this.props;
     const dropdownMenuDataWithoutSubCategory = dropdownMenuData.filter(
-      data => !data.subCategoryName
+      data => data.subCategoryName === null
     );
     const dropdownMenuDataWithSubCategory = dropdownMenuData.filter(
-      data => data.subCategoryName
+      data => data.subCategoryName !== null
     );
     const { categoryName, subCategoryName } =
       dropdownMenuDataWithSubCategory[0];
@@ -54,15 +53,19 @@ class Dropdown extends Component {
               to={`/${convertToUrlForDropdown(categoryName)}`}
               className='dropdownLink'
             >
-              {`${categoryName} ⟩`}
+              {`${categoryName}`}
             </Link>
             <ul className='archiveMenuBox'>
               {subCategoryName.map(subCategory => {
-                const { id, name } = subCategory;
+                const { id, subCategoryName } = subCategory;
                 return (
                   <li key={id} className='archiveMenuItem'>
-                    <Link to={`/archives/${convertToUrlForDropdown(name)}`}>
-                      {name}
+                    <Link
+                      to={`/archives/${convertToUrlForDropdown(
+                        subCategoryName
+                      )}`}
+                    >
+                      {subCategoryName}
                     </Link>
                   </li>
                 );
@@ -70,7 +73,7 @@ class Dropdown extends Component {
             </ul>
           </li>
         </ul>
-        {/* // ! Link to 속성 해결하기 */}
+        {/* // ! Link to 속성 해결하기  */}
         <div className='dropdownCardBox'>
           <Link to='/todo' className='dropdownLink'>
             <img
