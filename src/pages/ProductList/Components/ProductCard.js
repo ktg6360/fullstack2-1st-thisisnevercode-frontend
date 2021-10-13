@@ -57,7 +57,6 @@ class ProductCard extends Component {
         default:
       }
     });
-    console.log(this.state.mainImage);
   };
 
   changeMainImage = () => {
@@ -73,7 +72,6 @@ class ProductCard extends Component {
   render() {
     const { mainImageUrl, subImage, name, price, detailImage, id } = this.props;
     const { mainImage } = this.state;
-    console.log(id);
 
     return (
       <div className='ProductCard'>
