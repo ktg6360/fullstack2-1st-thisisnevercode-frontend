@@ -22,8 +22,8 @@ class ProductDetail extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props.match.params.id);
-    fetch(`/product/1`)
+    const id = this.props.match.params.id;
+    fetch(`/product/${id}`)
       .then(res => res.json())
       .then(res => {
         this.setState({ product: res });

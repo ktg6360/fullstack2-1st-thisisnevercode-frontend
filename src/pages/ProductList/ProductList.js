@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import ProductCard from './Components/ProductCard';
 import GoBackToTopButton from './Components/GoBackToTopButton';
 import InfiniteScroll from './Components/infiniteScroll';
@@ -43,7 +42,7 @@ class ProductList extends Component {
         this.setState({
           listData: newDatalistData,
         });
-        if (this.state.listData.length === 50) {
+        if (this.state.listData.length === 30) {
           this.setState({
             noData: !noData,
           });
@@ -101,19 +100,19 @@ class ProductList extends Component {
         <div className='ProductComponentWrapper'>
           {listData &&
             listData.map(product => {
-              const { id, image, subImage, detailImage, name, price } = product;
+              const { id, mainImageUrl, subImage, detailImage, name, price } =
+                product;
               return (
-                <Link to='/product/1'>
-                  <ProductCard
-                    key={id}
-                    image={image}
-                    subImage={subImage}
-                    detailImage={detailImage}
-                    name={name}
-                    price={price}
-                    fetchMoreData={this.fetchMoreData}
-                  />
-                </Link>
+                <ProductCard
+                  key={id}
+                  mainImageUrl={mainImageUrl}
+                  subImage={subImage}
+                  detailImage={detailImage}
+                  name={name}
+                  price={price}
+                  fetchMoreData={this.fetchMoreData}
+                  id={id}
+                />
               );
             })}
         </div>
