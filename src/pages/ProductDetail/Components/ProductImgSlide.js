@@ -12,8 +12,8 @@ class ProductImgSlide extends Component {
           <span>{this.props.imgNo + 1}</span>
           <span>/</span>
           <span>
-            {this.props.productInfo.subImg &&
-              this.props.productInfo.subImg.length}
+            {this.props.productInfo.detailImg &&
+              this.props.productInfo.detailImg.length}
           </span>
         </div>
 
@@ -25,11 +25,11 @@ class ProductImgSlide extends Component {
                 ${this.props.imgNo * -500}px, 0px, 0px`,
             }}
           >
-            {this.props.productInfo.subImg.map((info, idx) => (
+            {this.props.productInfo.detailImg.map((info, idx) => (
               <img
                 key={idx}
                 className='slideImg'
-                src={info.imgUrl}
+                src={info.detailImg}
                 alt={info.alt}
               />
             ))}
