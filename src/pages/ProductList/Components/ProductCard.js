@@ -33,7 +33,6 @@ class ProductCard extends Component {
   changeMainToDetailImage = event => {
     const { detailImage } = this.props;
 
-    // for (let data = 0; data < detailImage.length; data++) {
     const hoverEventArea = {
       hoverEventArea0: 0,
       hoverEventArea1: 1,
