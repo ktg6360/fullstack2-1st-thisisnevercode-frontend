@@ -22,7 +22,7 @@ class ProductDetail extends Component {
   };
 
   componentDidMount() {
-    fetch('/data/ProductDetail/ProductDetail.json')
+    fetch('/product')
       .then(res => res.json())
       .then(res => {
         this.setState({ product: res.products[0] });

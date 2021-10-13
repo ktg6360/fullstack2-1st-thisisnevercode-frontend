@@ -10,7 +10,7 @@ class Dropdown extends Component {
 
   componentDidMount() {
     document.body.style.overflow = 'hidden';
-    fetch('/data/Nav/dropdownMenu.json')
+    fetch('/category')
       .then(res => res.json())
       .then(dropdownMenuData => this.setState({ dropdownMenuData }))
       .catch(console.log);

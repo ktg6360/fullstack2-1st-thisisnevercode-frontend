@@ -16,13 +16,44 @@ class SignIn extends Component {
     };
   }
 
+  handleClick = e => {
+    const { email, password } = this.state;
+    e.preventDefault();
+    fetch('/account/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        if (data.msg === 'SUCCESS_SIGNIN') {
+          this.goToList();
+          console.log(data);
+        }
+      });
+  };
+
   handleInput = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
   signInFailAlert = () => {
-    alert('유효한 이메일과 비밀번호가 아닙니다.');
+    const { email, password } = this.state;
+    if (email === '') {
+      return alert('이메일을 입력해주세요');
+    } else if (password === '') {
+      return alert('비밀번호를 입력해주세요');
+    } else if (email !== '' && password !== '') {
+      return alert('유효한 형식으로 작성해주세요');
+    }
   };
 
   changeIcon = () => {
@@ -41,9 +72,6 @@ class SignIn extends Component {
   render() {
     const { showPw, email, password } = this.state;
     const userValidate = email.includes('@') && password.length >= 5;
-    const wrongInput =
-      (email.includes('@') && password.length >= 5) ||
-      (email === '' && password === '');
     return (
       <section className='SignIn'>
         <Nav />
@@ -52,7 +80,7 @@ class SignIn extends Component {
             <p className='email'>이메일</p>
             <input
               className='emailInput'
-              type='text'
+              type='email'
               placeholder='이메일'
               name='email'
               onChange={this.handleInput}
@@ -68,12 +96,13 @@ class SignIn extends Component {
             <div className='onEye' onClick={this.changeIcon}>
               {showPw ? <FaEyeSlash /> : <FaEye />}
             </div>
-            <p className={wrongInput ? 'wrongIdHide' : 'wrongId'}>
-              이메일 또는 비밀번호가 잘못되었습니다.
-            </p>
             <button
               className='signInButton'
-              onClick={userValidate ? this.goToList : this.signInFailAlert}
+              type='button'
+              onClick={
+                (this.handleClick,
+                userValidate ? this.goToList : this.signInFailAlert)
+              }
             >
               <p className='signInText'>LOGIN</p>
             </button>
