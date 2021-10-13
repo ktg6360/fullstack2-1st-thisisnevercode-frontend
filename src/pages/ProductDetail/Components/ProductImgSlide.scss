@@ -47,7 +47,7 @@
       .slideImg {
         width: 100%;
         height: 100%;
-        margin-top: 100px;
+        margin-top: 200px;
       }
     }
   }
@@ -75,6 +75,11 @@
 
 @media screen and (max-width: 1140px) {
   .ProductImgSlide {
+    width: 90%;
+    .slideimgBox {
+      width: 500px;
+    }
+    margin-left: 50px;
     .buttonPrev,
     .buttonNext {
       display: none;

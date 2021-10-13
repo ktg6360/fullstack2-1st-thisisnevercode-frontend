@@ -16,16 +16,17 @@ class ProductDetail extends Component {
   }
 
   onChangeImage = index => {
-    if (this.state.product.subImg.length <= index) index = 0;
-    if (index < 0) index = this.state.product.subImg.length - 1;
+    if (this.state.product.detailImg.length <= index) index = 0;
+    if (index < 0) index = this.state.product.detailImg.length - 1;
     this.setState({ imageCurrentNo: index });
   };
 
   componentDidMount() {
-    fetch('/data/ProductDetail/ProductDetail.json')
+    console.log(this.props.match.params.id);
+    fetch(`/product/1`)
       .then(res => res.json())
       .then(res => {
-        this.setState({ product: res.products[0] });
+        this.setState({ product: res });
       });
   }
 

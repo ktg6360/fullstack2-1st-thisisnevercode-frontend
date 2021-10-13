@@ -10,6 +10,7 @@
 
 .ProductInfo {
   width: 100%;
+  @include preventDrag;
 
   .name {
     margin-bottom: 15px;
@@ -18,7 +19,6 @@
     font-weight: 500;
     line-height: 120%;
     color: #111;
-    @include preventDrag;
   }
 
   .price {

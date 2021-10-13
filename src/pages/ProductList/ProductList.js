@@ -28,7 +28,7 @@ class ProductList extends Component {
   }
 
   fetchMoreData = async () => {
-    const LIST_API = '/data/ProductList/PRODUCT_LIST_DATA.json';
+    const LIST_API = '/list';
 
     const { totalCountDataFetched, noData } = this.state;
 

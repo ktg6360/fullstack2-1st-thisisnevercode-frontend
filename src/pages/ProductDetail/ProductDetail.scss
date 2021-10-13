@@ -6,12 +6,12 @@
   justify-content: space-between;
   width: 100vw;
   height: 100%;
+  margin: 0 10px;
   margin-top: 60px;
   font-family: Helvetica;
 
   .subImgBox {
     width: 18vw;
-    margin-left: 20px;
   }
 
   .mainImgBox {
@@ -33,13 +33,14 @@
     display: flex;
     flex-wrap: wrap;
     width: 95%;
+    margin: 0 20px;
 
     .subImgBox {
       width: 100px;
     }
 
     .mainImgBox {
-      width: 700px;
+      width: 600px;
     }
 
     .productInfoBox {
