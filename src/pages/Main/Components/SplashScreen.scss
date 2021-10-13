@@ -12,31 +12,31 @@
   0% {
     opacity: 1;
   }
-  10% {
+  3% {
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  9% {
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  15% {
     opacity: 0;
   }
   20% {
     opacity: 1;
   }
-  30% {
+  25% {
     opacity: 0;
   }
   40% {
     opacity: 1;
   }
-  50% {
-    opacity: 0;
-  }
   60% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 0;
-  }
-  80% {
-    opacity: 1;
-  }
-  90% {
     opacity: 0;
   }
   100% {
@@ -67,15 +67,15 @@
   top: 0;
   font-size: 50px;
   z-index: 99999;
-  animation: blinkSplashScreen 1s ease-out,
-    hideSplashScreen 2s ease-in-out forwards;
-  animation-delay: 1s, 2.5s;
+  animation: blinkSplashScreen 1.5s ease-out,
+    hideSplashScreen 1.5s ease-in-out forwards;
+  animation-delay: 1s, 3.5s;
 
   img {
     position: absolute;
     top: 45%;
     width: 400px;
     animation: moveTitle 1s ease-in-out forwards;
-    animation-delay: 2s;
+    animation-delay: 3s;
   }
 }
