@@ -23,9 +23,8 @@ class SignUp extends Component {
     };
   }
 
-  handleClick = e => {
+  handleClick = () => {
     const { name, email, password, address } = this.state;
-    e.preventDefault();
     fetch('/account/register', {
       method: 'POST',
       headers: {
@@ -42,7 +41,12 @@ class SignUp extends Component {
         return res.json();
       })
       .then(data => {
-        console.log(data);
+        if (data.status === 'FAILED') {
+          alert(data.message);
+        } else if (data.status === 'SUCCESS') {
+          alert(data.message);
+          this.goToSignIn();
+        }
       });
   };
 
@@ -103,39 +107,21 @@ class SignUp extends Component {
 
   signUpFailAlert = () => {
     const {
-      name,
-      email,
-      password,
-      address,
       isUseAgreeChecked,
       isInformationAgreeChecked,
       isMyselfAgreeChecked,
     } = this.state;
-    if (name === '') {
-      return alert('이름을 입력해주세요');
-    } else if (email === '') {
-      return alert('이메일을 입력해주세요');
-    } else if (password === '') {
-      return alert('비밀번호를 입력해주세요');
-    } else if (address === '') {
-      return alert('주소를 입력해주세요');
-    } else if (
+
+    if (
       !isUseAgreeChecked &&
       !isInformationAgreeChecked &&
       !isMyselfAgreeChecked
     ) {
       return alert('필수 동의버튼을 눌러주세요');
-    } else if (
-      name !== '' &&
-      email !== '' &&
-      password !== '' &&
-      address !== ''
-    ) {
-      return alert('유효한 형식으로 작성해주세요');
     }
   };
 
-  goToList = () => {
+  goToSignIn = () => {
     this.props.history.push('./SignIn');
   };
 
@@ -296,8 +282,7 @@ class SignUp extends Component {
                 className='registerBox'
                 type='button'
                 onClick={
-                  (this.handleClick,
-                  inputComplete ? this.goToList : this.signUpFailAlert)
+                  inputComplete ? this.handleClick : this.signUpFailAlert
                 }
               >
                 <p className='registerStyle'>REGISTER</p>

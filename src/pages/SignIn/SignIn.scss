@@ -19,17 +19,21 @@
     font-size: large;
   }
 
-  .onEye {
+  .form {
     position: relative;
-    bottom: 50px;
-    left: 560px;
+  }
+
+  .onEye {
+    position: absolute;
+    top: 260px;
+    left: 600px;
     cursor: pointer;
   }
 
   .emailInput,
   .passwordInput {
     height: 43px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     padding-left: 10px;
     border: solid 1px;
     font-size: 15px;
@@ -111,10 +115,10 @@
 
     .onEye {
       position: absolute;
-      top: 255px;
+      top: 260px;
       left: auto;
       bottom: auto;
-      right: 30px;
+      right: 80px;
       cursor: pointer;
     }
   }

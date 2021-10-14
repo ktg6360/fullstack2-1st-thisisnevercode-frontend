@@ -6,13 +6,6 @@ import './Dropdown.scss';
 class Dropdown extends Component {
   componentDidMount() {
     document.body.style.overflow = 'hidden';
-<<<<<<< HEAD
-    fetch('/category')
-      .then(res => res.json())
-      .then(dropdownMenuData => this.setState({ dropdownMenuData }))
-      .catch(console.log);
-=======
->>>>>>> master
   }
 
   componentWillUnmount() {
