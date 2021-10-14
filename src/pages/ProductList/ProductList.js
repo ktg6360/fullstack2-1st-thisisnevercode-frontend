@@ -12,6 +12,7 @@ class ProductList extends Component {
     this.state = {
       listData: [],
       totalCountDataFetched: 10,
+      offset: 0,
       loading: false,
       noData: false,
     };
@@ -27,25 +28,27 @@ class ProductList extends Component {
   }
 
   fetchMoreData = async () => {
-    const LIST_API = '/list';
+    const { totalCountDataFetched, noData, offset } = this.state;
 
-    const { totalCountDataFetched, noData } = this.state;
+    const LIST_API = `/list?limit=${totalCountDataFetched}&offset=${offset}`;
 
     fetch(LIST_API)
       .then(res => {
         return res.json();
       })
       .then(data => {
-        const duplicatedData = [...data.LIST_DATA.product];
-        const newDatalistData = duplicatedData.slice(0, totalCountDataFetched);
+        const newDatalistData = [...data.LIST_DATA.product];
+        const prevData = [...this.state.listData];
+        const test = prevData.concat(newDatalistData);
 
         this.setState({
-          listData: newDatalistData,
+          listData: test,
         });
         if (this.state.listData.length === 30) {
           this.setState({
             noData: !noData,
           });
+
           return window.removeEventListener('scroll', this.handleScroll);
         }
       })
@@ -53,9 +56,9 @@ class ProductList extends Component {
   };
 
   showLoadingSvg = resolve => {
-    const { listData, totalCountDataFetched, loading } = this.state;
+    const { listData, loading } = this.state;
     return new Promise(resolve => {
-      if (listData.length !== totalCountDataFetched) {
+      if (listData.length > 30) {
         this.setState({
           loading: false,
         });
@@ -63,6 +66,7 @@ class ProductList extends Component {
         this.setState({
           loading: !loading,
         });
+
         setTimeout(() => {
           resolve();
         }, 1000);
@@ -71,7 +75,7 @@ class ProductList extends Component {
   };
 
   handleScroll = async () => {
-    const { totalCountDataFetched } = this.state;
+    const { offset } = this.state;
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
     let scrollTotalHeight = scrollHeight;
     let scrollHeightFromTop = scrollTop;
@@ -82,7 +86,7 @@ class ProductList extends Component {
     if (isOverEndPointScroll) {
       this.setState(
         {
-          totalCountDataFetched: totalCountDataFetched + 10,
+          offset: offset + 10,
         },
         await this.showLoadingSvg()
       );
@@ -91,7 +95,8 @@ class ProductList extends Component {
   };
 
   render() {
-    const { listData, loading, totalCountDataFetched, noData } = this.state;
+    const { listData, loading, totalCountDataFetched, noData, offset } =
+      this.state;
     // const noData = listData.length !== totalCountDataFetched;
 
     return (
@@ -120,6 +125,7 @@ class ProductList extends Component {
           <InfiniteScroll
             listData={listData}
             totalCountDataFetched={totalCountDataFetched}
+            offset={offset}
           />
         ) : (
           ''
