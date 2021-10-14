@@ -37,9 +37,16 @@ class SignIn extends Component {
           alert(data.message);
         } else if (data.status === 'SUCCESS') {
           alert(data.message);
+          if (data.Authorization) {
+            localStorage.setItem('token', data.Authorization);
+          }
           this.goToList();
         }
       });
+  };
+
+  checkToken = () => {
+    const token = localStorage.getItem('token');
   };
 
   handleInput = event => {
