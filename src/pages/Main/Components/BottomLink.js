@@ -12,7 +12,7 @@ class BottomLink extends Component {
           bottomLink.map(text => {
             return (
               <div className='bottomLinkBox' key={text.id}>
-                <Link to='/products'>
+                <Link to='/products/shoes'>
                   <div className='bottomLinkText'>{text.linkName}</div>
                 </Link>
               </div>
