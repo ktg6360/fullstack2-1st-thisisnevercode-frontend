@@ -32,7 +32,7 @@ class Dropdown extends Component {
                 <li key={id} className='dropdownItem'>
                   <div className='dropdownIcon'></div>
                   <Link
-                    to={`/${convertToUrlForDropdown(categoryName)}`}
+                    to={`/products/${convertToUrlForDropdown(categoryName)}`}
                     className='dropdownLink'
                   >
                     {categoryName}

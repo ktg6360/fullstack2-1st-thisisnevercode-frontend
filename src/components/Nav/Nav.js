@@ -36,7 +36,6 @@ class Nav extends Component {
       )
       .catch(console.log);
 
-    const dropdown = '/data/Nav/dropdownMenu.json';
     fetch('/category')
       .then(res => {
         return res.json();
@@ -115,7 +114,13 @@ class Nav extends Component {
     } = this.state;
     const { location } = window;
     const { pathname } = location;
-    const pathCondition =
+    const pathParam = pathname.slice(-1);
+    const pathConditionForBtn =
+      pathname !== '/main' &&
+      pathname !== '/signin' &&
+      pathname !== '/signup' &&
+      pathname !== `/product/shoes/${pathParam}`;
+    const pathConditionForBreadCrumb =
       pathname !== '/main' && pathname !== '/signin' && pathname !== '/signup';
     return (
       <>
@@ -214,13 +219,14 @@ class Nav extends Component {
               </li>
             </ul>
           </div>
-          {pathCondition && (
+          {pathConditionForBreadCrumb && (
             <BreadCrumb
               dropdownMenuData={dropdownMenuData}
               location={location}
+              productInfo={this.props.productInfo}
             />
           )}
-          {pathCondition && (
+          {pathConditionForBtn && (
             <SortBtn
               closeSortModal={this.closeSortModal}
               toggleSortModal={this.toggleSortModal}
@@ -229,7 +235,7 @@ class Nav extends Component {
               handleCheckIcon={this.props.handleCheckIcon}
             />
           )}
-          {pathCondition && (
+          {pathConditionForBtn && (
             <ViewBtn
               closeViewModal={this.closeViewModal}
               toggleViewModal={this.toggleViewModal}

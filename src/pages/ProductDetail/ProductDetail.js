@@ -35,7 +35,8 @@ class ProductDetail extends Component {
 
     return productInfo == null ? null : (
       <section className='ProductDetail'>
-        <Nav />
+        <Nav productInfo={productInfo} />
+        <div className='product'></div>
         <figure className='subImgBox'>
           <PaginationBox
             productInfo={productInfo}

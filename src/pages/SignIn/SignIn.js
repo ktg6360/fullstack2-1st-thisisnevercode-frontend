@@ -33,10 +33,10 @@ class SignIn extends Component {
         return res.json();
       })
       .then(data => {
-        if (data.msg === 'SUCCESS_SIGNIN') {
-          this.goToList();
-          console.log(data);
-        }
+        // if (data.msg === 'SUCCESS_SIGNIN') {
+        console.log(data);
+        this.goToList();
+        // }
       });
   };
 
@@ -65,7 +65,7 @@ class SignIn extends Component {
   goToList = () => {
     const { email, password } = this.state;
     if (email.includes('@') && password.length >= 5) {
-      this.props.history.push('./ProductList');
+      this.props.history.push('./main');
     }
   };
 
@@ -99,10 +99,7 @@ class SignIn extends Component {
             <button
               className='signInButton'
               type='button'
-              onClick={
-                (this.handleClick,
-                userValidate ? this.goToList : this.signInFailAlert)
-              }
+              onClick={this.handleClick}
             >
               <p className='signInText'>LOGIN</p>
             </button>
