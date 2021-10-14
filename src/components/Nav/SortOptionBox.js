@@ -54,7 +54,7 @@ class SortOptionBox extends Component {
                 key={id}
                 name={name}
                 id={id}
-                handleCheckIcon={this.props.handleCheckIcon}
+                handleSortCheckIcon={this.props.handleSortCheckIcon}
               />
             );
           })}

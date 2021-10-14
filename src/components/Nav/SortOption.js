@@ -5,8 +5,8 @@ import './SortOption.scss';
 class SortOption extends Component {
   onClick = event => {
     event.preventDefault();
-    const { handleCheckIcon, id } = this.props;
-    handleCheckIcon(id);
+    const { handleSortCheckIcon, id } = this.props;
+    handleSortCheckIcon(id);
   };
 
   render() {

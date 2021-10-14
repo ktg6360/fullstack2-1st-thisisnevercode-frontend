@@ -17,11 +17,11 @@ class SortBtn extends Component {
           <p className='sortBtntext classForSortClose'>Sort</p>
         </div>
         <SortOptionBox
-          closeAllModal={closeAllModal}
+          // closeAllModal={closeAllModal}
           closeSortModal={closeSortModal}
           isSortModalOn={isSortModalOn}
           sortOptions={this.props.sortOptions}
-          handleCheckIcon={this.props.handleCheckIcon}
+          handleSortCheckIcon={this.props.handleSortCheckIcon}
         />
       </>
     );

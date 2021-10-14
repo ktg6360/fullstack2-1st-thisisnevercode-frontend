@@ -9,8 +9,6 @@ import Dropdown from './Dropdown';
 import SortBtn from './SortBtn';
 import ViewBtn from './ViewBtn';
 import { convertToUrlForNav } from '../../utils/urlConverter';
-import Cookies from 'js-cookie';
-import { withCookies } from 'react-cookie';
 import './Nav.scss';
 class Nav extends Component {
   state = {
@@ -104,6 +102,13 @@ class Nav extends Component {
     });
   };
 
+  logout = () => {
+    console.log(localStorage.token);
+    if (localStorage.token) {
+      return window.localStorage.removeItem('token');
+    }
+  };
+
   render() {
     const {
       productsNavMenuData,
@@ -136,11 +141,13 @@ class Nav extends Component {
               />
             </div>
             <div className='mainLogoContainer'>
-              <img
-                className='mainLogo'
-                src='/images/Nav/thisisnevercode.svg'
-                alt='main logo'
-              />
+              <Link to='/main'>
+                <img
+                  className='mainLogo'
+                  src='/images/Nav/thisisnevercode.svg'
+                  alt='main logo'
+                />
+              </Link>
             </div>
             <div className='cartBoxForResponsive'>
               <FontAwesomeIcon
@@ -195,7 +202,20 @@ class Nav extends Component {
             </div>
             {/* userNavMenu */}
             <ul className='userNavMenu'>
-              {usersNavMenuData.map(userNavMenu => {
+              <li className='navMenuItem'>
+                <Link className='navMenuLink' to='/todo'>
+                  KOR / ₩
+                </Link>
+              </li>
+              <li className='navMenuItem' onClick={this.logout}>
+                <Link
+                  className='navMenuLink'
+                  to={!localStorage.token && '/signin'}
+                >
+                  {localStorage.token ? 'LOGOUT' : 'LOGIN'}
+                </Link>
+              </li>
+              {/* {usersNavMenuData.map(userNavMenu => {
                 const { id, name } = userNavMenu;
                 return (
                   <li key={id} className='navMenuItem'>
@@ -207,7 +227,7 @@ class Nav extends Component {
                     </Link>
                   </li>
                 );
-              })}
+              })} */}
               <li className='navMenuItem'>
                 <Link className='navMenuLink' to='/cart'>
                   <span className='cartItem'>CART</span>
@@ -234,7 +254,7 @@ class Nav extends Component {
               toggleSortModal={this.toggleSortModal}
               isSortModalOn={isSortModalOn}
               sortOptions={this.props.sortOptions}
-              handleCheckIcon={this.props.handleCheckIcon}
+              handleSortCheckIcon={this.props.handleSortCheckIcon}
             />
           )}
           {pathConditionForBtn && (
@@ -242,6 +262,8 @@ class Nav extends Component {
               closeViewModal={this.closeViewModal}
               toggleViewModal={this.toggleViewModal}
               isViewModalOn={isViewModalOn}
+              viewOptions={this.props.viewOptions}
+              handleViewCheckIcon={this.props.handleViewCheckIcon}
             />
           )}
         </nav>

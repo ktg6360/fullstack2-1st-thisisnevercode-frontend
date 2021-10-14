@@ -20,6 +20,10 @@ class ProductList extends Component {
         { id: 3, name: 'Price (High)', isChecked: false },
         { id: 4, name: 'Trending', isChecked: false },
       ],
+      viewOptions: [
+        { id: 1, name: 'Large', isChecked: true },
+        { id: 2, name: 'Small', isChecked: false },
+      ],
     };
   }
 
@@ -32,12 +36,19 @@ class ProductList extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  handleCheckIcon = id => {
+  handleSortCheckIcon = id => {
     const { sortOptions } = this.state;
     const newsortOptions = [...sortOptions];
     newsortOptions.forEach(data => (data.isChecked = data.id === id));
     this.setState({ sortOptions: newsortOptions });
     this.fetchMoreData();
+  };
+
+  handleViewCheckIcon = id => {
+    const { viewOptions } = this.state;
+    const newViewOptions = [...viewOptions];
+    newViewOptions.forEach(data => (data.isChecked = data.id === id));
+    this.setState({ viewOptions: newViewOptions });
   };
 
   fetchMoreData = async () => {
@@ -131,7 +142,9 @@ class ProductList extends Component {
       <main className='ProductList'>
         <Nav
           sortOptions={this.state.sortOptions}
-          handleCheckIcon={this.handleCheckIcon}
+          handleSortCheckIcon={this.handleSortCheckIcon}
+          viewOptions={this.state.viewOptions}
+          handleViewCheckIcon={this.handleViewCheckIcon}
         />
         <div className='ProductComponentWrapper'>
           {listData &&
