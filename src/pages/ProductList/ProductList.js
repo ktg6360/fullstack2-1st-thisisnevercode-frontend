@@ -91,19 +91,6 @@ class ProductList extends Component {
     }
   };
 
-  handleSort = () => {
-    // const {query} = req.bod
-    fetch(`/product?sort=pricelow`, {
-      method: 'GET',
-    })
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        console.log(data);
-      });
-  };
-
   render() {
     const { listData, loading, totalCountDataFetched, noData } = this.state;
     // const noData = listData.length !== totalCountDataFetched;
