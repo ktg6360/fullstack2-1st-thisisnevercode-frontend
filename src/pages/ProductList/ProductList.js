@@ -14,6 +14,12 @@ class ProductList extends Component {
       totalCountDataFetched: 10,
       loading: false,
       noData: false,
+      sortOptions: [
+        { id: 1, name: 'Recent', isChecked: true },
+        { id: 2, name: 'Price (Low)', isChecked: false },
+        { id: 3, name: 'Price (High)', isChecked: false },
+        { id: 4, name: 'Trending', isChecked: false },
+      ],
     };
   }
 
@@ -26,15 +32,29 @@ class ProductList extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
+  handleCheckIcon = id => {
+    const { sortOptions } = this.state;
+    const newsortOptions = [...sortOptions];
+    newsortOptions.forEach(data => (data.isChecked = data.id === id));
+    this.setState({ sortOptions: newsortOptions });
+    this.fetchMoreData();
+  };
+
   fetchMoreData = async () => {
-    const LIST_API = '/list';
+    const recent = this.state.sortOptions[0].isChecked;
+    const pricehigh = this.state.sortOptions[1].isChecked;
+    const pricelow = this.state.sortOptions[2].isChecked;
+    const trend = this.state.sortOptions[3].isChecked;
+    let queryParameter;
+    recent && (queryParameter = 'recent');
+    pricehigh && (queryParameter = 'pricehigh');
+    pricelow && (queryParameter = 'pricelow');
+    trend && (queryParameter = 'trend');
 
     const { totalCountDataFetched, noData } = this.state;
 
-    fetch(LIST_API)
-      .then(res => {
-        return res.json();
-      })
+    fetch(`/product?sort=${queryParameter}`)
+      .then(res => res.json())
       .then(data => {
         const duplicatedData = [...data.LIST_DATA.product];
         const newDatalistData = duplicatedData.slice(0, totalCountDataFetched);
@@ -96,7 +116,10 @@ class ProductList extends Component {
 
     return (
       <main className='ProductList'>
-        <Nav />
+        <Nav
+          sortOptions={this.state.sortOptions}
+          handleCheckIcon={this.handleCheckIcon}
+        />
         <div className='ProductComponentWrapper'>
           {listData &&
             listData.map(product => {

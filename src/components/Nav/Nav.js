@@ -225,6 +225,8 @@ class Nav extends Component {
               closeSortModal={this.closeSortModal}
               toggleSortModal={this.toggleSortModal}
               isSortModalOn={isSortModalOn}
+              sortOptions={this.props.sortOptions}
+              handleCheckIcon={this.props.handleCheckIcon}
             />
           )}
           {pathCondition && (

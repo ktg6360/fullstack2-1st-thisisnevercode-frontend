@@ -20,6 +20,8 @@ class SortBtn extends Component {
           closeAllModal={closeAllModal}
           closeSortModal={closeSortModal}
           isSortModalOn={isSortModalOn}
+          sortOptions={this.props.sortOptions}
+          handleCheckIcon={this.props.handleCheckIcon}
         />
       </>
     );

@@ -24,13 +24,6 @@ class SortOptionBox extends Component {
   //   });
   // }
 
-  handleCheckIcon = id => {
-    const { sortOptions } = this.state;
-    const newsortOptions = [...sortOptions];
-    newsortOptions.forEach(data => (data.isChecked = data.id === id));
-    this.setState({ sortOptions: newsortOptions });
-  };
-
   onClick = () => {
     const { closeSortModal } = this.props;
     closeSortModal();
@@ -38,7 +31,8 @@ class SortOptionBox extends Component {
 
   render() {
     const { isSortModalOn } = this.props;
-    const { sortOptions } = this.state;
+    const { sortOptions } = this.props;
+
     return (
       <div
         className={`sortOptionBoxScrollUp classForSortClose ${
@@ -60,7 +54,7 @@ class SortOptionBox extends Component {
                 key={id}
                 name={name}
                 id={id}
-                handleCheckIcon={this.handleCheckIcon}
+                handleCheckIcon={this.props.handleCheckIcon}
               />
             );
           })}
