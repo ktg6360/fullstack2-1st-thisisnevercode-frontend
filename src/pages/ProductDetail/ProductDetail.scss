@@ -52,6 +52,7 @@
 
     .mainImgBox {
       width: 600px;
+      height: 100%;
     }
 
     .productInfoBox {
@@ -61,7 +62,7 @@
   }
 }
 
-@media screen and (max-width: 736px) {
+@media screen and (max-width: 768px) {
   .subImgBox {
     margin-top: 150px;
   }

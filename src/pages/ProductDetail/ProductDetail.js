@@ -9,6 +9,7 @@ import './ProductDetail.scss';
 class ProductDetail extends Component {
   constructor() {
     super();
+    this.addActiveClass = this.addActiveClass.bind(this);
     this.state = {
       imageCurrentNo: 0,
       product: null,
