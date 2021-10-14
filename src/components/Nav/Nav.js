@@ -20,7 +20,7 @@ class Nav extends Component {
     dropdownMenuData: [],
     isViewModalOn: false,
     isSortModalOn: false,
-    isShorterThanResponsiveBreakPoin: false,
+    isShorterThanResponsiveBreakPoint: false,
   };
 
   componentDidMount() {

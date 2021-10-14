@@ -16,9 +16,8 @@ class SignIn extends Component {
     };
   }
 
-  handleClick = e => {
+  handleClick = () => {
     const { email, password } = this.state;
-    e.preventDefault();
     fetch('/account/login', {
       method: 'POST',
       headers: {
@@ -28,15 +27,18 @@ class SignIn extends Component {
         email,
         password,
       }),
+      credentials: 'include',
     })
       .then(res => {
         return res.json();
       })
       .then(data => {
-        // if (data.msg === 'SUCCESS_SIGNIN') {
-        console.log(data);
-        this.goToList();
-        // }
+        if (data.status === 'FAILED') {
+          alert(data.message);
+        } else if (data.status === 'SUCCESS') {
+          alert(data.message);
+          this.goToList();
+        }
       });
   };
 
@@ -65,17 +67,16 @@ class SignIn extends Component {
   goToList = () => {
     const { email, password } = this.state;
     if (email.includes('@') && password.length >= 5) {
-      this.props.history.push('./main');
+      this.props.history.push('./products/shoes');
     }
   };
 
   render() {
-    const { showPw, email, password } = this.state;
-    const userValidate = email.includes('@') && password.length >= 5;
+    const { showPw } = this.state;
     return (
       <section className='SignIn'>
         <Nav />
-        <form className='form'>
+        <form action='' className='form'>
           <div className='signInBox'>
             <p className='email'>이메일</p>
             <input
