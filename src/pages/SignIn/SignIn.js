@@ -67,7 +67,7 @@ class SignIn extends Component {
   goToList = () => {
     const { email, password } = this.state;
     if (email.includes('@') && password.length >= 5) {
-      this.props.history.push('./welcome');
+      this.props.history.push('./products/shoes');
     }
   };
 

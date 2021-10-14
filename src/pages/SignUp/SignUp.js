@@ -157,7 +157,6 @@ class SignUp extends Component {
     const checkName = name.match(correctName) || name === '';
     const checkEmail = email.match(correctEmail) || email === '';
     const checkPassword = password.match(correctPassword) || password === '';
-
     return (
       <section className='SignUp'>
         <Nav />
@@ -281,9 +280,8 @@ class SignUp extends Component {
               <button
                 className='registerBox'
                 type='button'
-                onClick={
-                  inputComplete ? this.handleClick : this.signUpFailAlert
-                }
+                onClick={this.handleClick}
+                disabled={inputComplete ? false : true}
               >
                 <p className='registerStyle'>REGISTER</p>
               </button>
