@@ -67,9 +67,7 @@ class SignIn extends Component {
   goToList = () => {
     const { email, password } = this.state;
     if (email.includes('@') && password.length >= 5) {
-      [alert('성공적으로 로그인 되었습니다!')].concat([
-        this.props.history.push('./welcome'),
-      ]);
+      this.props.history.push('./products/shoes');
     }
   };
 

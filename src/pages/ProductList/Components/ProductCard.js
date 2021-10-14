@@ -75,7 +75,7 @@ class ProductCard extends Component {
 
     return (
       <div className='ProductCard'>
-        <Link to={`/product/${this.props.id}`}>
+        <Link to={`/product/shoes/${this.props.id}`}>
           <div className='productWrapper'>
             {[
               'hoverEventArea0',
