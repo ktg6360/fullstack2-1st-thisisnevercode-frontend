@@ -36,7 +36,6 @@ class Nav extends Component {
       )
       .catch(console.log);
 
-    const dropdown = '/data/Nav/dropdownMenu.json';
     fetch('/category')
       .then(res => {
         return res.json();
