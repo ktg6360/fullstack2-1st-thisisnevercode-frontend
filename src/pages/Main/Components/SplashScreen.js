@@ -5,7 +5,11 @@ class SplashScreen extends Component {
   render() {
     return (
       <div className='SplashScreen'>
-        <img src='/images/Main/thisisnevercode.svg' alt='메인로고' />
+        <img
+          className='SplashScreenLogo'
+          alt='메인로고'
+          src='/images/Main/thisisnevercode.svg'
+        />
       </div>
     );
   }

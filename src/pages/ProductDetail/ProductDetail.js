@@ -16,8 +16,8 @@ class ProductDetail extends Component {
   }
 
   onChangeImage = index => {
-    if (this.state.product.subImg.length <= index) index = 0;
-    if (index < 0) index = this.state.product.subImg.length - 1;
+    if (this.state.product.detailImg.length <= index) index = 0;
+    if (index < 0) index = this.state.product.detailImg.length - 1;
     this.setState({ imageCurrentNo: index });
   };
 

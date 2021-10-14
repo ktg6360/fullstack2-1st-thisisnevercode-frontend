@@ -3,7 +3,7 @@
 
 .ProductList {
   position: relative;
-  overflow-x: hidden;
+
   .ProductComponentWrapper {
     @include gridTemplate(
       grid,
