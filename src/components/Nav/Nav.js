@@ -9,6 +9,8 @@ import Dropdown from './Dropdown';
 import SortBtn from './SortBtn';
 import ViewBtn from './ViewBtn';
 import { convertToUrlForNav } from '../../utils/urlConverter';
+import Cookies from 'js-cookie';
+import { withCookies } from 'react-cookie';
 import './Nav.scss';
 class Nav extends Component {
   state = {
