@@ -15,6 +15,7 @@ class ProductList extends Component {
       offset: 0,
       loading: false,
       noData: false,
+      isLoggedIn: false,
     };
   }
 
@@ -94,6 +95,19 @@ class ProductList extends Component {
     }
   };
 
+  handleSort = () => {
+    // const {query} = req.bod
+    fetch(`/product?sort=pricelow`, {
+      method: 'GET',
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+      });
+  };
+
   render() {
     const { listData, loading, totalCountDataFetched, noData, offset } =
       this.state;
@@ -101,7 +115,7 @@ class ProductList extends Component {
 
     return (
       <main className='ProductList'>
-        <Nav />
+        <Nav handleSort={this.handleSort} />
         <div className='ProductComponentWrapper'>
           {listData &&
             listData.map(product => {
