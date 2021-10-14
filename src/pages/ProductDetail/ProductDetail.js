@@ -9,12 +9,18 @@ import './ProductDetail.scss';
 class ProductDetail extends Component {
   constructor() {
     super();
-    this.addActiveClass = this.addActiveClass.bind(this);
     this.state = {
       imageCurrentNo: 0,
       product: null,
+      active: false,
     };
   }
+
+  handleClick = () => {
+    this.setState(currentState => {
+      return { active: !currentState.active };
+    });
+  };
 
   onChangeImage = index => {
     if (this.state.product.detailImg.length <= index) index = 0;
@@ -54,6 +60,8 @@ class ProductDetail extends Component {
           <ProductInfo
             productInfo={productInfo}
             imgNo={this.state.imageCurrentNo}
+            active={this.state.active}
+            handleClick={this.handleClick}
           />
         </aside>
         <Footer />

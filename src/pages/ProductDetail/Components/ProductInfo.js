@@ -11,10 +11,8 @@ class ProductInfo extends Component {
           <p className='price'>{price}</p>
           <div className='addBox'>
             <button className='addToCartBtn'>ADD TO CART</button>
-            <p className='addToWishList'>
-              ADD TO
-              <br />
-              WISHLIST
+            <p className='addToWishList' onClick={this.props.handleClick}>
+              {this.props.active ? 'ADDED' : 'ADD TO WISHLIST'}
             </p>
           </div>
           <p className='description'>{description}</p>
