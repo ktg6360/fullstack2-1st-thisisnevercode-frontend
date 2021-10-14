@@ -33,8 +33,8 @@
           contain,
           no-repeat,
           bottom,
-          265px,
-          230px
+          18vw,
+          28vh
         );
       }
       .ProductDetailCard {
@@ -42,8 +42,8 @@
           contain,
           no-repeat,
           bottom,
-          265px,
-          230px
+          18vw,
+          28vh
         );
         position: absolute;
         top: 0;
@@ -84,10 +84,10 @@
       .hoverEventArea0 {
         @include meDiaQueryEventAreaPosition(
           absolute,
-          80px,
+          10px,
           60px,
-          110px,
-          600px,
+          100px,
+          350px,
           1
         );
       }
@@ -95,10 +95,10 @@
       .hoverEventArea1 {
         @include meDiaQueryEventAreaPosition(
           absolute,
-          80px,
-          170px,
-          110px,
-          600px,
+          10px,
+          160px,
+          100px,
+          350px,
           1
         );
       }
@@ -106,10 +106,10 @@
       .hoverEventArea2 {
         @include meDiaQueryEventAreaPosition(
           absolute,
-          80px,
-          280px,
-          110px,
-          600px,
+          10px,
+          260px,
+          100px,
+          350px,
           1
         );
       }
@@ -117,47 +117,45 @@
       .hoverEventArea3 {
         @include meDiaQueryEventAreaPosition(
           absolute,
-          390px,
-          60px,
-          110px,
-          600px,
+          10px,
+          360px,
+          100px,
+          350px,
           1
         );
       }
+      .imageWrapper {
+        .mainImage {
+          width: 48vw;
+          height: 55vh;
+        }
 
-      .mainImage {
-        width: 522px;
-        height: 601px;
+        .ProductDetailCard {
+          @include productDetailCardTemplate(
+            contain,
+            no-repeat,
+            bottom,
+            48vw,
+            55vh
+          );
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          left: 0;
+        }
       }
+    }
 
-      .ProductDetailCard {
-        @include productDetailCardTemplate(
-          contain,
-          no-repeat,
-          bottom,
-          265px,
-          230px
-        );
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-      }
-
-      .subImgWrapper {
-        display: flex;
-        justify-content: center;
-      }
-
-      .productPrice {
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 28px;
-      }
-      .productName {
-        @extend .productPrice;
-      }
+    .subImgWrapper {
+      display: flex;
+      justify-content: center;
+    }
+    .productPrice,
+    .productName {
+      font-weight: 600;
+      font-size: 35px;
+      line-height: 38px;
     }
   }
 }
