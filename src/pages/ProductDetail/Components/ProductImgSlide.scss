@@ -1,13 +1,3 @@
-@mixin preventDrag {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
 .ProductImgSlide {
   position: relative;
   width: 500px;
@@ -26,7 +16,6 @@
     background-color: lightgray;
     color: black;
     text-align: center;
-    @include preventDrag;
   }
 
   .slideimgBox {
@@ -42,7 +31,6 @@
       float: left;
       transition: all 400ms ease 0s;
       width: 100%;
-      @include preventDrag;
 
       .slideImg {
         width: 100%;
@@ -84,5 +72,11 @@
     .buttonNext {
       display: none;
     }
+  }
+}
+
+@media screen and (max-width: 736px) {
+  .imgList {
+    height: 80%;
   }
 }
