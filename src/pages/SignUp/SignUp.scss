@@ -11,6 +11,7 @@
     .inputBox {
       display: flex;
       flex-direction: column;
+      position: relative;
       width: 600px;
 
       .name,
@@ -33,6 +34,15 @@
         opacity: 0.8;
       }
 
+      .onEye {
+        position: absolute;
+        top: auto;
+        left: auto;
+        bottom: 118px;
+        right: 30px;
+        cursor: pointer;
+      }
+
       .wrongShow {
         font-weight: bold;
         color: red;
@@ -41,17 +51,6 @@
 
       .wrongHide {
         display: none;
-      }
-
-      .passwordBox {
-        margin-bottom: 0px;
-      }
-
-      .onEye {
-        position: relative;
-        bottom: 30px;
-        left: 560px;
-        cursor: pointer;
       }
     }
   }
@@ -166,7 +165,6 @@
 @media only screen and (max-width: $widthBreakPoint) {
   .SignUp {
     .signUpBox {
-      width: 100vw;
       padding-left: 10px;
       padding-right: 10px;
     }
@@ -176,7 +174,7 @@
       top: auto;
       left: auto;
       bottom: 40px;
-      right: 30px;
+      right: 20px;
       cursor: pointer;
     }
   }
