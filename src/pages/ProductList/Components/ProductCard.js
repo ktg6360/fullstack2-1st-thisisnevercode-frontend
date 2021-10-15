@@ -75,7 +75,7 @@ class ProductCard extends Component {
 
     return (
       <div className='ProductCard'>
-        <Link to={`/product/shoes/${this.props.id}`}>
+        <Link to={`/product/shoes/${id}`}>
           <div className='productWrapper'>
             {[
               'hoverEventArea0',
@@ -88,7 +88,7 @@ class ProductCard extends Component {
                   className={className}
                   onMouseEnter={this.changeMainToDetailImage}
                   onMouseLeave={this.changeMainImage}
-                  // key={index}
+                  key={index}
                 />
               );
             })}
@@ -98,14 +98,14 @@ class ProductCard extends Component {
                 className='mainImage'
                 src={`${mainImageUrl}`}
                 alt={name}
-                // key={mainImageUrl.id}
+                key={id}
               />
               {mainImage ? (
                 <img
                   className='ProductDetailCard'
                   src={`${mainImage}`}
                   alt={detailImage.image}
-                  // key={detailImage.id}
+                  key={detailImage.keyNumber}
                 />
               ) : null}
             </div>
@@ -116,7 +116,7 @@ class ProductCard extends Component {
             subImage.map(product => {
               return (
                 <ProductOtherColorCard
-                  // key={product.id}
+                  key={product.keyNumber}
                   subImage={product.subImageUrl}
                   name={product.name}
                   changeSubImage={this.changeSubImage}

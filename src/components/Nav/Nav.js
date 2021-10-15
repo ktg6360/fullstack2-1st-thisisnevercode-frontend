@@ -120,7 +120,7 @@ class Nav extends Component {
     } = this.state;
     const { location } = window;
     const { pathname } = location;
-    const pathParam = pathname.slice(-1);
+    const pathParam = pathname.split('/')[3];
     const pathConditionForBtn =
       pathname !== '/main' &&
       pathname !== '/signin' &&

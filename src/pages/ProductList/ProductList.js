@@ -67,7 +67,6 @@ class ProductList extends Component {
     fetch(`/product?sort=${queryParameter}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         const duplicatedData = [...data.LIST_DATA.product];
         const newDatalistData = duplicatedData.slice(0, totalCountDataFetched);
 
@@ -122,18 +121,6 @@ class ProductList extends Component {
       this.fetchMoreData();
     }
   };
-
-  // handleSort = () => {
-  //   fetch(`/product?sort=pricelow`, {
-  //     method: 'GET',
-  //   })
-  //     .then(res => {
-  //       return res.json();
-  //     })
-  //     .then(data => {
-  //       console.log(data);
-  //     });
-  // };
 
   render() {
     const { listData, loading, totalCountDataFetched, noData, viewOptions } =
