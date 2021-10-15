@@ -1,8 +1,9 @@
 export const convertToUrlForBreadCrumb = function (pathname) {
-  const splitted = pathname.split('');
-  splitted.shift();
-  splitted[0] = splitted[0].toUpperCase();
-  return splitted.join('');
+  const splitted = pathname.split('/');
+  const target = splitted[2];
+  const strSplit = target.split('');
+  strSplit[0] = strSplit[0].toUpperCase();
+  return strSplit.join('');
 };
 
 export const convertToUrlForDropdown = function (str) {

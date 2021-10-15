@@ -12,19 +12,19 @@
     position: relative;
 
     .hoverEventArea0 {
-      @include eventAreaPosition(absolute, 15px, 60px, 230px, 1);
+      @include eventAreaPosition(absolute, 15px, 60px, 200px, 1);
     }
 
     .hoverEventArea1 {
-      @include eventAreaPosition(absolute, 75px, 60px, 230px, 1);
+      @include eventAreaPosition(absolute, 75px, 60px, 200px, 1);
     }
 
     .hoverEventArea2 {
-      @include eventAreaPosition(absolute, 135px, 60px, 230px, 1);
+      @include eventAreaPosition(absolute, 135px, 60px, 200px, 1);
     }
 
     .hoverEventArea3 {
-      @include eventAreaPosition(absolute, 19px, 60px, 230px, 1);
+      @include eventAreaPosition(absolute, 19px, 60px, 200px, 1);
     }
 
     .imageWrapper {

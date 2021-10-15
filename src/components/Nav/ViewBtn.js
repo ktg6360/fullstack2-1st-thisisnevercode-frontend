@@ -18,6 +18,8 @@ class ViewBtn extends Component {
         <ViewOptionBox
           closeViewModal={closeViewModal}
           isViewModalOn={isViewModalOn}
+          viewOptions={this.props.viewOptions}
+          handleViewCheckIcon={this.props.handleViewCheckIcon}
         />
       </>
     );

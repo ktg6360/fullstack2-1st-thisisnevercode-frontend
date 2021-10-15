@@ -22,12 +22,12 @@ class ViewOptionBox extends Component {
   //   });
   // }
 
-  handleCheckIcon = id => {
-    const { viewOptions } = this.state;
-    const newViewOptions = [...viewOptions];
-    newViewOptions.forEach(data => (data.isChecked = data.id === id));
-    this.setState({ viewOptions: newViewOptions });
-  };
+  // handleCheckIcon = id => {
+  //   const { viewOptions } = this.state;
+  //   const newViewOptions = [...viewOptions];
+  //   newViewOptions.forEach(data => (data.isChecked = data.id === id));
+  //   this.setState({ viewOptions: newViewOptions });
+  // };
 
   onClick = () => {
     const { closeViewModal } = this.props;
@@ -36,7 +36,7 @@ class ViewOptionBox extends Component {
 
   render() {
     const { isViewModalOn } = this.props;
-    const { viewOptions } = this.state;
+    const { viewOptions } = this.props;
     return (
       <div
         className={`viewOptionBoxScrollUp classForViewClose ${
@@ -58,7 +58,7 @@ class ViewOptionBox extends Component {
                 key={id}
                 name={name}
                 id={id}
-                handleCheckIcon={this.handleCheckIcon}
+                handleViewCheckIcon={this.props.handleViewCheckIcon}
               />
             );
           })}

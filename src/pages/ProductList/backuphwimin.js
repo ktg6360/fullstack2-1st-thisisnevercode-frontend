@@ -20,10 +20,10 @@ class ProductList extends Component {
         { id: 3, name: 'Price (High)', isChecked: false },
         { id: 4, name: 'Trending', isChecked: false },
       ],
-      // viewOptions: [
-      //   { id: 1, name: 'Large', isChecked: true },
-      //   { id: 2, name: 'Small', isChecked: false },
-      // ],
+      viewOptions: [
+        { id: 1, name: 'Large', isChecked: true },
+        { id: 2, name: 'Small', isChecked: false },
+      ],
     };
   }
 
@@ -44,12 +44,12 @@ class ProductList extends Component {
     this.fetchMoreData();
   };
 
-  // handleViewCheckIcon = id => {
-  //   const { viewOptions } = this.state;
-  //   const newViewOptions = [...viewOptions];
-  //   newViewOptions.forEach(data => (data.isChecked = data.id === id));
-  //   this.setState({ viewOptions: newViewOptions });
-  // };
+  handleViewCheckIcon = id => {
+    const { viewOptions } = this.state;
+    const newViewOptions = [...viewOptions];
+    newViewOptions.forEach(data => (data.isChecked = data.id === id));
+    this.setState({ viewOptions: newViewOptions });
+  };
 
   fetchMoreData = async () => {
     const recent = this.state.sortOptions[0].isChecked;
@@ -112,7 +112,6 @@ class ProductList extends Component {
       scrollHeightFromTop + scrollHeightOfListCard >= scrollTotalHeight;
 
     if (isOverEndPointScroll) {
-      console.log('event!');
       this.setState(
         {
           totalCountDataFetched: totalCountDataFetched + 10,
@@ -121,6 +120,18 @@ class ProductList extends Component {
       );
       this.fetchMoreData();
     }
+  };
+
+  handleSort = () => {
+    fetch(`/product?sort=pricelow`, {
+      method: 'GET',
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+      });
   };
 
   render() {
@@ -133,7 +144,7 @@ class ProductList extends Component {
           sortOptions={this.state.sortOptions}
           handleSortCheckIcon={this.handleSortCheckIcon}
           viewOptions={this.state.viewOptions}
-          // handleViewCheckIcon={this.handleViewCheckIcon}
+          handleViewCheckIcon={this.handleViewCheckIcon}
         />
         <div className='ProductComponentWrapper'>
           {listData &&
