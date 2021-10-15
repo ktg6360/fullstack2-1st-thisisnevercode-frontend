@@ -111,7 +111,6 @@ class ProductList extends Component {
       scrollHeightFromTop + scrollHeightOfListCard >= scrollTotalHeight;
 
     if (isOverEndPointScroll) {
-      console.log('event!');
       this.setState(
         {
           totalCountDataFetched: totalCountDataFetched + 10,
