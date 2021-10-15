@@ -41,7 +41,7 @@ class SortOptionBox extends Component {
       >
         <div className='sortOptionHeader classForSortClose'>
           <p className='sortOptionHeaderTitle classForSortClose'>SORT BY</p>
-          <button className='sortOptionCloseBtn ' onClick={this.onClick}>
+          <button className='sortOptionCloseBtn' onClick={this.onClick}>
             X
           </button>
         </div>
