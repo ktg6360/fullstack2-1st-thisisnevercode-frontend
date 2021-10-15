@@ -5,8 +5,8 @@ import './ViewOption.scss';
 class ViewOption extends Component {
   onClick = event => {
     event.preventDefault();
-    const { handleCheckIcon, id } = this.props;
-    handleCheckIcon(id);
+    const { handleViewCheckIcon, id } = this.props;
+    handleViewCheckIcon(id);
   };
 
   render() {

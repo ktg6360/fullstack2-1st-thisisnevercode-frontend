@@ -14,16 +14,7 @@ class ProductList extends Component {
       totalCountDataFetched: 10,
       loading: false,
       noData: false,
-      sortOptions: [
-        { id: 1, name: 'Recent', isChecked: true },
-        { id: 2, name: 'Price (Low)', isChecked: false },
-        { id: 3, name: 'Price (High)', isChecked: false },
-        { id: 4, name: 'Trending', isChecked: false },
-      ],
-      viewOptions: [
-        { id: 1, name: 'Large', isChecked: true },
-        { id: 2, name: 'Small', isChecked: false },
-      ],
+      isLoggedIn: false,
     };
   }
 
@@ -36,38 +27,16 @@ class ProductList extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  handleSortCheckIcon = id => {
-    const { sortOptions } = this.state;
-    const newsortOptions = [...sortOptions];
-    newsortOptions.forEach(data => (data.isChecked = data.id === id));
-    this.setState({ sortOptions: newsortOptions });
-    this.fetchMoreData();
-  };
-
-  handleViewCheckIcon = id => {
-    const { viewOptions } = this.state;
-    const newViewOptions = [...viewOptions];
-    newViewOptions.forEach(data => (data.isChecked = data.id === id));
-    this.setState({ viewOptions: newViewOptions });
-  };
-
   fetchMoreData = async () => {
-    const recent = this.state.sortOptions[0].isChecked;
-    const pricehigh = this.state.sortOptions[1].isChecked;
-    const pricelow = this.state.sortOptions[2].isChecked;
-    const trend = this.state.sortOptions[3].isChecked;
-    let queryParameter;
-    recent && (queryParameter = 'recent');
-    pricehigh && (queryParameter = 'pricehigh');
-    pricelow && (queryParameter = 'pricelow');
-    trend && (queryParameter = 'trend');
+    const LIST_API = '/list';
 
     const { totalCountDataFetched, noData } = this.state;
 
-    fetch(`/product?sort=${queryParameter}`)
-      .then(res => res.json())
+    fetch(LIST_API)
+      .then(res => {
+        return res.json();
+      })
       .then(data => {
-        console.log(data);
         const duplicatedData = [...data.LIST_DATA.product];
         const newDatalistData = duplicatedData.slice(0, totalCountDataFetched);
 
@@ -112,7 +81,6 @@ class ProductList extends Component {
       scrollHeightFromTop + scrollHeightOfListCard >= scrollTotalHeight;
 
     if (isOverEndPointScroll) {
-      console.log('event!');
       this.setState(
         {
           totalCountDataFetched: totalCountDataFetched + 10,
@@ -123,30 +91,13 @@ class ProductList extends Component {
     }
   };
 
-  // handleSort = () => {
-  //   fetch(`/product?sort=pricelow`, {
-  //     method: 'GET',
-  //   })
-  //     .then(res => {
-  //       return res.json();
-  //     })
-  //     .then(data => {
-  //       console.log(data);
-  //     });
-  // };
-
   render() {
-    const { listData, loading, totalCountDataFetched, noData, viewOptions } =
-      this.state;
+    const { listData, loading, totalCountDataFetched, noData } = this.state;
+    // const noData = listData.length !== totalCountDataFetched;
 
     return (
       <main className='ProductList'>
-        <Nav
-          sortOptions={this.state.sortOptions}
-          handleSortCheckIcon={this.handleSortCheckIcon}
-          viewOptions={this.state.viewOptions}
-          handleViewCheckIcon={this.handleViewCheckIcon}
-        />
+        <Nav handleSort={this.handleSort} />
         <div className='ProductComponentWrapper'>
           {listData &&
             listData.map(product => {
@@ -162,7 +113,6 @@ class ProductList extends Component {
                   price={price}
                   fetchMoreData={this.fetchMoreData}
                   id={id}
-                  viewOptions={viewOptions}
                 />
               );
             })}

@@ -121,8 +121,8 @@ class SignUp extends Component {
     }
   };
 
-  goToSignIn = () => {
-    this.props.history.push('./SignIn');
+  goToList = () => {
+    this.props.history.push('./signin');
   };
 
   render() {
@@ -233,7 +233,7 @@ class SignUp extends Component {
                   />
                   <p className='agreedName'>이용약관 동의</p>
                   <p className='choose'>(필수)</p>
-                  <Link to='/signUp' className='readMore'>
+                  <Link to='/signup' className='readMore'>
                     약관보기
                   </Link>
                 </div>
@@ -247,7 +247,7 @@ class SignUp extends Component {
                   />
                   <p className='agreedName'>개인정보 수집 및 이용 동의</p>
                   <p className='choose'>(필수)</p>
-                  <Link to='/signUp' className='readMore'>
+                  <Link to='/signup' className='readMore'>
                     약관보기
                   </Link>
                 </div>
@@ -261,7 +261,7 @@ class SignUp extends Component {
                   />
                   <p className='agreedName'>마케팅 수신 동의</p>
                   <p className='choose'>(선택)</p>
-                  <Link to='/signUp' className='readMore'>
+                  <Link to='/signup' className='readMore'>
                     약관보기
                   </Link>
                 </div>

@@ -33,6 +33,7 @@ class SignIn extends Component {
         return res.json();
       })
       .then(data => {
+        console.log(data);
         if (data.status === 'FAILED') {
           alert(data.message);
         } else if (data.status === 'SUCCESS') {
