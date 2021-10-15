@@ -3,11 +3,11 @@
 
 .ProductList {
   position: relative;
-
+  overflow-x: hidden;
   .ProductComponentWrapper {
     @include gridTemplate(
       grid,
-      repeat(5, minmax(260px, auto)),
+      repeat(5, minmax(18vw, auto)),
       repeat(auto, minmax(350px, auto))
     );
     padding: 48px 40px 140px 40px;
@@ -20,7 +20,7 @@
     .ProductComponentWrapper {
       @include gridTemplate(
         grid,
-        repeat(2, minmax(520px, 2fr)),
+        repeat(2, minmax(48vw, 2fr)),
         repeat(auto-fill, auto)
       );
     }

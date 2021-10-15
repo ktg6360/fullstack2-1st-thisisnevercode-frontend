@@ -46,10 +46,6 @@ class SignIn extends Component {
       });
   };
 
-  checkToken = () => {
-    const token = localStorage.getItem('token');
-  };
-
   handleInput = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });

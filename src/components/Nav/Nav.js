@@ -112,7 +112,6 @@ class Nav extends Component {
   render() {
     const {
       productsNavMenuData,
-      usersNavMenuData,
       isNavVisible,
       dropdownMenuData,
       isDropdownVisible,
@@ -215,19 +214,6 @@ class Nav extends Component {
                   {localStorage.token ? 'LOGOUT' : 'LOGIN'}
                 </Link>
               </li>
-              {/* {usersNavMenuData.map(userNavMenu => {
-                const { id, name } = userNavMenu;
-                return (
-                  <li key={id} className='navMenuItem'>
-                    <Link
-                      className='navMenuLink'
-                      to={`/${convertToUrlForNav(name)}`}
-                    >
-                      {name}
-                    </Link>
-                  </li>
-                );
-              })} */}
               <li className='navMenuItem'>
                 <Link className='navMenuLink' to='/cart'>
                   <span className='cartItem'>CART</span>

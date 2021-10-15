@@ -4,8 +4,7 @@ import './SortBtn.scss';
 
 class SortBtn extends Component {
   render() {
-    const { closeAllModal, closeSortModal, isSortModalOn, toggleSortModal } =
-      this.props;
+    const { closeSortModal, isSortModalOn, toggleSortModal } = this.props;
     return (
       <>
         <div
@@ -17,7 +16,6 @@ class SortBtn extends Component {
           <p className='sortBtntext classForSortClose'>Sort</p>
         </div>
         <SortOptionBox
-          // closeAllModal={closeAllModal}
           closeSortModal={closeSortModal}
           isSortModalOn={isSortModalOn}
           sortOptions={this.props.sortOptions}

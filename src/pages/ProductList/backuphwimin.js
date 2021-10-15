@@ -112,7 +112,6 @@ class ProductList extends Component {
       scrollHeightFromTop + scrollHeightOfListCard >= scrollTotalHeight;
 
     if (isOverEndPointScroll) {
-      console.log('event!');
       this.setState(
         {
           totalCountDataFetched: totalCountDataFetched + 10,
@@ -123,17 +122,17 @@ class ProductList extends Component {
     }
   };
 
-  // handleSort = () => {
-  //   fetch(`/product?sort=pricelow`, {
-  //     method: 'GET',
-  //   })
-  //     .then(res => {
-  //       return res.json();
-  //     })
-  //     .then(data => {
-  //       console.log(data);
-  //     });
-  // };
+  handleSort = () => {
+    fetch(`/product?sort=pricelow`, {
+      method: 'GET',
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+      });
+  };
 
   render() {
     const { listData, loading, totalCountDataFetched, noData, viewOptions } =
