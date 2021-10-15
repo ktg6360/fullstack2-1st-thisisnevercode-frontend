@@ -16,8 +16,8 @@ class ProductDetail extends Component {
   }
 
   onChangeImage = index => {
-    if (this.state.product.subImg.length <= index) index = 0;
-    if (index < 0) index = this.state.product.subImg.length - 1;
+    if (this.state.product.detailImg.length <= index) index = 0;
+    if (index < 0) index = this.state.product.detailImg.length - 1;
     this.setState({ imageCurrentNo: index });
   };
 
@@ -35,26 +35,28 @@ class ProductDetail extends Component {
 
     return productInfo == null ? null : (
       <section className='ProductDetail'>
-        <Nav productInfo={productInfo} />
-        <figure className='subImgBox'>
-          <PaginationBox
-            productInfo={productInfo}
-            onChangeImage={this.onChangeImage}
-          />
-        </figure>
-        <article className='mainImgBox'>
-          <ProductImgSlide
-            productInfo={productInfo}
-            imgNo={this.state.imageCurrentNo}
-            onChangeImage={this.onChangeImage}
-          />
-        </article>
-        <aside className='productInfoBox'>
-          <ProductInfo
-            productInfo={productInfo}
-            imgNo={this.state.imageCurrentNo}
-          />
-        </aside>
+        <Nav />
+        <div className='productDetailBox'>
+          <figure className='subImgBox'>
+            <PaginationBox
+              productInfo={productInfo}
+              onChangeImage={this.onChangeImage}
+            />
+          </figure>
+          <article className='mainImgBox'>
+            <ProductImgSlide
+              productInfo={productInfo}
+              imgNo={this.state.imageCurrentNo}
+              onChangeImage={this.onChangeImage}
+            />
+          </article>
+          <aside className='productInfoBox'>
+            <ProductInfo
+              productInfo={productInfo}
+              imgNo={this.state.imageCurrentNo}
+            />
+          </aside>
+        </div>
         <Footer />
       </section>
     );
