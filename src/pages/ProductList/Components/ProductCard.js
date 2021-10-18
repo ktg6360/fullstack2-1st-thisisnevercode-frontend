@@ -100,17 +100,18 @@ class ProductCard extends Component {
                 alt={name}
                 key={id}
               />
-              {mainImage ? (
+              {mainImage && (
                 <img
                   className='ProductDetailCard'
                   src={`${mainImage}`}
                   alt={detailImage.image}
                   key={detailImage.keyNumber}
                 />
-              ) : null}
+              )}
             </div>
           </div>
         </Link>
+
         <div className='subImgWrapper'>
           {subImage &&
             subImage.map(product => {

@@ -45,7 +45,7 @@ class SignUp extends Component {
           alert(data.message);
         } else if (data.status === 'SUCCESS') {
           alert(data.message);
-          this.goToSignIn();
+          this.goToList();
         }
       });
   };

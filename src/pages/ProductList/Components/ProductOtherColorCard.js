@@ -6,14 +6,12 @@ class ProductOtherColorCard extends Component {
     let { subImage, name, changeSubImage } = this.props;
     return (
       <div className='ProductOtherColorCard'>
-        <div className='productSubImgList'>
-          <img
-            className='productSubImg'
-            src={subImage}
-            alt={name}
-            onClick={changeSubImage}
-          />
-        </div>
+        <img
+          className='productSubImg'
+          src={subImage}
+          alt={name}
+          onClick={changeSubImage}
+        />
       </div>
     );
   }

@@ -1,34 +1,38 @@
 import React, { Component } from 'react';
 import ProductCard from './Components/ProductCard';
-import GoBackToTopButton from './Components/GoBackToTopButton';
-import InfiniteScroll from './Components/infiniteScroll';
 import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer';
+import GoBackToTopButton from './Components/GoBackToTopButton';
+import InfiniteScroll from './Components/infiniteScroll';
 import './ProductList.scss';
+import { API } from './API';
 
 class ProductList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       listData: [],
-      totalCountDataFetched: 10,
-      loading: false,
-      noData: false,
+      sortListData: [],
+      currentItem: 10,
+      totalPage: 0,
+      isLoading: false,
+      hasMoreData: false,
       sortOptions: [
         { id: 1, name: 'Recent', isChecked: true },
         { id: 2, name: 'Price (Low)', isChecked: false },
         { id: 3, name: 'Price (High)', isChecked: false },
         { id: 4, name: 'Trending', isChecked: false },
       ],
-      // viewOptions: [
-      //   { id: 1, name: 'Large', isChecked: true },
-      //   { id: 2, name: 'Small', isChecked: false },
-      // ],
+      viewOptions: [
+        { id: 1, name: 'Large', isChecked: true },
+        { id: 2, name: 'Small', isChecked: false },
+      ],
     };
   }
 
   componentDidMount() {
     this.fetchMoreData();
+    // 1 최초실행
     return window.addEventListener('scroll', this.handleScroll);
   }
 
@@ -37,19 +41,24 @@ class ProductList extends Component {
   }
 
   handleSortCheckIcon = id => {
-    const { sortOptions } = this.state;
+    const { sortOptions, sortListData, currentItem } = this.state;
     const newsortOptions = [...sortOptions];
     newsortOptions.forEach(data => (data.isChecked = data.id === id));
-    this.setState({ sortOptions: newsortOptions });
+    this.setState({
+      sortOptions: newsortOptions,
+      listData: [],
+      sortListData: [],
+      currentItem: 10,
+    });
     this.fetchMoreData();
   };
 
-  // handleViewCheckIcon = id => {
-  //   const { viewOptions } = this.state;
-  //   const newViewOptions = [...viewOptions];
-  //   newViewOptions.forEach(data => (data.isChecked = data.id === id));
-  //   this.setState({ viewOptions: newViewOptions });
-  // };
+  handleViewCheckIcon = id => {
+    const { viewOptions } = this.state;
+    const newViewOptions = [...viewOptions];
+    newViewOptions.forEach(data => (data.isChecked = data.id === id));
+    this.setState({ viewOptions: newViewOptions });
+  };
 
   fetchMoreData = async () => {
     const recent = this.state.sortOptions[0].isChecked;
@@ -62,37 +71,92 @@ class ProductList extends Component {
     pricelow && (queryParameter = 'pricelow');
     trend && (queryParameter = 'trend');
 
-    const { totalCountDataFetched, noData } = this.state;
+    const { hasMoreData, currentItem } = this.state;
 
-    fetch(`/product?sort=${queryParameter}`)
+    fetch(`/product?offset=${currentItem - 10}&sort=${queryParameter}`)
       .then(res => res.json())
       .then(data => {
-        const duplicatedData = [...data.LIST_DATA.product];
-        const newDatalistData = duplicatedData.slice(0, totalCountDataFetched);
+        if (queryParameter !== 'recent') {
+          // sort 체크 값이 recent 이 외 일때
+          const sortListData = data.LIST_DATA.product;
 
-        this.setState({
-          listData: newDatalistData,
-        });
+          console.log(
+            'this.state.sortListData(시작하자마자 받는 데이터)',
+            this.state.sortListData,
+            'sortListData(추가된 데이터)',
+            sortListData
+          );
+
+          this.setState({
+            sortListData: [...this.state.sortListData, ...sortListData],
+            listData: [...this.state.sortListData, ...sortListData],
+          });
+          console.log(
+            '총길이',
+            this.state.listData.length,
+            '총데이터',
+            this.state.listData
+          );
+        } else {
+          // sort 상태가 recent일때
+          const listData = data.LIST_DATA.product;
+          const newItemList = [...this.state.listData, ...listData];
+
+          console.log(
+            'this.state.sortListData(시작하자마자 받는 데이터)',
+            this.state.listData,
+            'sortListData(추가된 데이터)',
+            listData
+          );
+          this.setState({
+            listData: newItemList,
+          });
+          console.log(
+            '총길이',
+            this.state.listData.length,
+            '총데이터',
+            this.state.listData
+          );
+        }
+
         if (this.state.listData.length === 30) {
           this.setState({
-            noData: !noData,
+            hasMoreData: !hasMoreData,
           });
           return window.removeEventListener('scroll', this.handleScroll);
         }
+        console.log(
+          '현재 데이터 총 갯수',
+          this.state.listData.length,
+          '현재 아이템 갯수',
+          currentItem
+        );
       })
       .catch(console.error);
   };
 
-  showLoadingSvg = resolve => {
-    const { listData, totalCountDataFetched, loading } = this.state;
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.currentItem !== this.state.currentItem) {
+  //     console.log(
+  //       '이전 아이템 갯수',
+  //       prevState.currentItem,
+  //       this.state.currentItem
+  //     );
+  //   }
+  // }
+
+  fetchMoreSortData = async () => {};
+
+  showLoadingImg = resolve => {
+    const { listData, currentItem, isLoading } = this.state;
     return new Promise(resolve => {
-      if (listData.length !== totalCountDataFetched) {
+      if (listData.length !== currentItem) {
         this.setState({
-          loading: false,
+          isLoading: isLoading,
         });
       } else {
         this.setState({
-          loading: !loading,
+          isLoading: !isLoading,
         });
         setTimeout(() => {
           resolve();
@@ -102,7 +166,8 @@ class ProductList extends Component {
   };
 
   handleScroll = async () => {
-    const { totalCountDataFetched } = this.state;
+    console.log(1);
+    const { currentItem } = this.state;
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
     let scrollTotalHeight = scrollHeight;
     let scrollHeightFromTop = scrollTop;
@@ -113,25 +178,33 @@ class ProductList extends Component {
     if (isOverEndPointScroll) {
       this.setState(
         {
-          totalCountDataFetched: totalCountDataFetched + 10,
+          currentItem: currentItem + 10,
         },
-        await this.showLoadingSvg()
+        await this.showLoadingImg()
       );
       this.fetchMoreData();
     }
   };
 
   render() {
-    const { listData, loading, totalCountDataFetched, noData, viewOptions } =
-      this.state;
-
+    const {
+      listData,
+      sortListData,
+      isLoading,
+      currentItem,
+      totalPage,
+      hasMoreData,
+      viewOptions,
+    } = this.state;
+    console.log(currentItem, totalPage, '큐렌트, 토탈');
+    // console.log(sortListData.length, currentItem);
     return (
       <main className='ProductList'>
         <Nav
           sortOptions={this.state.sortOptions}
           handleSortCheckIcon={this.handleSortCheckIcon}
           viewOptions={this.state.viewOptions}
-          // handleViewCheckIcon={this.handleViewCheckIcon}
+          handleViewCheckIcon={this.handleViewCheckIcon}
         />
         <div className='ProductComponentWrapper'>
           {listData &&
@@ -153,15 +226,10 @@ class ProductList extends Component {
               );
             })}
         </div>
-        {loading ? (
-          <InfiniteScroll
-            listData={listData}
-            totalCountDataFetched={totalCountDataFetched}
-          />
-        ) : (
-          ''
-        )}
-        {noData && <GoBackToTopButton />}
+
+        {isLoading && <InfiniteScroll />}
+
+        {hasMoreData && <GoBackToTopButton />}
         <Footer />
       </main>
     );

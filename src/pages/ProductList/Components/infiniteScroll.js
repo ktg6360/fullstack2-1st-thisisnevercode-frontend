@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './InfiniteScroll.scss';
+
 class InfiniteScroll extends Component {
   render() {
     return (

@@ -10,6 +10,7 @@ import SortBtn from './SortBtn';
 import ViewBtn from './ViewBtn';
 import { convertToUrlForNav } from '../../utils/urlConverter';
 import './Nav.scss';
+
 class Nav extends Component {
   state = {
     isNavVisible: true,
@@ -243,7 +244,7 @@ class Nav extends Component {
               handleSortCheckIcon={this.props.handleSortCheckIcon}
             />
           )}
-          {/* {pathConditionForBtn && (
+          {pathConditionForBtn && (
             <ViewBtn
               closeViewModal={this.closeViewModal}
               toggleViewModal={this.toggleViewModal}
@@ -251,7 +252,7 @@ class Nav extends Component {
               viewOptions={this.props.viewOptions}
               handleViewCheckIcon={this.props.handleViewCheckIcon}
             />
-          )} */}
+          )}
         </nav>
       </>
     );
