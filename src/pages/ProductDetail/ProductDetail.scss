@@ -1,13 +1,24 @@
 @import '../../styles/_variables.scss';
 
+@mixin preventDrag {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
 .ProductDetail {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 100vw;
+  width: 100%;
   height: 100%;
   margin-top: 60px;
   font-family: Helvetica;
+  @include preventDrag;
 
   .subImgBox {
     width: 18vw;
@@ -16,6 +27,7 @@
 
   .mainImgBox {
     width: 30vw;
+    height: 100%;
   }
 
   .productInfoBox {
@@ -23,6 +35,7 @@
     height: 100%;
     margin-right: 30px;
   }
+
   Footer {
     margin-top: 50px;
   }
@@ -32,19 +45,44 @@
   .ProductDetail {
     display: flex;
     flex-wrap: wrap;
-    width: 95%;
+    width: 100%;
 
     .subImgBox {
-      width: 100px;
+      width: 20%;
     }
 
     .mainImgBox {
-      width: 700px;
+      width: 65%;
+      height: 100%;
+    }
+
+    .productInfoBox {
+      width: 100vw;
+      height: 100%;
+      margin-left: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .ProductDetail {
+    display: flex;
+    width: 100%;
+
+    .subImgBox {
+      width: 20%;
+      height: 70%;
+    }
+
+    .mainImgBox {
+      width: 100%;
+      height: 100%;
     }
 
     .productInfoBox {
       width: 100%;
       height: 100%;
+      margin-left: 20px;
     }
   }
 }

@@ -1,16 +1,14 @@
-@import '../../../styles/variables.scss';
-
 .PaginationBox {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-left: 1rem;
-  width: 95px;
+  width: 6vw;
   height: 100%;
 
   .paginationImg {
     width: 100%;
-    height: 80px;
+    height: 6vw;
     margin: 10px 0;
     cursor: pointer;
   }
@@ -21,12 +19,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 60px;
+    width: 100px;
     height: 100%;
 
     .paginationImg {
-      width: 60px;
-      height: 48px;
+      height: 100px;
     }
   }
 }
