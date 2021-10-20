@@ -88,18 +88,13 @@ class ProductCard extends Component {
                   className={className}
                   onMouseEnter={this.changeMainToDetailImage}
                   onMouseLeave={this.changeMainImage}
-                  key={index}
+                  key={className}
                 />
               );
             })}
 
             <div className='imageWrapper'>
-              <img
-                className='mainImage'
-                src={`${mainImageUrl}`}
-                alt={name}
-                key={id}
-              />
+              <img className='mainImage' src={`${mainImageUrl}`} alt={name} />
               {mainImage ? (
                 <img
                   className='ProductDetailCard'

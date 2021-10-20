@@ -10,6 +10,7 @@ class ProductList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      offset: 0,
       listData: [],
       totalCountDataFetched: 10,
       loading: false,
@@ -40,8 +41,18 @@ class ProductList extends Component {
     const { sortOptions } = this.state;
     const newsortOptions = [...sortOptions];
     newsortOptions.forEach(data => (data.isChecked = data.id === id));
-    this.setState({ sortOptions: newsortOptions });
-    this.fetchMoreData();
+    this.setState(
+      {
+        listData: [],
+        offset: 0,
+        loading: false,
+        totalCountDataFetched: 10,
+        sortOptions: newsortOptions,
+        noData: false,
+      },
+      this.fetchMoreData
+    );
+    window.addEventListener('scroll', this.handleScroll);
   };
 
   handleViewCheckIcon = id => {
@@ -53,23 +64,21 @@ class ProductList extends Component {
 
   fetchMoreData = async () => {
     const recent = this.state.sortOptions[0].isChecked;
-    const pricehigh = this.state.sortOptions[1].isChecked;
-    const pricelow = this.state.sortOptions[2].isChecked;
+    const pricelow = this.state.sortOptions[1].isChecked;
+    const pricehigh = this.state.sortOptions[2].isChecked;
     const trend = this.state.sortOptions[3].isChecked;
     let queryParameter;
     recent && (queryParameter = 'recent');
-    pricehigh && (queryParameter = 'pricehigh');
     pricelow && (queryParameter = 'pricelow');
+    pricehigh && (queryParameter = 'pricehigh');
     trend && (queryParameter = 'trend');
+    const { noData, offset } = this.state;
 
-    const { totalCountDataFetched, noData } = this.state;
-
-    fetch(`/product?sort=${queryParameter}`)
+    fetch(`/product?sort=${queryParameter}&offset=${offset}`)
       .then(res => res.json())
       .then(data => {
         const duplicatedData = [...data.LIST_DATA.product];
-        const newDatalistData = duplicatedData.slice(0, totalCountDataFetched);
-
+        const newDatalistData = this.state.listData.concat(duplicatedData);
         this.setState({
           listData: newDatalistData,
         });
@@ -102,18 +111,18 @@ class ProductList extends Component {
   };
 
   handleScroll = async () => {
-    const { totalCountDataFetched } = this.state;
+    const { totalCountDataFetched, offset } = this.state;
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
     let scrollTotalHeight = scrollHeight;
     let scrollHeightFromTop = scrollTop;
     let scrollHeightOfListCard = clientHeight;
     const isOverEndPointScroll =
       scrollHeightFromTop + scrollHeightOfListCard >= scrollTotalHeight;
-
     if (isOverEndPointScroll) {
       this.setState(
         {
           totalCountDataFetched: totalCountDataFetched + 10,
+          offset: offset + 10,
         },
         await this.showLoadingSvg()
       );

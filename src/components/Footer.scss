@@ -1,7 +1,6 @@
 .Footer {
   bottom: 0;
   width: 100vw;
-  bottom: 0;
   border-top: solid 1px black;
 
   .upperFooter {
@@ -104,8 +103,8 @@
       border-top: solid 1px black;
 
       .lowerFooterMenuBox {
-        padding: 10px 15px;
         display: block;
+        padding: 10px 15px;
         margin-bottom: 0;
 
         .lowerFooterMenuItem {
