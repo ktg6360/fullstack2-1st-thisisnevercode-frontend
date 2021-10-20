@@ -4,7 +4,13 @@ import './ViewBtn.scss';
 
 class ViewBtn extends Component {
   render() {
-    const { isViewModalOn, closeViewModal, toggleViewModal } = this.props;
+    const {
+      isViewModalOn,
+      closeViewModal,
+      toggleViewModal,
+      viewOptions,
+      handleViewCheckIcon,
+    } = this.props;
     return (
       <>
         <div
@@ -18,8 +24,8 @@ class ViewBtn extends Component {
         <ViewOptionBox
           closeViewModal={closeViewModal}
           isViewModalOn={isViewModalOn}
-          viewOptions={this.props.viewOptions}
-          handleViewCheckIcon={this.props.handleViewCheckIcon}
+          viewOptions={viewOptions}
+          handleViewCheckIcon={handleViewCheckIcon}
         />
       </>
     );
