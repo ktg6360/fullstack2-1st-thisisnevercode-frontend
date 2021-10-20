@@ -3,35 +3,13 @@ import SortOption from './SortOption';
 import './SortOptionBox.scss';
 
 class SortOptionBox extends Component {
-  state = {
-    sortOptions: [
-      { id: 1, name: 'Recent', isChecked: false },
-      { id: 2, name: 'Price (Low)', isChecked: false },
-      { id: 3, name: 'Price (High)', isCheckd: false },
-      { id: 4, name: 'Trending', isChecked: false },
-    ],
-  };
-
-  //!!!!!Fix!!!!!!!
-  // componentDidMount() {
-  //   document.addEventListener('click', event => {
-  //     const hasSameClassOrIdForSort =
-  //       !event.target.getAttribute('class').includes('classForSortClose') &&
-  //       event.target.id !== 'idForSortClose';
-  //     if (hasSameClassOrIdForSort) {
-  //       this.props.closeSortModal();
-  //     }
-  //   });
-  // }
-
   onClick = () => {
     const { closeSortModal } = this.props;
     closeSortModal();
   };
 
   render() {
-    const { isSortModalOn } = this.props;
-    const { sortOptions } = this.props;
+    const { isSortModalOn, sortOptions, handleSortCheckIcon } = this.props;
 
     return (
       <div
@@ -54,7 +32,7 @@ class SortOptionBox extends Component {
                 key={id}
                 name={name}
                 id={id}
-                handleSortCheckIcon={this.props.handleSortCheckIcon}
+                handleSortCheckIcon={handleSortCheckIcon}
               />
             );
           })}

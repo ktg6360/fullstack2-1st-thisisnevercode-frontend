@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
 import BreadCrumb from './BreadCrumb';
 import Dropdown from './Dropdown';
+import NavForResponsive from './NavForResponsive';
 import SortBtn from './SortBtn';
 import ViewBtn from './ViewBtn';
 import { convertToUrlForNav } from '../../utils/urlConverter';
@@ -103,7 +102,6 @@ class Nav extends Component {
   };
 
   logout = () => {
-    console.log(localStorage.token);
     if (localStorage.token) {
       return window.localStorage.removeItem('token');
     }
@@ -131,32 +129,7 @@ class Nav extends Component {
     return (
       <>
         <nav className={isNavVisible ? 'Nav navActive' : 'Nav navHidden'}>
-          <div className='navForResponsive'>
-            <div className='hamburgerBtnBox'>
-              <FontAwesomeIcon
-                className='hamburgerBtn'
-                icon={faBars}
-                size='lg'
-              />
-            </div>
-            <div className='mainLogoContainer'>
-              <Link to='/main'>
-                <img
-                  className='mainLogo'
-                  src='/images/Nav/thisisnevercode.svg'
-                  alt='main logo'
-                />
-              </Link>
-            </div>
-            <div className='cartBoxForResponsive'>
-              <FontAwesomeIcon
-                className='cartIconForResponsive'
-                icon={faShoppingCart}
-                size='lg'
-              />
-              <span className='cartCountNumForResponsive'>1</span>
-            </div>
-          </div>
+          <NavForResponsive />
           <div className='navWrapper'>
             {/* productsNavMenu */}
             <ul className='productsNavMenu'>

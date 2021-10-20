@@ -21,7 +21,7 @@ class SortOption extends Component {
             isChecked ? 'checkVisible' : 'checkInvisible'
           }`}
         />
-        <Link className='classForSortClose' to='/' onClick={this.onClick}>
+        <Link className='classForSortClose' to={`/`} onClick={this.onClick}>
           {name}
         </Link>
       </li>

@@ -14,9 +14,9 @@
   cursor: pointer;
 
   &:hover {
-    opacity: 1;
     background-color: $buttonColor;
     color: $textColor;
+    opacity: 1;
     transition: all 0.3s;
   }
 
@@ -27,7 +27,7 @@
 }
 
 .viewBtnOn {
-  opacity: 1;
   background-color: $buttonColor;
   color: $textColor;
+  opacity: 1;
 }
