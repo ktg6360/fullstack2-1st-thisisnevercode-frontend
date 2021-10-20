@@ -1,4 +1,4 @@
-## 👨‍💻 Team Thisisnevercode
+\## 👨‍💻 Team Thisisnevercode
 
 - 안녕하세요 저희는 'Thisisneverthat' 사이트의 클론 코딩을 진행하게 된 Thisisnevercode입니다.
 - 진행기간 : 2021년 10월 1일 ~ 2021년 10월 16일
@@ -33,7 +33,7 @@ Git & GitHub
 
 메인 페이지(김태규)
 - 캐러셀
-- 반응형에 따라 
+- 반응형에 따라 컨텐츠 재배치
 - 애니메이션 구현(스플래시 스크린)
 
 리스트 페이지(김민재)
@@ -76,9 +76,13 @@ Nav & Footer(김휘민)
 - access token를 활용한 회원가입, 로그인과 로그아웃 기능(API)
 
 
-modeling
+## modeling
 ![thisisnevercode](https://user-images.githubusercontent.com/81890292/137630227-ce64a667-bb65-4a43-8b04-dba5f07a4f87.png)
 
+## API DOCUMENTARY
+https://documenter.getpostman.com/view/17483034/UV5WEJTR
+
+---
 
 ‼️ Reference
 이 프로젝트는 Thisisneverthat 사이트를 참조하여 학습목적으로 만들었습니다.
