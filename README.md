@@ -3,7 +3,9 @@
 - 안녕하세요 저희는 'Thisisneverthat' 사이트의 클론 코딩을 진행하게 된 Thisisnevercode입니다.
 - 진행기간 : 2021년 10월 1일 ~ 2021년 10월 16일
 
-## 👇 아래 이미지를 클릭하시면 시연 영상이 재생됩니다. Thisisnevercode.
+## 👇 Thisisnevercode 시연 영상
+
+https://www.youtube.com/watch?v=JCl6fWud_Xw
 
 ## 🔜 FrontEnd & 🔙 BackEnd
 
